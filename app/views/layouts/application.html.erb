@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+	Built by Liam Edwards-Playne <liamz.co>
+--->
+<html dir="ltr" lang="en" itemscope itemtype="http://schema.org/Article">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Never cache. Ever. -->
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+
+
+
+	<% page_title = page_title %>
+	<% page_banner_image = @page_image? @page_image : "/assets/images/page_image_default.png" %>
+	<% page_image = @page_image %>
+	<% page_description = page_description %>
+	<% page_published_time = @page_published_time %>
+	<% page_modified_time = @page_modified_time %>
+	<% page_url = request.original_url %>
+  	<title><%= page_title %></title>
+	<meta name="description" content="<%= page_description %>" />
+
+	<meta itemprop="name" content="<%= page_title %>">
+	<meta itemprop="description" content="<%= page_description %>">
+	<meta itemprop="image" content="<%= page_banner_image %>">
+
+	<!-- 
+	    Twitter Card
+	-->
+	<meta name="twitter:card" content="summary">
+	<!--<meta name="twitter:site" content="@liamzebedee">-->
+	<meta name="twitter:title" content="<%= page_title %>">
+	<meta name="twitter:description" content="<%= page_description %>">
+	<% if page_image %><meta name="twitter:image" content="<%= page_image %>"><% end %>
+
+	<!-- 
+	    Open Graph
+	-->
+	<meta property="og:title" content="<%= page_title %>" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="<%= page_url %>" />
+	<meta property="og:image" content="<%= page_banner_image %>" />
+	<meta property="og:description" content="<%= page_description %>" />
+	<meta property="og:site_name" content="Gigcove" />
+	<meta property="article:published_time" content="<%= page_published_time %>" />
+	<meta property="article:modified_time" content="<%= page_modified_time %>" />
+	<!--<meta property="article:section" content="Article Section" />-->
+	<% @page_tags.each do |tag| %>
+		<meta property="article:tag" content="<%= tag %>" />
+	<% end %>
+
+
+
+	<!-- Desktop -->
+	<link rel="icon" type="image/png" href="/assets/images/icon.png">
+	<!-- iOS, Android -->
+	<link rel="apple-touch-icon-precomposed" href="/assets/images/icon-touch-precomposed.png">
+	
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <%= render 'shared/header' %>
+  </header>
+  
+  <% page_id = "#{controller_name}-#{action_name}" %>
+  <div id="page-wrap"><div class="page" id="<%= page_id %>">
+    <%= yield %>
+  </div></div>
+  
+  <footer></footer>
+  
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+</body>
+
+</html>
