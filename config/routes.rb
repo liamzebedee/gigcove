@@ -1,4 +1,11 @@
 Gigcove::Application.routes.draw do
+  root 'pages#index'
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'  
+
+  resources :gigs do
+    
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
