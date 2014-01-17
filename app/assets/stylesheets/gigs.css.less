@@ -9,14 +9,17 @@
 		.make-md-column-offset(1);
 		.make-md-column(10);
 		
+		.gig-inner {
+			.make-row;
+		}
 	}
 }
 
 .gig {
-	.make-row;
-	.make-md-column(12);
 	display: flex;
 	flex-flow: column wrap;
+	
+	margin-bottom: 1em;
 	
 	text-align: center;
 	
@@ -26,22 +29,38 @@
 	}
 	
 	.left,
+	.right  {
+		background-color: #333;
+		color: white;
+	}
+	
+	.left,
 	.main,
 	.right {
 		font-size: 28px;
 		flex: 1 1 auto;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
 	}
 	
 	.left {
 		.make-md-column(3);
-		
+		.box-sizing(border-box);
 		
 		vertical-align: top;
 		border-right: 1px solid @gray-light;
+		
+		& > div {
+			border-bottom: 1px solid @gray-light;
+		}
+		& > div:last-child {
+			border-bottom: none;
+		}
 	}
 	.main {
 		.make-md-column(6);
-		
+		border-top: 1px solid #333;
+		border-bottom: 1px solid #333;
 		
 		text-align: center;
 		vertical-align: top;

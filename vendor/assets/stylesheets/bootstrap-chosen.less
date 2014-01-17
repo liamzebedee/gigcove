@@ -33,11 +33,6 @@
   vertical-align: middle;
 
   .chosen-drop {
-    background: @chosen-background;
-    border: 1px solid @chosen-drop-border;
-    border-top-color: lighten(@chosen-drop-border, 25%);
-    .border-bottom-radius(@chosen-border-radius);
-    .box-shadow(@chosen-drop-box-shadow);
     margin-top: -1px;
     position: absolute;
     top: 100%;
@@ -104,7 +99,6 @@
     }
 
     .no-results {
-      background: @gray-lighter;
       display: list-item;
     }
   }
@@ -142,13 +136,6 @@
 
 .chosen-container-single {
   .chosen-single {
-    background-color: @chosen-background;
-    #gradient > .vertical(white, @gray-lighter);
-    -webkit-background-clip: padding-box;
-       -moz-background-clip: padding;
-            background-clip: padding-box;
-    border: 1px solid @chosen-border;
-    .box-shadow(@chosen-box-shadow);
     color: @gray;
     display: block;
     height: @chosen-height;
@@ -227,9 +214,6 @@
   .chosen-drop {
     margin-top: -1px;
     .border-bottom-radius(@chosen-border-radius);
-    -webkit-background-clip: padding-box;
-       -moz-background-clip: padding;
-            background-clip: padding-box;
   }
 }
 
@@ -244,11 +228,6 @@
 
 .chosen-container-multi {
   .chosen-choices {
-    background-color: @chosen-background;
-    border: 1px solid @chosen-border;
-    .border-top-radius(@chosen-multi-border-radius);
-    .border-bottom-radius(@chosen-multi-border-radius);
-    .box-shadow(@chosen-box-shadow);
     cursor: text;
     height: auto !important;
     height: 1%;
@@ -272,7 +251,6 @@
         border: 0 !important;
         .box-shadow(none);
         color: @gray;
-        height: @chosen-multi-height - 8px;
         margin: 0;
         padding: 4px;
         outline: 0;
@@ -284,15 +262,8 @@
     }
 
     .search-choice {
-      -webkit-background-clip: padding-box;
-         -moz-background-clip: padding;
-              background-clip: padding-box;
-      background-color: @gray-lighter;
-      border: 1px solid @chosen-border;
       .border-top-radius(@chosen-border-radius);
       .border-bottom-radius(@chosen-border-radius);
-      #gradient > .vertical(white, @gray-lighter);
-      .box-shadow(@chosen-box-shadow);
       color: @gray-dark;
       cursor: default;
       line-height: 13px;
@@ -339,14 +310,10 @@
 
 .chosen-container-active {
   .chosen-single {
-    border: 1px solid @chosen-focus-border;
-    .box-shadow(@chosen-focus-box-shadow);
     .transition(@chosen-focus-transition);
   }
 
   &.chosen-with-drop .chosen-single {
-    background-color: @gray-lighter;
-    border: 1px solid @chosen-focus-border;
     .box-shadow(@chosen-focus-box-shadow);
     .transition(@chosen-focus-transition);
 
@@ -361,9 +328,7 @@
   }
 
   .chosen-choices {
-    border: 1px solid @chosen-focus-border;
     .border-bottom-radius(0);
-    .box-shadow(@chosen-focus-box-shadow);
     .transition(@chosen-focus-transition);
 
     .search-field input {

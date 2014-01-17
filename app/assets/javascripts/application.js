@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require number-polyfill
 //= require chosen.jquery
+//= require contentEditable
 //= require_tree .
