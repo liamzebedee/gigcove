@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket_cost: 9.99
+  from: 2014-01-16 22:58:33
+  to: 2014-01-16 22:58:33
+  eventName: MyString
+  venueName: MyString
+  location: MyText
+  genres: MyText
+  ticketType: 1
+  online_tickets_link: MyText
+
+two:
+  ticket_cost: 9.99
+  from: 2014-01-16 22:58:33
+  to: 2014-01-16 22:58:33
+  eventName: MyString
+  venueName: MyString
+  location: MyText
+  genres: MyText
+  ticketType: 1
+  online_tickets_link: MyText

@@ -1,0 +1,6 @@
+<a href="<%= new_gig_path %>">Post a gig</a>
+
+<% @gigs.each do |gig| %>
+<h1><%= gig.eventName %> @ <%= gig.venueName %></h1>
+<% end %>
+
