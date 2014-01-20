@@ -4,11 +4,22 @@
 @import "flatly/variables.less";
 @import "bootstrap-chosen.less";
 @font-size-base: 16px;
+@icon-font-path: "/assets/fonts/";
 
 //http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
 
 body {
+}
+
+#header {
+}
+
+.page {	
 	.container;
+}
+
+.page-header {
+	margin-top: 0;
 }
 
 [contentEditable=true]:empty:before{
@@ -23,4 +34,8 @@ body {
 
 [contenteditable]:focus, textarea:focus, input:focus{
      outline: 0px solid transparent;
+}
+
+[contentEditable=true] {
+	display: inline-block;
 }

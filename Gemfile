@@ -48,3 +48,7 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'devise'
+gem "cancan"
+
+gem "geocoder"
+gem 'geokit-rails'

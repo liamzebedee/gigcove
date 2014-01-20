@@ -15,6 +15,47 @@
 	}
 }
 
+#gigs-unmoderated {
+	.gig-row {
+		.make-row;
+		.gig {
+			.make-md-column(9);
+		}
+		.tools {
+			.make-md-column(3);
+		}
+		&.moderated {
+			opacity: 0.5;
+		}
+	}
+}
+
+#gigs-index {
+	nav {
+		.make-row;
+		
+		.btn-group,
+		.search {
+			.make-md-column-offset(1);
+			.make-md-column(10);
+			margin-bottom: 1em;
+		}
+		
+		.search {
+			p { font-size: 32px; }
+			button { display: block; }
+		}
+		
+	}
+	.gigs {
+		.make-row;
+		.gig {
+			.make-md-column-offset(1);
+			.make-md-column(10);
+		}
+	}
+}
+
 .gig {
 	display: flex;
 	flex-flow: column wrap;

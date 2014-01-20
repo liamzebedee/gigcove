@@ -1,0 +1,25 @@
+<article class="gig">
+<div class="gig-inner">
+
+<aside class="left">
+	<div>
+		<p>$<%= gig.ticket_cost.to_i %></p>
+	</div>
+	
+	<div>
+		<p>From <%= gig.from.strftime('%e/%m at %H:%M') %></p>
+		<p>To <%= gig.from.strftime('%e/%m at %H:%M') %></p>
+	</div>
+</aside>
+
+<div class="main">
+	<h2><%= gig.event_name %> @ <%= gig.venue_name %></h2>
+</div>
+
+<aside class="right">
+	<a href="http://maps.google.com/?q=<%= gig.location %>"><span class="glyphicon glyphicon-map-marker"></span> <%= gig.location %></a>
+</aside>
+
+</div>
+
+</article>

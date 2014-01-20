@@ -1,7 +1,28 @@
-<a href="<%= new_gig_path %>">Post a gig</a>
+<div class="page-header">
+	<h1>Find gigs</h1>
+</div>
 
-<% @gigs.each do |gig| %>
-<h1><%= gig.eventName %> @ <%= gig.venueName %></h1>
-http://maps.google.com/?q=address
+<nav>
+<div class="search">
+<%= form_tag("/gigs", method: "get", remote: true, class: "search-gigs") do |f| %>
+<p class="lead">Live music gigs near you in <span rel="popover" class="location can-edit text-editable" contenteditable="true" placeholder="South Brisbane, Brisbane AU" data-content="Please tell us where you are"></span> that are&nbsp;<span class="text-editable">$<span class="can-edit max-ticket-cost" contenteditable="true" placeholder="15">15</span> and under</span>. <button type="submit" class="btn btn-primary" name="commit" value="search"><span class="glyphicon glyphicon-search"></span> Search</button></p>
+<%= hidden_field(:search, :location) %>
+<%= hidden_field(:search, :latitude) %>
+<%= hidden_field(:search, :longitude) %>
+<%= hidden_field(:search, :max_ticket_cost) %>
 <% end %>
+
+</div>
+
+<div class="btn-group btn-group-justified">
+	<a href="<%= new_gig_path %>" class="btn btn-default" role="button"><span class="glyphicon glyphicon-bullhorn"></span> Post a gig</a>
+	<a href="<%= contact_path %>" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil"></span> Give us feedback</a>
+</div>
+</nav>
+
+<div class="gigs">
+<% @gigs.each do |gig| %>
+<%= render :partial => "gig_view", :locals => {:gig => gig} %>
+<% end %>
+</div>
 

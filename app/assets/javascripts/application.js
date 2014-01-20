@@ -17,4 +17,6 @@
 //= require number-polyfill
 //= require chosen.jquery
 //= require contentEditable
+//= require latlong
+//= require bootstrapPopover
 //= require_tree .

@@ -11,23 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116234705) do
+ActiveRecord::Schema.define(version: 20140120001800) do
 
   create_table "gigs", force: true do |t|
     t.decimal  "ticket_cost"
     t.datetime "from"
     t.datetime "to"
-    t.string   "eventName"
-    t.string   "venueName"
+    t.string   "event_name"
+    t.string   "venue_name"
     t.text     "location"
-    t.text     "genres"
-    t.integer  "ticketType"
-    t.text     "online_tickets_link"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "shown"
-    t.boolean  "moderated"
+    t.boolean  "moderated",   default: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "approved",    default: false
   end
+
+  add_index "gigs", ["latitude", "longitude"], name: "index_gigs_on_latitude_and_longitude"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

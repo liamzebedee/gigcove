@@ -75,10 +75,11 @@
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <%= render 'shared/header' %>
     <% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
     <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
@@ -89,9 +90,7 @@
     <%= yield %>
   </div></div>
   
-  <footer></footer>
-  
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <footer id="footer"></footer>
 </body>
 
 </html>

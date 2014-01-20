@@ -2,7 +2,7 @@
 	<h1>Post a gig</h1>
 </div>
 
-<div class="gig-form">
+<%= form_for(@gig, html: {autocomplete: "off", class: "gig-form"}) do |f| %>
 
 <article class="gig">
 <div class="gig-inner">
@@ -10,22 +10,24 @@
 <aside class="left">
 	<div>
 		$<span class="ticket-cost" contenteditable="true" placeholder="0"></span>
-		<!--<select class="form-control input-sm">
-			<option>At door</option>
-			<option>Online</option>
-			<option>Both</option>
-		</select>-->
+		<%= f.hidden_field(:ticket_cost) %>
 	</div>
 	
 	<div>
-		From <span class="can-edit from-date" contenteditable="true" placeholder="dd/mm/yyyy"></span> at <span class="can-edit from-time" contenteditable="true" placeholder="00:00"></span> to <span class="can-edit from-date" contenteditable="true" placeholder="dd/mm/yyyy"></span> at <span class="can-edit from-time" contenteditable="true" placeholder="00:00"></span>
+		From <span class="can-edit from-date-day" contenteditable="true" placeholder="dd" required=true></span>/<span class="can-edit from-date-month" contenteditable="true" placeholder="mm"></span>/<span class="can-edit from-date-year" contenteditable="true" placeholder="yy"></span> at <span class="can-edit from-time-hour" contenteditable="true" placeholder="hh"></span>:<span class="can-edit from-time-minute" contenteditable="true" placeholder="mm"></span><br>
+		To <span class="can-edit to-date-day" contenteditable="true" placeholder="dd"></span>/<span class="can-edit to-date-month" contenteditable="true" placeholder="mm"></span>/<span class="can-edit to-date-year" contenteditable="true" placeholder="yy"></span> at <span class="can-edit to-time-hour" contenteditable="true" placeholder="hh"></span>:<span class="can-edit to-time-minute" contenteditable="true" placeholder="mm"></span>
+		<%= f.hidden_field(:from) %>
+		<%= f.hidden_field(:to) %>
 	</div>
 </aside>
 
 <div class="main">
-	<h2><span contenteditable="true" placeholder="Event Name"></span> @ <span contenteditable="true" placeholder="Venue Name"></span></h2>
+	<h2><span class="event-name" contenteditable="true" placeholder="Event Name (optional)"></span> @ <span class="venue-name" contenteditable="true" placeholder="Venue Name"></span></h2>
+	<%= f.hidden_field(:event_name) %>
+	<%= f.hidden_field(:venue_name) %>
 	
-	<select data-placeholder="What type(s) of music will be playing?" class="chosen-select genres" multiple style="width:350px;" tabindex="4">
+	<% if false %>
+	<select data-placeholder="What type(s) of music will be playing?" class="chosen-select gig-genres" multiple tabindex="4">
 		<option value=""></option>
 		<option>Rock</option>
 		<option>Indie</option>
@@ -33,20 +35,24 @@
 		<option>Chill</option>
 		<option>Acoustic</option>
 	</select>
+	<%= f.hidden_field(:genres) %>
+	<% end %>
 </div>
 
 <aside class="right">
-	<div><p contenteditable="true" placeholder="Enter the address of the venue here"></div>
+	<div><p class="location" contenteditable="true" placeholder="Enter the address of the venue here"></div>
+	<%= f.hidden_field(:location) %>
 </aside>
-
 
 </div>
 
 </article>
 
 <div class="row">
-<p>After you've posted the gig, it will moderated shortly then posted!</p>
-<button type="button" class="btn btn-primary btn-lg">Post Gig</button> 
-</div>
+<p>Shortly after sending us the gig's details, we will moderate it for quality and then post it.</p>
+<p>If you have any feedback on this process or GigCove in general, please do <%= link_to "contact us", contact_path %>. And thanks for contributing!</p>
+<button type="submit" class="btn btn-primary btn-lg" value="submit" name="commit">Post Gig</button>
 
 </div>
+
+<% end %>
