@@ -2,12 +2,25 @@ class GigsController < ApplicationController
   def index
     @page_title = "Find gigs"
     @page_description = "Find live music gigs near you"
-    @gigs = Gig.where(approved: true)
-=begin
-    Geocoder.coordinates("placename")
-    find(:all, :origin=>'94117', :order=>'distance')
-=end
-    render 'gigs/index'
+    @gigs = []
+    latlng = []
+    
+    if params[:search] == nil
+      render 'gigs/index'
+    else
+      if params[:search][:location] != ""
+        # Try using location
+        latlng = Geocoder.coordinates(params[:search][:location])
+      elsif params[:search][:latitude] != nil && params[:search][:longitude] != nil
+        latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
+      else
+        # XXX wrong error code, this is user's fault
+        format.html { render status: :internal_server_error, :nothing => true }
+      end
+      @gigs = Gig.near(latlng, 150, :units => :km).where(approved: true)
+      render 'gigs/index'
+    end
+    
   end
   
   def new

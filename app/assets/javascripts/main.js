@@ -8,20 +8,39 @@ ready = function(){
 	$(".gig-form").submit(function(event) {
 		// Set variables
 		var ticketCost = $('.ticket-cost', this).text();
-		
+		if(ticketCost == "") {
+			$('.ticket-cost', this).createPopover('How much does entry cost?');
+			return false;
+		}
 		function getDatetime(fromOrTwo) {
 			var year = 2000 + parseInt( $('.'+fromOrTwo+'-date-year').text() );
 			return new Date( year, parseInt( $('.'+fromOrTwo+'-date-month').text() ) - 1, parseInt( $('.'+fromOrTwo+'-date-day').text() ), parseInt( $('.'+fromOrTwo+'-time-hour').text() ), parseInt( $('.'+fromOrTwo+'-time-minute').text() ) ).getTime()/1000;
 		}
 		var from = getDatetime('from');
+		if(isNaN(from)) { 
+			$('.from-date-month', this).createPopover('When does the gig start?');
+			return false;
+		}
 		var to = getDatetime('to');
+		if(isNaN(to)) {
+			$('.to-date-month', this).createPopover('When does the gig end?');
+			return false;
+		}
 		var eventName = $('.event-name', this).text();
 		var venueName = $('.venue-name', this).text();
+		if(venueName == "") {
+			$('.venue-name', this).createPopover("What's the name of the venue?");
+			return false;
+		}
 		/*var genres = [];
 		$('.search-choice').each(function(){
 			genres.push($(this).text());
 		});*/
 		var location = $('.location', this).text();
+		if(location == "") {
+			$('.location', this).createPopover("Where is the gig at?");
+			return false;
+		}
 		
 		$('#gig_ticket_cost', this).val(ticketCost);
 		$('#gig_from', this).val(from);
@@ -79,6 +98,15 @@ ready = function(){
     	return false;
     });
     
+    (function(){
+    	var l = Ladda.create($('.search-gigs button[type="submit"]')[0]);
+		$(".search-gigs").on("ajax:before", function(){
+			l.start();
+		});
+		$('.search-gigs').on("ajax:complete", function(){
+		 	l.stop();
+		});
+    })();
     
 };
 

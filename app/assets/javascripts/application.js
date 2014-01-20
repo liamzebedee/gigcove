@@ -19,4 +19,6 @@
 //= require contentEditable
 //= require latlong
 //= require bootstrapPopover
+//= require spin.min
+//= require ladda
 //= require_tree .
