@@ -5,14 +5,7 @@
 @import "bootstrap-3.0.3/mixins.less";
 
 #gigs-new {
-	.gig-form {
-		.make-md-column-offset(1);
-		.make-md-column(10);
-		
-		.gig-inner {
-			.make-row;
-		}
-	}
+	
 }
 
 #gigs-unmoderated {
@@ -32,12 +25,8 @@
 
 #gigs-index {
 	nav {
-		.make-row;
-		
 		.btn-group,
 		.search {
-			.make-md-column-offset(1);
-			.make-md-column(10);
 			margin-bottom: 1em;
 		}
 		
@@ -45,15 +34,10 @@
 			p { font-size: 32px; }
 			button { display: block; }
 		}
-		
 	}
-	.gigs {
-		.make-row;
-		.gig {
-			.make-md-column-offset(1);
-			.make-md-column(10);
-		}
-	}
+}
+
+#gigs-show {
 }
 
 .gig {
@@ -97,23 +81,27 @@
 		& > div:last-child {
 			border-bottom: none;
 		}
+		text-align: left;
 	}
 	.main {
+		background-color: white;
 		.make-md-column(6);
 		border-top: 1px solid #333;
 		border-bottom: 1px solid #333;
 		
-		text-align: center;
+		text-align: left;
 		vertical-align: top;
+		a {
+			color: #333;
+		}
 		h2 {
 			margin-top: 0;
 		}
 	}
 	.right {
 		.make-md-column(3);
-		
-		
 		vertical-align: top;
 		border-left: 1px solid @gray-light;
+		text-align: left;
 	}
 }

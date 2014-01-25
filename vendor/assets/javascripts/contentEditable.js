@@ -98,6 +98,15 @@
                 $target.text().substring(caretPosition,$target.text().length);
             $target.text(newText);
         });
+        
+        // XXX submit a pull request
+        this.keypress(function(e){
+			var k=e.keyCode || e.which;
+			if(k==13){
+				e.preventDefault();
+			}
+		});
+		
         /* firefox solution is not smooth enough -- will implement later
          if(!window.Clipboard && !window.clipboardData) { //its firefox
              this.after("<div class='cursor'>&nbsp;</div>");

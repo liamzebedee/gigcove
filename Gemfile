@@ -49,6 +49,11 @@ end
 
 gem 'devise'
 gem "cancan"
+gem 'role_model'
 
 gem "geocoder"
 gem 'geokit-rails'
+
+gem 'google-analytics-rails'
+
+#https://github.com/kjvarga/sitemap_generator

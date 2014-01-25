@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140120001800) do
+ActiveRecord::Schema.define(version: 20140125024211) do
 
   create_table "gigs", force: true do |t|
     t.decimal  "ticket_cost"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140120001800) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "moderator"
+    t.integer  "roles_mask"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -3,23 +3,38 @@
 @import "flatly/bootswatch.less";
 @import "flatly/variables.less";
 @import "bootstrap-chosen.less";
+
 @font-size-base: 16px;
-@icon-font-path: "/assets/fonts/";
+@icon-font-path: "";
+
+@link-color:            lighten(#DEBB27, 15%);
+@link-hover-color:      #DEBB27;
 
 //http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
+
+@import "gigs.less";
+@import "pages.less";
+@import "social-icons.less";
 
 body {
 }
 
 #header {
+	& > div {
+		.make-row;
+		.make-md-column-offset(1);
+		.make-md-column(10);
+	}
 }
 
 .page {	
 	.container;
+	.make-md-column-offset(1);
+	.make-md-column(10);
 }
 
 .page-header {
-	margin-top: 0;
+	margin-top: 0px !important;
 }
 
 [contentEditable=true]:empty:before{

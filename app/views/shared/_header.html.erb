@@ -6,5 +6,11 @@
 		<li class="<%= "active" if current_page?(gigs_path()) %>"><a href="<%= gigs_path %>"><span class="glyphicon glyphicon-list"></span> Find live music gigs</a></li>
 		<li class="<%= "active" if current_page?(new_gig_path()) %>"><a href="<%= new_gig_path %>"><span class="glyphicon glyphicon-bullhorn"></span> Post gig</a></li>
 	</ul>
+	
+	<ul class="nav navbar-nav navbar-right">
+		<% if user_signed_in? %>
+			<a href="<%= destroy_user_session_path %>" data-method="delete" rel="nofollow"><button type="button" class="btn btn-primary navbar-btn">Sign out</button></a>
+		<% end %>
+	</ul>
 </div>
 </nav>

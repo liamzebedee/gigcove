@@ -1,6 +1,6 @@
-<div class="page-header">
+<header class="page-header">
 	<h1>Unmoderated gigs</h1>
-</div>
+</header>
 
 <% @gigs.each do |gig| %>
 
@@ -11,7 +11,8 @@
 		<button type="submit" class="btn btn-primary btn-lg approve-gig" value="disapprove" name="commit"><span class="glyphicon glyphicon-remove"></span></button>
 		<button type="submit" class="btn btn-primary btn-lg disapprove-gig" value="approve" name="commit"><span class="glyphicon glyphicon-ok"></span></button>
 	</div>
-	<% end %>
 </div>
+
+<% end %>
 
 <% end %>

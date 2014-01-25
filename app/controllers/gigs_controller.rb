@@ -1,3 +1,4 @@
+# coding: utf-8
 class GigsController < ApplicationController
   def index
     @page_title = "Find gigs"
@@ -17,7 +18,9 @@ class GigsController < ApplicationController
         # XXX wrong error code, this is user's fault
         format.html { render status: :internal_server_error, :nothing => true }
       end
-      @gigs = Gig.near(latlng, 150, :units => :km).where(approved: true)
+      # Get all gigs in 150km radius that will be on within the next month
+      @gigs = Gig.near(latlng, 150, :units => :km).where(approved: true).where(:to => DateTime.now..DateTime.now.next_month)
+      
       render 'gigs/index'
     end
     
@@ -32,10 +35,15 @@ class GigsController < ApplicationController
 
   def show
     @gig = Gig.find(params[:id])
-    @page_title = '[Gig] ' + @gig.event_name + ' @ ' + @gig.venue_name + ' on ' + @gig.from.strftime('%e/%m/%y')
+    if !@gig.approved
+      render status: :internal_server_error, :nothing => true
+      return
+    end
+    
+    event_name = '“' + @gig.event_name + '” '
+    @page_title = 'Gig ' + (@gig.event_name == "" ? "" : event_name) + '@ ' + @gig.venue_name + ' on ' + @gig.from.strftime("%b #{@gig.from.to_date.day.ordinalize}")
     @page_description = ""
     render 'gigs/show'
-    # XXX <time> for gig
   end
   
   def create
@@ -49,8 +57,8 @@ class GigsController < ApplicationController
   end
   
   def update
-  #http://stackoverflow.com/questions/15946661/rails-update-action-fails-with-rails4-mongoid-create-ok
-    # XXX authorize
+    # http://stackoverflow.com/questions/15946661/rails-update-action-fails-with-rails4-mongoid-create-ok
+    authorize!(:update, Gig)
     @gig = Gig.find(params[:id])
     @gig.update(moderated: true, approved: params[:commit] == "approve" ? true : false)
     
@@ -64,7 +72,7 @@ class GigsController < ApplicationController
   end
   
   def unmoderated
-    # XXX authorize
+    authorize!(:moderate, Gig)
     @page_title = "Moderate unapproved gigs"
     @page_description = ""
     @gigs = Gig.where(moderated: false)

@@ -1,0 +1,29 @@
+@import "bootstrap-3.0.3/bootstrap.less";
+@import "bootstrap-3.0.3/mixins.less";
+@import "flatly/bootswatch.less";
+@import "flatly/variables.less";
+.social-icons {
+	.list-inline;	
+}
+.social-icon {
+	@w: 32px;
+	width: @w;
+	height: @w;
+	background-size: @w @w;
+	border: 0;
+	box-shadow: 0;
+	display: block;
+	
+	&.facebook {
+		background-image: url("/assets/images/social-icons/facebook.png");
+	}
+	&.twitter {
+		background-image: url("/assets/images/social-icons/twitter.png");
+	}
+	&.reddit {
+		background-image: url("/assets/images/social-icons/reddit.png");
+	}
+	&.email {
+		background-image: url("/assets/images/social-icons/email.png");
+	}
+}

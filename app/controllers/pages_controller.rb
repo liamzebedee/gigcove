@@ -14,7 +14,7 @@ class PagesController < ApplicationController
  
   def contact
     @page_title = "Contact Us"
-    @page_description = "You can contact the GigCove team via email."
+    @page_description = "How to contact the people behind GigCove."
     render 'contact'
   end
 end

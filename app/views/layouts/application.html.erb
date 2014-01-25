@@ -30,39 +30,39 @@
 	<% page_url = request.original_url %>
 	<% page_tags = @page_tags ? @page_tags : [] %>
   	<title><%= page_title %></title>
-	<meta name="description" content="<%= page_description %>" />
+	<meta name="description" content="<%= raw page_description %>" />
 
-	<meta itemprop="name" content="<%= page_title %>">
-	<meta itemprop="description" content="<%= page_description %>">
-	<meta itemprop="image" content="<%= page_banner_image %>">
+	<meta itemprop="name" content="<%= raw page_title %>">
+	<meta itemprop="description" content="<%= raw page_description %>">
+	<meta itemprop="image" content="<%= raw page_banner_image %>">
 
 	<!-- 
 	    Twitter Card
 	-->
 	<meta name="twitter:card" content="summary">
 	<!--<meta name="twitter:site" content="@liamzebedee">-->
-	<meta name="twitter:title" content="<%= page_title %>">
-	<meta name="twitter:description" content="<%= page_description %>">
-	<% if page_image %><meta name="twitter:image" content="<%= page_image %>"><% end %>
+	<meta name="twitter:title" content="<%= raw page_title %>">
+	<meta name="twitter:description" content="<%= raw page_description %>">
+	<% if page_image %><meta name="twitter:image" content="<%= raw page_image %>"><% end %>
 
 	<!-- 
 	    Open Graph
 	-->
-	<meta property="og:title" content="<%= page_title %>" />
+	<meta property="og:title" content="<%= raw page_title %>" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="<%= page_url %>" />
-	<meta property="og:image" content="<%= page_banner_image %>" />
-	<meta property="og:description" content="<%= page_description %>" />
+	<meta property="og:url" content="<%= raw page_url %>" />
+	<meta property="og:image" content="<%= raw page_banner_image %>" />
+	<meta property="og:description" content="<%= raw page_description %>" />
 	<meta property="og:site_name" content="Gigcove" />
 	<% if page_published_time %>
-		<meta property="article:published_time" content="<%= page_published_time %>" />
+		<meta property="article:published_time" content="<%= raw page_published_time %>" />
 	<% end %>
 	<% if page_modified_time %>
-		<meta property="article:modified_time" content="<%= page_modified_time %>" />
+		<meta property="article:modified_time" content="<%= raw page_modified_time %>" />
 	<% end %>	
 	<!--<meta property="article:section" content="Article Section" />-->
 	<% page_tags.each do |tag| %>
-		<meta property="article:tag" content="<%= tag %>" />
+		<meta property="article:tag" content="<%= raw tag %>" />
 	<% end %>
 
 
@@ -76,13 +76,23 @@
 	<%= csrf_meta_tags %>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= analytics_init if Rails.env.production? %>
 </head>
 
 <body>
   <header id="header">
     <%= render 'shared/header' %>
+    
+    <div>
     <% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
     <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
+    
+    <% if false %>
+    <aside class="banner">
+    	<p class="alert alert-warning">Donate</p>
+    </aside>
+    <% end %>
+    </div>
   </header>
   
   <% page_id = "#{controller_name}-#{action_name}" %>
