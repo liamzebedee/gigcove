@@ -5,7 +5,8 @@ gem 'rails', github: 'rails/rails'
 #gem 'rails', '4.0.2'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 # Use LESS for stylesheets
 gem 'less-rails'
@@ -57,3 +58,5 @@ gem 'geokit-rails'
 gem 'google-analytics-rails'
 
 #https://github.com/kjvarga/sitemap_generator
+
+gem 'mina'
