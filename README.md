@@ -35,3 +35,13 @@ sudo gem install sqlite3 -v '1.3.8'
 
 RAILS_ENV=production rake db:create db:schema:load
 
+# deploy
+RAILS_ENV=production rake db:seed
+bundle install
+service unicorn restart
+
+
+# certificate
+openssl req -new -key key.pem -out server.csr
+
+
