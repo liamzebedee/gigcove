@@ -1,0 +1,36 @@
+<article class="gig">
+<div class="gig-inner">
+
+<aside class="left">
+	<div>
+		<p>$<%= gig.ticket_cost.to_i %></p>
+	</div>
+	
+	<div>
+		<p>From <time datetime="<%= gig.from.to_s %>"><%= gig.from.strftime("%b #{gig.from.to_date.day.ordinalize} at %H:%M") %></time></p>
+		<p>To <time datetime="<%= gig.to.to_s %>"><%= gig.from.strftime("%b #{gig.to.to_date.day.ordinalize} at %H:%M") %></time></p>
+	</div>
+</aside>
+
+<div class="main">
+	<a href="<%= gig_path(gig) %>"><h2><strong><%= gig.event_name %></strong> @ <strong><%= gig.venue_name %></strong></h2></a>
+</div>
+
+<aside class="right">
+	<a href="http://maps.google.com/?q=<%= gig.location %>"><p><%= gig.location %> <span class="glyphicon glyphicon-map-marker"></span></p></a>
+	<div>
+		<ul class="social-icons">
+		<% gig_url = url_with_host(gig_path(gig)) %>
+		<% gig_text = "Hey check out this gig I found" %>
+		
+		<li><a class="social-icon facebook" href="http://www.facebook.com/sharer.php?u=<%= gig_url %>" target="_blank"></a>
+		<li><a class="social-icon twitter" href="http://twitter.com/share?url=<%= gig_url %>&text=<%= gig_text %>" target="_blank"></a>
+		<li><a class="social-icon reddit" href="http://reddit.com/submit?url=<%= gig_url %>&title=<%= gig_text %>" target="_blank"></a>
+		<li><a class="social-icon email" href="mailto:?Subject=<%= gig_text %>&Body=<%= gig_url %>"></a> 
+		</ul>
+	</div>
+</aside>
+
+</div>
+
+</article>

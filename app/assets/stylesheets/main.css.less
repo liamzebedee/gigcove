@@ -1,0 +1,60 @@
+@import "bootstrap-3.0.3/bootstrap.less";
+@import "bootstrap-3.0.3/mixins.less";
+@import "flatly/bootswatch.less";
+@import "flatly/variables.less";
+@import "bootstrap-chosen.less";
+
+@font-size-base: 16px;
+@icon-font-path: "";
+
+@link-color:            lighten(#DEBB27, 15%);
+@link-hover-color:      #DEBB27;
+
+//http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
+
+@import "gigs.less";
+@import "pages.less";
+@import "social-icons.less";
+
+body {
+}
+
+#header {
+	& > div {
+		.make-row;
+		.make-md-column-offset(1);
+		.make-md-column(10);
+	}
+}
+
+.page {	
+	.container;
+	.make-md-column-offset(1);
+	.make-md-column(10);
+}
+
+.page-header {
+	margin-top: 0px !important;
+}
+
+[contentEditable=true]:empty:before{
+	content: attr(placeholder);
+	color: @gray-light;
+	border: none;
+}
+
+[contentEditable=true].can-edit {
+	color: @gray-light;
+}
+
+[contenteditable]:focus, textarea:focus, input:focus{
+     outline: 0px solid transparent;
+}
+
+[contentEditable=true] {
+	display: inline-block;
+}
+
+.popover-content {
+	color: black;
+}

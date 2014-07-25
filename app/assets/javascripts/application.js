@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require number-polyfill
+//= require chosen.jquery
+//= require contentEditable
+//= require latlong
+//= require bootstrapPopover
+//= require spin.min
+//= require ladda
 //= require_tree .

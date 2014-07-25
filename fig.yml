@@ -4,10 +4,14 @@ db:
     - "5432"
 web:
   build: .
-  command: bundle exec rackup -p 3000
+  command: "bundle exec rackup -p 3000"
   volumes:
     - .:/railsapp
   ports:
     - "3000:3000"
   links:
     - db
+  environment:
+    RACK_ENV: development
+    SECRET_KEY_BASE:
+

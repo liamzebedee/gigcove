@@ -1,15 +1,20 @@
 # PostgreSQL. Versions 8.2 and up are supported.
 #
-development: &default
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: railsapp_development
-  pool: 5
-  username: docker
-  password: docker
   host: <%= ENV.fetch('DB_1_PORT_5432_TCP_ADDR', 'localhost') %>
   port: <%= ENV.fetch('DB_1_PORT_5432_TCP_PORT', '5432') %>
   template: template0
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+
+development:
+  <<: *default
+  database: railsapp_development
+  username: docker
+  password: docker
   # Schema search path. The server defaults to $user,public
   #schema_search_path: railsapp,sharedapp,public
 
@@ -22,15 +27,8 @@ development: &default
 test:
   <<: *default
   database: railsapp_test
-
-
-
-default: &default
-  adapter: postgresql
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  #pool: 5
+  username: docker
+  password: docker
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -41,19 +39,8 @@ default: &default
 # the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full rundown on how to provide these environment variables in a
 # production deployment.
-#
-# On Heroku and other platform providers, you may have a full connection URL
-# available as an environment variable. For example:
-#
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-#
-# You can use this database configuration with:
-#
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
   database: railsapp_production
-  #username: railsapp
-  #password: <%= ENV['RAILSAPP_DATABASE_PASSWORD'] %>
+  username: docker
+  password: docker

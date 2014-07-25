@@ -1,0 +1,7 @@
+<nav class="navbar navbar-static-top" role="navigation">
+	<a class="navbar-brand">GigCove</a>
+	<ul class="nav navbar-nav">
+		<li class="<%= "active" if current_page?(about_path()) %>"><a href="<%= about_path() %>">About</a></li>
+		<li class="<%= "active" if current_page?(contact_path()) %>"><a href="<%= contact_path() %>">Contact/Enquire</a></li>
+	</ul>
+</nav>
