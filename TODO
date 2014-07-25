@@ -1,3 +1,9 @@
+INSTALL DOCKER LATEST
+$ sudo apt-get update
+$ curl -s https://get.docker.io/ubuntu/ | sudo sh
+
+	
+INSTALL FIG
 $ curl -L https://github.com/orchardup/fig/releases/download/0.5.1/linux > /usr/local/bin/fig
 $ chmod +x /usr/local/bin/fig
 
