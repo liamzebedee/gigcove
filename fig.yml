@@ -14,4 +14,4 @@ web:
   environment:
     RACK_ENV: development
     SECRET_KEY_BASE:
-
+  dns: 127.0.0.1
