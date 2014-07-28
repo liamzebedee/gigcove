@@ -11,27 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140125024211) do
+ActiveRecord::Schema.define(version: 20140728021159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: true do |t|
+    t.text     "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genres_gigs", id: false, force: true do |t|
+    t.integer "genre_id"
+    t.integer "gig_id"
+  end
 
   create_table "gigs", force: true do |t|
     t.decimal  "ticket_cost"
     t.datetime "from"
     t.datetime "to"
-    t.string   "event_name"
-    t.string   "venue_name"
+    t.string   "title"
     t.text     "location"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "moderated",   default: false
+    t.boolean  "moderated",       default: false
     t.float    "latitude"
     t.float    "longitude"
-    t.boolean  "approved",    default: false
+    t.boolean  "approved",        default: false
+    t.integer  "age_restriction"
+    t.text     "link_to_source"
+    t.integer  "venue_id"
   end
 
   add_index "gigs", ["latitude", "longitude"], name: "index_gigs_on_latitude_and_longitude", using: :btree
+
+  create_table "performances", force: true do |t|
+    t.datetime "time"
+    t.integer  "gig_id"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,5 +79,13 @@ ActiveRecord::Schema.define(version: 20140125024211) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.text     "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -23,16 +23,25 @@ class Gig < ActiveRecord::Base
                    :lat_column_name => :latitude,
                    :lng_column_name => :longitude
   
-  # ticket_cost         :decimal
-  # from                :datetime
-  # to                  :datetime
-  # event_name          :string
-  # venue_name          :string
-  # location            :text
-  # moderated           :boolean
-  # approved            :boolean
-  # latitude            :float
-  # longitude           :float
+  # from		:datetime
+  # till		:datetime
+  # title		:string
+  # age_restriction	:integer
+  # description		:text
+  # location		:text
+  # latitude		:float
+  # longitude		:float
+  # moderated		:boolean
+  # approved		:boolean
+  
+  has_many :performances
+  has_one :venue
+  has_and_belongs_to_many :genres
+  
+  # link_to_source	:text
+  # TODO hype		has_many Hypes
+  # TODO rating		has_many Ratings
+
   geocoded_by :location
   after_validation :geocode # auto-fetch coordinates
 end
