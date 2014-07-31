@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728021159) do
+ActiveRecord::Schema.define(version: 20140731080027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,22 +35,17 @@ ActiveRecord::Schema.define(version: 20140728021159) do
 
   create_table "gigs", force: true do |t|
     t.decimal  "ticket_cost"
-    t.datetime "from"
-    t.datetime "to"
+    t.datetime "start_time"
     t.string   "title"
-    t.text     "location"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "moderated",       default: false
-    t.float    "latitude"
-    t.float    "longitude"
     t.boolean  "approved",        default: false
     t.integer  "age_restriction"
     t.text     "link_to_source"
     t.integer  "venue_id"
+    t.text     "description"
   end
-
-  add_index "gigs", ["latitude", "longitude"], name: "index_gigs_on_latitude_and_longitude", using: :btree
 
   create_table "performances", force: true do |t|
     t.datetime "time"
@@ -86,6 +81,8 @@ ActiveRecord::Schema.define(version: 20140728021159) do
     t.text     "website"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end

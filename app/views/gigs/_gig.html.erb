@@ -2,18 +2,17 @@
 <div class="gig-inner">
 
 <aside class="left">
-	<div>
+	<div>n
 		<p>$<%= gig.ticket_cost.to_i %></p>
 	</div>
 	
 	<div>
-		<p>From <time datetime="<%= gig.from.to_s %>"><%= gig.from.strftime("%b #{gig.from.to_date.day.ordinalize} at %H:%M") %></time></p>
-		<p>To <time datetime="<%= gig.to.to_s %>"><%= gig.from.strftime("%b #{gig.to.to_date.day.ordinalize} at %H:%M") %></time></p>
+		<p><time datetime="<%= gig.start_time.to_s %>"><%= gig.start_time.strftime("%b #{gig.from.to_date.day.ordinalize} at %H:%M") %></time></p>
 	</div>
 </aside>
 
 <div class="main">
-	<a href="<%= gig_path(gig) %>"><h2><strong><%= gig.event_name %></strong> @ <strong><%= gig.venue_name %></strong></h2></a>
+	<a href="<%= gig_path(gig) %>"><h2><strong><%= gig.title %></strong> at <strong><%= gig.venue.name %></strong></h2></a>
 </div>
 
 <aside class="right">
