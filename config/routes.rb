@@ -9,4 +9,9 @@ Rails.application.routes.draw do
       get 'unmoderated'
     end
   end
+  
+  resources :genres, only: [:index] do
+  end
+  resources :venues, only: [:show]
+  resources :artists, only: [:show]
 end

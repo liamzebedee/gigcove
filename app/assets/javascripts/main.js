@@ -1,8 +1,9 @@
 // So this works with turbolinks
-var ready;
-ready = function(){
+var ready = function(){
 	$(".chosen-select").chosen({width: "100%"});
+	
 	$("[contenteditable=true]").contentEditable();
+	
 	
 	//on submit, collect all fields and replace their values into the hidden inputs
 	$(".gig-form").submit(function(event) {

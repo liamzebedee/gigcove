@@ -1,0 +1,1 @@
+<p>Performance on <time datetime="<%= performance.gig.start_time.to_s %>"><%= performance.gig.start_time.strftime("%b #{performance.gig.start_time.to_date.day.ordinalize} at %H:%M") %></time> at <%= link_to performance.gig.venue.name, gig_path(performance.gig) %></p>

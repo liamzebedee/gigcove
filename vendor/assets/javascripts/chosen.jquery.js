@@ -152,6 +152,7 @@
       this.max_selected_options = this.options.max_selected_options || Infinity;
       this.inherit_select_classes = this.options.inherit_select_classes || false;
       this.display_selected_options = this.options.display_selected_options != null ? this.options.display_selected_options : true;
+      this.ajax = this.options.ajax != null ? this.options.ajax : null;
       return this.display_disabled_options = this.options.display_disabled_options != null ? this.options.display_disabled_options : true;
     };
 
@@ -294,6 +295,7 @@
 
     AbstractChosen.prototype.winnow_results = function() {
       var escapedSearchText, option, regex, regexAnchor, results, results_group, searchText, startpos, text, zregex, _i, _len, _ref;
+      console.log("add element");
 
       this.no_results_clear();
       results = 0;
@@ -502,6 +504,7 @@
     function Chosen() {
       _ref = Chosen.__super__.constructor.apply(this, arguments);
       return _ref;
+      // url, dataType, data(term):{q}, results(data):[]
     }
 
     Chosen.prototype.setup = function() {
@@ -551,6 +554,22 @@
       this.results_build();
       this.set_tab_index();
       this.set_label_behavior();
+      $('.chosen-choices input').autocomplete({
+				source: function( request, response ) {
+					var _this = this;
+					$.ajax({
+						url: _this.form_field.options.ajax.url,
+						dataType: _this.form_field.options.ajax.dataType,
+						beforeSend: function(){$('ul.chosen-results').empty();},
+						success: function( data ) {
+						  response( $.map( _this.form_field.options.ajax.results(data), function( item ) {
+						    $('ul.chosen-results').append('<li class="active-result">' + item + '</li>');
+						  }));
+						}
+					});
+				}
+			});
+
       return this.form_field_jq.trigger("chosen:ready", {
         chosen: this
       });

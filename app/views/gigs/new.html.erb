@@ -12,13 +12,9 @@
     </div>
     
     <div>
-    <p>Starting on the 
-      <span class="from-date-day" contenteditable="true" placeholder="dd" required=true></span>
-      /<span class="from-date-month" contenteditable="true" placeholder="mm"></span>
-      /<span class="from-date-year" contenteditable="true" placeholder="yy"></span>
+    <p>Starting on the <span nobr><span class="from-date-day" contenteditable="true" placeholder="dd" required=true></span>/<span class="from-date-month" contenteditable="true" placeholder="mm"></span>/<span class="from-date-year" contenteditable="true" placeholder="yy"></span></span>
        at 
-      <span class="from-time-hour" contenteditable="true" placeholder="hh"></span>
-      :<span class="from-time-minute" contenteditable="true" placeholder="mm"></span>.
+      <span nobr><span class="from-time-hour" contenteditable="true" placeholder="hh"></span>:<span class="from-time-minute" contenteditable="true" placeholder="mm"></span></span>.
     </p>
     <%= f.hidden_field(:start_time) %>
     </div>
@@ -34,14 +30,16 @@
     <div><small class="link-to-source" contenteditable="true" placeholder="Link"></small></div>
     <%= f.hidden_field(:link_to_source) %>
     
-    <select data-placeholder="What type(s) of music will be playing?" class="chosen-select gig-genres" multiple tabindex="4">
+    <div><input type="text" class="gig-genres" multiple tabindex="4" data-ajax="<%= genres_path %>">What type(s) of music will be playing?</input></div>
+    
+    <!--<select data-placeholder="What type(s) of music will be playing?" class="chosen-select gig-genres" multiple tabindex="4" data-ajax="<%= genres_path %>">
 		  <option value=""></option>
 		  <option>Rock</option>
 		  <option>Indie</option>
 		  <option>Alternative</option>
 		  <option>Chill</option>
 		  <option>Acoustic</option>
-	  </select>
+	  </select>-->
 	  <%= f.hidden_field(:genres) %>
   </div><!-- .main -->
 

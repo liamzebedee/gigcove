@@ -29,7 +29,7 @@
 	<% page_modified_time = @page_modified_time %>
 	<% page_url = request.original_url %>
 	<% page_tags = @page_tags ? @page_tags : [] %>
-  	<title><%= page_title %></title>
+  <title><%= page_title %></title>
 	<meta name="description" content="<%= raw page_description %>" />
 
 	<meta itemprop="name" content="<%= raw page_title %>">
@@ -72,11 +72,10 @@
 	<!-- iOS, Android -->
 	<link rel="apple-touch-icon-precomposed" href="/assets/images/icon-touch-precomposed.png">
 	
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= analytics_init if Rails.env.production? %>
+  <%= analytics_init if Rails.env.production? %>
+  
 </head>
 
 <body>
@@ -101,6 +100,11 @@
   </div></div>
   
   <footer id="footer"></footer>
+  
+  <!-- JavaScripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_pluggable_tag %>
 </body>
 
 </html>
