@@ -1,2 +1,11 @@
  - add register form
+   - add name
+   - add genres
+   - add user settings page (LINK WITH EMAIL IN HEADER MENU)
+   - add email confirmation + mailserver
+   - add FB login
+   http://stackoverflow.com/questions/tagged/devise
+ - open gig submission to outsiders
+ - change gig moderation page with editing features
+ - add massive background pic on homepage comme launchpage (need more pretty pics)
  - mobile responsive app
