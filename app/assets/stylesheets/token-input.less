@@ -6,6 +6,7 @@
 // Basic container for added tokens and ones that can be added
 ul.token-input-list {
     .form-control;
+    border: none;
 
     overflow: hidden;
     height: auto !important;
@@ -69,21 +70,6 @@ ul.token-input-list {
     }    
 }
 
-
-
-
-/*
-@input-bg:                       #fff;
-@input-bg-disabled:              @gray-lighter;
-
-@input-color:                    @text-color;
-@input-border:                   #dce4ec;
-@input-border-radius:            @border-radius-base;
-@input-border-focus:             #1abc9c;
-
-@input-color-placeholder:        #acb6c0;
-*/
-
 div.token-input-dropdown {
     position: absolute;
     width: 400px;
@@ -92,7 +78,8 @@ div.token-input-dropdown {
     z-index: 1;
     background: @input-bg;
     border-color: @input-border;
-    border-radius: @border-radius-base;
+    border: 1px solid @input-border;
+    border-top: none;
 
     p {
         margin: 0;
@@ -125,4 +112,11 @@ div.token-input-dropdown {
             color: #fff;
         }
     }
+}
+
+
+.gig-venue ul.token-input-list {
+    background: none;
+    color: white;
+    border: none;
 }

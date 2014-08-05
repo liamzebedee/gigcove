@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   
   resources :genres, only: [:index] do
   end
-  resources :venues, only: [:show]
-  resources :artists, only: [:show]
+  resources :venues, only: [:index, :show]
+  resources :artists, only: [:index, :show]
 end

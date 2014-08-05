@@ -38,19 +38,18 @@ body {
 	margin-top: 0px !important;
 }
 
-[contentEditable=true]:empty:before{
+[contentEditable]:empty:before{
 	content: attr(placeholder);
 	color: @gray-light;
 	border: none;
 }
 
-[contenteditable]:focus, textarea:focus, input:focus{
+[contentEditable]:focus, textarea:focus, input:focus{
      outline: 0px solid transparent;
 }
 
-[contentEditable=true] {
+[contentEditable] {
 	display: inline-block;
-	color: @gray-light;
 }
 
 .popover-content {
