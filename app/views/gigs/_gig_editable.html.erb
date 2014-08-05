@@ -26,7 +26,7 @@
     <%= f.hidden_field(:link_to_source) %>
     
     <div>
-      <strong>Genres:</strong><input class="gig-genres" data-ajax="<%= genres_path %>"/>
+      <strong>Genres:</strong><input type="text" class="gig-genres form-control" data-ajax="<%= genres_path %>" placeholder="Genres" value=""/>
     </div>
     <%= f.hidden_field(:genres) %>
 

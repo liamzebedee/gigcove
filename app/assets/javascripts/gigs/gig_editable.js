@@ -2,13 +2,15 @@ $(document).on('ready page:load', function () {
 	var gigGenres = $(".gig-genres");
 	gigGenres.tokenInput(gigGenres.data("ajax"), {
 		queryParam: "search",
-		searchDelay: 150
+		searchDelay: 150,
+		placeholder: gigGenres.attr('placeholder')
 	});
 
 	var gigVenues = $(".gig-venues");
 	gigVenues.tokenInput(gigVenues.data("ajax"), {
 		queryParam: "search",
-		searchDelay: 150
+		searchDelay: 150,
+		placeholder: gigVenues.attr('placeholder')
 	});
 	
 	/*.chosen({
