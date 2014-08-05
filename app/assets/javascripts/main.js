@@ -1,7 +1,5 @@
 // So this works with turbolinks
-var ready = function(){
-	$(".chosen-select").chosen({width: "100%"});
-	
+var ready = function(){	
 	$("[contenteditable=true]").contentEditable();
 	
 	

@@ -1,0 +1,47 @@
+<article class="gig"><div class="gig-inner">
+
+  <aside class="left">
+    <div>
+    <span>Costs $</span><span class="ticket-cost" contenteditable="true" placeholder="0"></span>
+    <%= f.hidden_field(:ticket_cost) %>
+    </div>
+    
+    <div>
+    <p>Starting on the <span nobr><span class="from-date-day" contenteditable="true" placeholder="dd" required=true></span>/<span class="from-date-month" contenteditable="true" placeholder="mm"></span>/<span class="from-date-year" contenteditable="true" placeholder="yy"></span></span>
+       at 
+      <span nobr><span class="from-time-hour" contenteditable="true" placeholder="hh"></span>:<span class="from-time-minute" contenteditable="true" placeholder="mm"></span></span>.
+    </p>
+    <%= f.hidden_field(:start_time) %>
+    </div>
+  </aside><!-- .left -->
+
+  <div class="main">
+    <h2><span class="event-name" contenteditable="true" placeholder="Gig title"></span></h2>
+    <%= f.hidden_field(:title) %>
+    
+    <div><span class="description" contenteditable="true" placeholder="Description"></span></div>
+    <%= f.hidden_field(:description) %>
+    
+    <div><small class="link-to-source" contenteditable="true" placeholder="Link"></small></div>
+    <%= f.hidden_field(:link_to_source) %>
+    
+    <div>
+      <strong>Genres:</strong><input class="gig-genres" data-ajax="<%= genres_path %>"/>
+    </div>
+    <%= f.hidden_field(:genres) %>
+
+	  
+
+    Which artists will be there?
+  </div><!-- .main -->
+
+  <aside class="right"</span>
+    <div><p><span class="venue-name" contenteditable="true" placeholder="Venue name"></span></p></div>
+	  <div><p><span class="location" contenteditable="true" placeholder="Location"></span></p></div>
+	  <%= fields_for :venue, @gig.venue do |venue_fields| %>
+	    <%= venue_fields.hidden_field(:venue_name) %>
+	    <%= venue_fields.hidden_field(:venue_location) %>
+	  <% end %>
+  </aside><!-- .right -->
+
+</div></article><!-- .gig -->

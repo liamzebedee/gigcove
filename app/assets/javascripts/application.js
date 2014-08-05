@@ -15,12 +15,10 @@
 //= require turbolinks
 //= require bootstrap
 //= require number-polyfill
-//= require chosen.jquery
-//= require select2
 //= require contentEditable
 //= require latlong
 //= require bootstrapPopover
 //= require spin.min
 //= require ladda
-//= require jquery.tokeninput
+//= require tokeninput
 //= require_tree .

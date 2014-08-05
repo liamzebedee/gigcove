@@ -4,6 +4,12 @@ $(document).on('ready page:load', function () {
 		queryParam: "search",
 		searchDelay: 150
 	});
+
+	var gigVenues = $(".gig-venues");
+	gigVenues.tokenInput(gigVenues.data("ajax"), {
+		queryParam: "search",
+		searchDelay: 150
+	});
 	
 	/*.chosen({
 		width: "100%",
