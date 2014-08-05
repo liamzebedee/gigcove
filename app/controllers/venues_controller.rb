@@ -14,4 +14,8 @@ class VenuesController < ApplicationController
     @page_description = ""
     render 'venues/show'
   end
+
+  def new
+    authorize!(:new, Venue)
+  end
 end

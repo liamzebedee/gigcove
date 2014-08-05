@@ -10,5 +10,7 @@
  *
  *= require_self
  *= require token-input
+ *= require datepicker3
+ *= require timepicker
  *= require_tree .
  */

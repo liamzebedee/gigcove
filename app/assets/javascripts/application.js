@@ -21,4 +21,8 @@
 //= require spin.min
 //= require ladda
 //= require tokeninput
+//= require bootstrap-datepicker
+//= require jquery.datepair
+//= require datepair
+//= require timepicker
 //= require_tree .

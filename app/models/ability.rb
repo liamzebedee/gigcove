@@ -6,6 +6,9 @@ class Ability
     if user.is? :moderator
       can :moderate, Gig
       can :update, Gig
+
+      can :create, Venue
+      
     else
       can :read, Gig
     end

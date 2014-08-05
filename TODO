@@ -6,9 +6,9 @@
    - add FB login
    http://stackoverflow.com/questions/tagged/devise
  - how to create genres/artists/venues
- 	user: add genres at whim, add artists at whim, add venues at whim
-
+ - create venue
  - open gig submission to outsiders
  - change gig moderation page with editing features
  - add massive background pic on homepage comme launchpage (need more pretty pics)
  - mobile responsive app
+ - remove ="true" from contenteditable

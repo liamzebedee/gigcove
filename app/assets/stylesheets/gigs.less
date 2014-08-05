@@ -4,12 +4,13 @@
 @import "bootstrap/bootstrap.less";
 @import "bootstrap/mixins.less";
 
-#gigs-new {
-	.gig {
-	  .main {
-	    .description { min-height: 5em; }
-	  }
+.gig-editable {
+	.main {
+		.description { min-height: 5em; }
 	}
+}
+
+#gigs-new {
 }
 
 #gigs-unmoderated {
@@ -57,16 +58,10 @@
     	flex-grow: 1;
 	}
 	
-	.left,
-	.right  {
-		background-color: #333;
-		color: white;
-	}
 	
 	.left,
-	.main,
-	.right {
-		font-size: 28px;
+	.main {
+		font-size: 20px;
 		flex: 1 1 auto;
 		padding-top: 0.5em;
 		padding-bottom: 0.5em;
@@ -75,12 +70,14 @@
 	.left {
 		.make-md-column(3);
 		.box-sizing(border-box);
+		background-color: #333;
+		color: white;
 		
 		vertical-align: top;
 		border-right: 1px solid @gray-light;
 		
 		& > div {
-			border-bottom: 1px solid @gray-light;
+			padding-bottom: 1em;
 		}
 		& > div:last-child {
 			border-bottom: none;
@@ -89,10 +86,11 @@
 	}
 	.main {
 		background-color: white;
-		.make-md-column(6);
+		.make-md-column(9);
 		border-top: 1px solid #333;
 		border-bottom: 1px solid #333;
-		
+		border-right: 1px solid #333;
+
 		text-align: left;
 		vertical-align: top;
 		a {
@@ -101,11 +99,7 @@
 		h2 {
 			margin-top: 0;
 		}
-	}
-	.right {
-		.make-md-column(3);
-		vertical-align: top;
-		border-left: 1px solid @gray-light;
-		text-align: left;
+
+		textarea { padding-top: 0.5em; }
 	}
 }
