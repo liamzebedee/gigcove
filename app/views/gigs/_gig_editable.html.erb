@@ -3,8 +3,8 @@
   <aside class="left">
     <h2>Details</h2>
     <div>
-    <span>Costs $</span><span class="ticket-cost" contenteditable="true" placeholder="0"></span>
-    <%= f.hidden_field(:ticket_cost) %>
+      <span>Costs $</span><span class="ticket-cost" contenteditable="true" placeholder="0"></span>
+      <%= f.hidden_field(:ticket_cost) %>
     </div>
     
     <div>
@@ -13,16 +13,22 @@
     </p>
 
     <%= f.hidden_field(:start_time) %>
+    <%= f.hidden_field(:end_time) %>
     </div>
 
     <div class="gig-venue">
       <h2>Venue</h2>
       <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value=""/>
+      <strong>Location: </strong><span class="gig-venue-location" contenteditable placeholder="Enter the venue's location"></span>
+      <%= fields_for :venue, @gig.venue do |venue_fields| %>
+        <%= venue_fields.hidden_field(:name) %>
+        <%= venue_fields.hidden_field(:location) %>
+      <% end %>
     </div>
   </aside><!-- .left -->
 
   <div class="main">
-    <h1><span class="event-name" contenteditable="true" placeholder="Gig title"></span></h1>
+    <h1><span class="gig-title" contenteditable="true" placeholder="Gig title"></span></h1>
     <%= f.hidden_field(:title) %>
     
     <div>Source: <small class="link-to-source" contenteditable="true" placeholder="Link to source"></small></div>
@@ -41,6 +47,7 @@
       <h3>Artists</h3>
       <input type="text" class="gig-artists" data-ajax="<%= artists_path %>" placeholder="Who's playing?" value=""/>
     </div>
+    <%= f.hidden_field(:performances) %>
 
   </div><!-- .main -->
 

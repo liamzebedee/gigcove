@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804080154) do
+ActiveRecord::Schema.define(version: 20140805223308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,10 +46,10 @@ ActiveRecord::Schema.define(version: 20140804080154) do
     t.text     "link_to_source"
     t.integer  "venue_id"
     t.text     "description"
+    t.datetime "end_time"
   end
 
   create_table "performances", force: true do |t|
-    t.datetime "time"
     t.integer  "gig_id"
     t.integer  "artist_id"
     t.datetime "created_at"

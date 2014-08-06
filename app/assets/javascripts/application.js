@@ -25,4 +25,5 @@
 //= require jquery.datepair
 //= require datepair
 //= require timepicker
+//= require moment
 //= require_tree .

@@ -5,8 +5,18 @@
 @import "bootstrap/mixins.less";
 
 .gig-editable {
+	.left {
+		.gig-venue-location {
+			display: none;
+		}
+	}
 	.main {
 		.description { min-height: 5em; }
+	}
+	input {
+		border: none;
+		background: none;
+		display: inline-block;
 	}
 }
 
