@@ -2,7 +2,7 @@
 class ArtistsController < ApplicationController  
   def index
     # upper(name) makes case sensitivity not an issue when searching
-    @artists = Artist.where("upper(name) LIKE upper(?)", "%#{params[:search]}%").limit(200)
+    @artists = Artist.where("upper(name) LIKE upper(?)", "%#{params[:search]}%").where(approved: true).limit(200)
     respond_to do |format|
       format.json { render json: @artists }
     end

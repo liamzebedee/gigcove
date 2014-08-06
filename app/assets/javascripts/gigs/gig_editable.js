@@ -89,7 +89,7 @@ $(document).on('ready page:load', function () {
 
 		var venueNameJQ = ($(".gig-venue-name", gig).tokenInput("get"));
 		var venueName;
-		if(venueName.length == 0 || venueName[0].name == "") {
+		if(venueNameJQ.length == 0 || venueNameJQ[0].name == "") {
 			$('.gig-venue-name', gig).createPopover("What venue is the gig at?");
 			return false;
 		} else {

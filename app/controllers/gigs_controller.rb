@@ -49,6 +49,33 @@ class GigsController < ApplicationController
   def create
     # XXX captcha
   	gig = Gig.new(gig_params)
+    gig.moderated = false
+    gig.approved = false
+
+    # process genres
+    params[:gig][:genres].split(',').each do |genre_name|
+      genre = Genre.find_by(name: genre_name)
+      gig.genres << genre if not genre.nil?
+    end
+
+    # process performances
+    params[:gig][:performances].split(',').each do |artist_name|
+      artist = Artist.create_with(approved: false).find_or_create_by(name: artist_name)
+      performance = Performance.new
+      performance.artist = artist
+      performance.gig = gig
+      performance.save!
+      artist.performances << performance
+      artist.save!
+      gig.performances << performance
+    end
+
+    # process venue
+    venue = Venue.create_with(approved: false, location: params[:venue][:location])
+      .find_or_create_by(name: params[:venue][:name])
+    venue.save!
+    gig.venue = venue
+
   	gig.errors.each do |message|
       puts message
     end
@@ -80,14 +107,14 @@ class GigsController < ApplicationController
   end
   
   before_filter only: [:create] do
-    params[:gig][:from] = Time.at(params[:gig][:from].to_i).to_datetime
-    params[:gig][:to] = Time.at(params[:gig][:to].to_i).to_datetime
+    #params[:gig][:start_time] = Time.at(params[:gig][:from].to_i).to_datetime
+    #params[:gig][:end_time] = Time.at(params[:gig][:to].to_i).to_datetime
   end
   
 private
 
   def gig_params
-    params.require(:gig).permit(:ticket_cost, :from, :to, :event_name, :venue_name, :location)
+    params.require(:gig).permit(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description)
   end
   
 end

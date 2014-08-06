@@ -5,7 +5,6 @@
    - add email confirmation + mailserver
    - add FB login
    http://stackoverflow.com/questions/tagged/devise
- - how to create genres/artists/venues
  - create venue
  - open gig submission to outsiders
  - change gig moderation page with editing features
