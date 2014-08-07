@@ -157,5 +157,6 @@ $(document).on('ready page:load', function () {
 		$('#gig_description', gig).val(description);
 		$('#gig_genres', gig).val(genres);
 		$('#gig_performances', gig).val(performances);
+		console.log('done');
 	});
 });

@@ -1,7 +1,9 @@
-@import "bootstrap/bootstrap.less";
-@import "bootstrap/mixins.less";
-@import "flatly/bootswatch.less";
-@import "flatly/variables.less";
+@import "util.less";
+@import "gigs.less";
+@import "venues.less";
+@import "social-icons.less";
+@import "token-input.less";
+@import "pages.less";
 
 @font-size-base: 16px;
 @icon-font-path: "";
@@ -9,13 +11,12 @@
 @link-color:            lighten(#DEBB27, 15%);
 @link-hover-color:      #DEBB27;
 
-//http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
+@navbar-margin-bottom: 0;
+.navbar {
+	margin-bottom: 0px!important; // TODO ugly hack
+}
 
-@import "gigs.less";
-@import "venues.less";
-@import "social-icons.less";
-@import "token-input.less";
-@import "pages.less";
+//http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
 
 body {
 }
@@ -28,8 +29,7 @@ body {
 	}
 }
 
-.page {	
-	.container;
+.page {
 	.make-md-column-offset(1);
 	.make-md-column(10);
 }

@@ -1,14 +1,16 @@
-@import "bootstrap/bootstrap.less";
-@import "bootstrap/mixins.less";
-@import "flatly/bootswatch.less";
-@import "flatly/variables.less";
+@import "util.less";
 
 #pages-index {
 	.make-row;
 	.make-md-column(12);
+	.full-width;
 
 	.intro {
-		background-image: url("/assets/images/intro.jpg");
+		background-image: url("/assets/images/intro3.jpg");
+		background-size: cover;
+		background-position-y: 37%;
+		//background-position: center;
+		color: white;
 		text-align: center;
 		ul {
 			.list-unstyled;

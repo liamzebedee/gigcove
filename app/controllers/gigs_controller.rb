@@ -19,7 +19,8 @@ class GigsController < ApplicationController
         format.html { render status: :internal_server_error, :nothing => true }
       end
       # Get all gigs in 150km radius that will be on within the next month
-      @gigs = Gig.near(latlng, 150, :units => :km).where(approved: true).where(:to => DateTime.now..DateTime.now.next_month)
+      radius = 100
+      @gigs = Gig.near(latlng, radius, :units => :km).where(approved: true).where(:end_time => DateTime.now..DateTime.now.next_month)
       
       render 'gigs/index'
     end
@@ -61,9 +62,7 @@ class GigsController < ApplicationController
     # process performances
     params[:gig][:performances].split(',').each do |artist_name|
       artist = Artist.create_with(approved: false).find_or_create_by(name: artist_name)
-      performance = Performance.new
-      performance.artist = artist
-      performance.gig = gig
+      performance = Performance.create_with(approved: false).find_or_create_by(artist: artist, gig: gig)
       performance.save!
       artist.performances << performance
       artist.save!
@@ -86,13 +85,49 @@ class GigsController < ApplicationController
   def update
     # http://stackoverflow.com/questions/15946661/rails-update-action-fails-with-rails4-mongoid-create-ok
     authorize!(:update, Gig)
-    @gig = Gig.find(params[:id])
-    @gig.update(moderated: true, approved: params[:commit] == "approve" ? true : false)
+    gig = Gig.find(params[:id])
+
+    # process approved
+    approved = (params[:commit] == "approve" ? true : false)
+
+    # process genres
+    genres = []
+    params[:gig][:genres].split(',').each do |genre_name|
+      genre = Genre.find_by(name: genre_name)
+      genres << genre if not genre.nil?
+    end
+
+    # process performances
+    performances = []
+    params[:gig][:performances].split(',').each do |artist_name|
+      artist = Artist.create_with(approved: false).find_or_create_by(name: artist_name)
+      
+      performance = Performance.create_with(approved: false).find_or_create_by(artist: artist, gig: gig)
+      performance.approved = true
+
+      artist.performances << performance
+      artist.approved = true
+      
+      performances << performance
+    end
+
+    # process venue
+    # TODO may not exist
+    venue = Venue.create_with(approved: false).find_by(name: params[:venue][:name])
+    venue.approved = true
+    
+    gig.update_attributes(gig_params.slice(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description))
+    gig.venue = venue
+    gig.genres = genres
+    gig.performances = performances
+
+    gig.update(moderated: true, approved: approved)
     
     respond_to do |format|
-      if @gig.save
+      if gig.save
         format.html { render status: :ok, :nothing => true }
       else
+        
         format.html { render status: :internal_server_error, :nothing => true }
       end
     end
@@ -114,7 +149,7 @@ class GigsController < ApplicationController
 private
 
   def gig_params
-    params.require(:gig).permit(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description)
+    params.require(:gig).permit(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description, :genres, :performances)
   end
   
 end

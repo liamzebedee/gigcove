@@ -34,20 +34,20 @@
     <div>Source: <small class="link-to-source" contenteditable="true" placeholder="Link to source"><%= gig.link_to_source %></small></div>
     <%= f.hidden_field(:link_to_source) %>
     
-    <div><textarea class="description form-control" rows="3" placeholder="Description" value="<%= gig.description %>"></textarea></div>
+    <div><textarea class="description form-control" rows="3" placeholder="Description"><%= gig.description %></textarea></div>
     <%= f.hidden_field(:description) %>
     
     <div>
       <h3>Genres</h3>
       <input type="text" class="gig-genres" data-ajax="<%= genres_path %>" placeholder="What types of music will be playing?" value="<%= gig.genres_str %>"/>
     </div>
-    <%= f.hidden_field(:genres) %>
+    <%= f.hidden_field(:genres, value: "") %>
 
     <div>
       <h3>Artists</h3>
       <input type="text" class="gig-artists" data-ajax="<%= artists_path %>" placeholder="Who's playing?" value="<%= gig.artists_str %>"/>
     </div>
-    <%= f.hidden_field(:performances) %>
+    <%= f.hidden_field(:performances, value: "") %>
 
   </div><!-- .main -->
 

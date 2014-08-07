@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807080550) do
+ActiveRecord::Schema.define(version: 20140807110542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140807080550) do
     t.integer  "artist_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "approved",   default: false
   end
 
   create_table "users", force: true do |t|

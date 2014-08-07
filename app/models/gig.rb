@@ -14,8 +14,8 @@ class Gig < ActiveRecord::Base
                    :lng_column_name => :longitude
   
   has_many :performances
-  belongs_to :venue
-  has_and_belongs_to_many :genres
+  belongs_to :venue, inverse_of: :gigs
+  has_and_belongs_to_many :genres, inverse_of: :gigs
   
   # link_to_source	:text
   # TODO hype		has_many Hypes
@@ -37,7 +37,7 @@ class Gig < ActiveRecord::Base
 
   def genres_str
     genre_names = []
-    genres.each do |genre|
+    genres.map do |genre|
       genre_names << genre.name
     end
     genre_names.join ','
@@ -45,7 +45,7 @@ class Gig < ActiveRecord::Base
 
   def artists_str
     artists_names = []
-    performances.each do |performance|
+    performances.map do |performance|
       artists_names << performance.artist.name
     end
     artists_names.join ','
@@ -68,12 +68,12 @@ class Gig < ActiveRecord::Base
 
     def datetimes_must_be_in_the_future
       # must be at least since 2 days ago (to adjust for timezones)
-      if start_time
-        errors.add(:start_time, 'must be in the future') if !(start_time > 2.days.since(Time.now).to_date)
-      end
-      if end_time
-        # TODO validate must be after start_time
-        errors.add(:end_time, 'must be in the future') if !(end_time > 2.days.since(Time.now).to_date)
-      end
+      #if start_time
+      #  errors.add(:start_time, 'must be in the future') if !(start_time > 2.days.since(Time.now).to_date)
+      #end
+      #if end_time
+      #  # TODO validate must be after start_time
+      #  errors.add(:end_time, 'must be in the future') if !(end_time > 2.days.since(Time.now).to_date)
+      #end
     end
 end
