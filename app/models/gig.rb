@@ -7,31 +7,11 @@ class Gig < ActiveRecord::Base
   validates_length_of :description, :minimum => 0, :maximum => 10000, :allow_blank => false
   validate :datetimes_must_be_in_the_future
   
-  def datetimes_must_be_in_the_future
-    # must be at least since 2 days ago (to adjust for timezones)
-    if start_time
-      errors.add(:start_time, 'must be in the future') if !(start_time > 2.days.since(Time.now).to_date)
-    end
-    if end_time
-      # TODO validate must be after start_time
-      errors.add(:end_time, 'must be in the future') if !(end_time > 2.days.since(Time.now).to_date)
-    end
-  end
-  
   acts_as_mappable :default_units => :kms,
                    :default_formula => :sphere,
                    :distance_field_name => :distance,
                    :lat_column_name => :latitude,
                    :lng_column_name => :longitude
-  
-  # from		:datetime
-  # till		:datetime
-  # title		:string
-  # age_restriction	:integer
-  # description		:text
-  # location		:text
-  # moderated		:boolean
-  # approved		:boolean
   
   has_many :performances
   belongs_to :venue
@@ -40,4 +20,60 @@ class Gig < ActiveRecord::Base
   # link_to_source	:text
   # TODO hype		has_many Hypes
   # TODO rating		has_many Ratings
+
+  def start_date_str
+    return "" if start_time.nil?
+    start_time.strftime('%-d/%-m/%Y')
+  end
+
+  def start_time_str
+    # strip because for some reason, ruby doesn't have a 12-hour NO blank-spaced parameter
+    start_time.strftime('%l:%M%P').strip
+  end
+
+  def end_time_str
+    end_time.strftime('%l:%M%P').strip
+  end
+
+  def genres_str
+    genre_names = []
+    genres.each do |genre|
+      genre_names << genre.name
+    end
+    genre_names.join ','
+  end
+
+  def artists_str
+    artists_names = []
+    performances.each do |performance|
+      artists_names << performance.artist.name
+    end
+    artists_names.join ','
+  end
+
+  def venue_str
+    return "" if venue.nil?
+    venue.name
+  end
+
+  after_initialize :defaults, unless: :persisted?
+
+  private
+    def defaults
+      # I would set this in the database, but the datetime would be static
+      # A gig is not going to be set in the past, so we set the datetimes here to get them fresh
+      self.start_time = Time.now
+      self.end_time = Time.now
+    end
+
+    def datetimes_must_be_in_the_future
+      # must be at least since 2 days ago (to adjust for timezones)
+      if start_time
+        errors.add(:start_time, 'must be in the future') if !(start_time > 2.days.since(Time.now).to_date)
+      end
+      if end_time
+        # TODO validate must be after start_time
+        errors.add(:end_time, 'must be in the future') if !(end_time > 2.days.since(Time.now).to_date)
+      end
+    end
 end

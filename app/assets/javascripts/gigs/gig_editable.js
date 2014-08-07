@@ -1,9 +1,20 @@
 $(document).on('ready page:load', function () {
 	function tokenInput(element, options_given) {
+		var prePopulateData = element.attr('value');
+		var prePopulate = [];
+		if(prePopulateData != "") {
+			var names = prePopulateData.split(',');
+			for(var i = 0; i < names.length; i++) {
+				prePopulate.push({name: names[i]});
+			}
+		}
+		
 		var options = {
 			queryParam: "search",
 			searchDelay: 150,
-			placeholder: element.attr('placeholder')
+			placeholder: element.attr('placeholder'),
+			// Prepopualte data stored in value attr, doesn't include ids because we don't need them
+			prePopulate: prePopulate
 		};
 		$.extend(options, options_given);
 		element.tokenInput(element.data("ajax"), options);
