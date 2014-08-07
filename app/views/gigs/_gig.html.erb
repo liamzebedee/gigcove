@@ -1,23 +1,24 @@
-<article class="gig">
-<div class="gig-inner">
+<article class="gig gig-readonly"><div class="gig-inner">
 
-<aside class="left">
-	<div>n
-		<p>$<%= gig.ticket_cost.to_i %></p>
-	</div>
-	
-	<div>
-		<p><time datetime="<%= gig.start_time.to_s %>"><%= gig.start_time.strftime("%b #{gig.from.to_date.day.ordinalize} at %H:%M") %></time></p>
-	</div>
-</aside>
+  <aside class="left">
+    <h2>Details <small><a href="<%= gig_path(gig) %>">Link</a></small></h2>
+    <div>
+      <span>Costs $</span><span class="ticket-cost"><%= gig.ticket_cost %></span>
+    </div>
+    
+    <div>
+	    <p class="gig-times">
+			Starts on the <span class="date start"/><%= gig.start_date_str %></span> at <span class="time start"><%= gig.start_time_str %></span> and goes till <span class="time end"><%= gig.end_time_str %></span>
+	    </p>
+    </div>
 
-<div class="main">
-	<a href="<%= gig_path(gig) %>"><h2><strong><%= gig.title %></strong> at <strong><%= gig.venue.name %></strong></h2></a>
-</div>
+    <div class="gig-venue">
+      <h2>Venue</h2>
+      <span class="gig-venue-name"><%= gig.venue.name %></span>
+      <span class="gig-venue-location"><a href="http://maps.google.com/?q=<%= gig.venue.location %>"><%= gig.venue.location %> <span class="glyphicon glyphicon-map-marker"></span></a></span>
+    </div>
 
-<aside class="right">
-	<a href="http://maps.google.com/?q=<%= gig.location %>"><p><%= gig.location %> <span class="glyphicon glyphicon-map-marker"></span></p></a>
-	<div>
+    <div>
 		<ul class="social-icons">
 		<% gig_url = url_with_host(gig_path(gig)) %>
 		<% gig_text = "Hey check out this gig I found" %>
@@ -28,8 +29,25 @@
 		<li><a class="social-icon email" href="mailto:?Subject=<%= gig_text %>&Body=<%= gig_url %>"></a> 
 		</ul>
 	</div>
-</aside>
+  </aside><!-- .left -->
 
-</div>
+  <div class="main">
+    <h1><span class="gig-title"><%= gig.title %></span></h1>
+    
+    <div>Source: <small><a class="link-to-source" href="<%= gig.link_to_source %>" ref="nofollow"><%= gig.link_to_source %></a></small></div>
+    
+    <div><p class="description"><%= gig.description %></p></div>
+    
+    <div>
+      <h3>Genres</h3>
+      <p class="gig-genres"><%= gig.genres_str %></p>
+    </div>
 
-</article>
+    <div>
+      <h3>Artists</h3>
+      <p class="gig-artists"><%= gig.artists_str %></p>
+    </div>
+
+  </div><!-- .main -->
+
+</div></article><!-- .gig -->

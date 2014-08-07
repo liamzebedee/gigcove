@@ -20,12 +20,12 @@ $(document).on('ready page:load', function () {
 		element.tokenInput(element.data("ajax"), options);
 	}
 
-	var gigGenres = $(".gig-genres");
-	var gigVenue = $(".gig-venue");
+	var gigGenres = $(".gig-editable .gig-genres");
+	var gigVenue = $(".gig-editable .gig-venue");
 	tokenInput(gigGenres, {
 		searchDelay: 100
 	});
-	tokenInput($('.gig-venue-name', gigVenue), {
+	tokenInput($('.gig-editable .gig-venue-name', gigVenue), {
 		searchDelay: 200,
 		tokenLimit: 1,
 		allowFreeTagging: true,
@@ -35,7 +35,7 @@ $(document).on('ready page:load', function () {
 		}
 	});
 
-	var gigArtists = $(".gig-artists");
+	var gigArtists = $(".gig-editable .gig-artists");
 	tokenInput(gigArtists, {
 		allowFreeTagging: true,
 		noResultsText: "No artists found - you can add this new artist by pressing [enter]",
@@ -43,18 +43,18 @@ $(document).on('ready page:load', function () {
 	});
 
 	// initialize input widgets first
-	$('.gig-times .input-time').timepicker({
+	$('.gig-editable .gig-times .input-time').timepicker({
 		'showDuration': true,
 		'timeFormat': 'g:ia'
 	});
 
-	$('.gig-times .input-date').datepicker({
+	$('.gig-editable .gig-times .input-date').datepicker({
 		'format': 'd/m/yyyy',
 		'autoclose': true
 	});
 
 	// initialize datepair
-	$('.gig-times').datepair();
+	$('.gig-editable .gig-times').datepair();
 
 
 
@@ -66,7 +66,7 @@ $(document).on('ready page:load', function () {
 
 
 	// on submit, collect all fields and replace their values into the hidden inputs
-	$(".gig-form").submit(function(event) {
+	$(".gig-form .gig-editable").submit(function(event) {
 		var gig = this;
 
 		// Set variables

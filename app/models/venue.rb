@@ -2,6 +2,12 @@ class Venue < ActiveRecord::Base
   validates_length_of :name, :minimum => 0, :maximum => 200, :allow_blank => false
   validates_length_of :location, :minimum => 0, :maximum => 300, :allow_blank => false
 
+  acts_as_mappable :default_units => :kms,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude
+
   # name, :string
   # location, :string
   # website, :text

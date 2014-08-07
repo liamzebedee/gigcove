@@ -41,8 +41,8 @@ class GigsController < ApplicationController
       return
     end
     
-    event_name = '“' + @gig.event_name + '” '
-    @page_title = 'Gig ' + (@gig.event_name == "" ? "" : event_name) + '@ ' + @gig.venue_name + ' on ' + @gig.from.strftime("%b #{@gig.from.to_date.day.ordinalize}")
+    title = '“' + @gig.title + '” '
+    @page_title = 'Gig '+title
     @page_description = ""
     render 'gigs/show'
   end

@@ -6,18 +6,20 @@ class Gig < ActiveRecord::Base
   validates_length_of :link_to_source, :minimum => 0, :maximum => 1000, :allow_blank => true
   validates_length_of :description, :minimum => 0, :maximum => 10000, :allow_blank => false
   validate :datetimes_must_be_in_the_future
-  
-  acts_as_mappable :default_units => :kms,
-                   :default_formula => :sphere,
-                   :distance_field_name => :distance,
-                   :lat_column_name => :latitude,
-                   :lng_column_name => :longitude
+
   
   has_many :performances
   belongs_to :venue, inverse_of: :gigs
   has_and_belongs_to_many :genres, inverse_of: :gigs
   
-  # link_to_source	:text
+  acts_as_mappable :default_units => :kms,
+                   :default_formula => :sphere,
+                   :distance_field_name => :distance,
+                   :lat_column_name => :latitude,
+                   :lng_column_name => :longitude,
+                   :through => :venue
+  
+  # link_to_source  :text
   # TODO hype		has_many Hypes
   # TODO rating		has_many Ratings
 
