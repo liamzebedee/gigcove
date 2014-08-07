@@ -38,8 +38,6 @@ gem 'spring',        group: :development
 
 # Use LESS for stylesheets
 gem 'less-rails'
-# Action-specific JS
-gem 'pluggable_js', '~> 2.0.0'
 
 gem 'devise'
 gem "cancan"
