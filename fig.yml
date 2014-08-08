@@ -11,15 +11,16 @@ mail:
 
 web:
   build: .
-  command: "bundle exec rackup -p 3000"
+  command: "bundle exec rackup -p 80"
   volumes:
     - .:/railsapp
   ports:
-    - "3000:3000"
+    - "80:80"
   links:
     - db
     - mail
   environment:
-    RACK_ENV:
-    SECRET_KEY_BASE:
+    RACK_ENV: production
+    RAILS_ENV: production
+    SECRET_KEY_BASE: f18e3d015bb06543e46934271f82e3d29023058e27470117d8f473f1de015fd007388b23d1bcab4579ece48eebbc8e28e299d3d67890d251d9728c17458be16c
   #dns: 127.0.0.1
