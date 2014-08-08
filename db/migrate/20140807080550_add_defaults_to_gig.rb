@@ -1,6 +1,5 @@
 class AddDefaultsToGig < ActiveRecord::Migration
   def change
-  	change_column_default :gigs, :
   	change_column_default :gigs, :ticket_cost, 0
   	change_column_default :gigs, :title, ""
   	change_column_default :gigs, :description, ""
