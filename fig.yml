@@ -20,6 +20,6 @@ web:
     - db
     - mail
   environment:
-    RACK_ENV: development
+    RACK_ENV:
     SECRET_KEY_BASE:
   #dns: 127.0.0.1
