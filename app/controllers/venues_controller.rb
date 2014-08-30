@@ -4,7 +4,7 @@ class VenuesController < ApplicationController
     # upper(name) makes case sensitivity not an issue when searching
     @venues = Venue.where("upper(name) LIKE upper(?)", "%#{params[:search]}%").limit(200)
     respond_to do |format|
-      format.json { render json: @genres }
+      format.json { render json: @venues }
     end
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807110542) do
+ActiveRecord::Schema.define(version: 20140808144043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20140807110542) do
   create_table "gigs", force: true do |t|
     t.decimal  "ticket_cost"
     t.datetime "start_time"
-    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "moderated",       default: false
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140807110542) do
     t.integer  "venue_id"
     t.text     "description"
     t.datetime "end_time"
+    t.string   "title"
   end
 
   create_table "performances", force: true do |t|

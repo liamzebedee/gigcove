@@ -4,8 +4,20 @@
 		<h2>The best place to discover live music gigs near you in Brisbane</h2>
 		<div class="call-to-actions">
 			<a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Search for gigs near me</a>
-			<a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Post gigs</a>
+			<a class="btn btn-success btn-lg" role="button" href="<%= new_gig_path %>">Post gigs</a>
 		</div>
 	</div>
 </section>
+<!--
+<section class="body">
+	<div class="">
+		<h2 class="page-header">Top venues <small><a href="">more venues</a></small></h2>
+		<%= render :partial => "venues/top_venues", :locals => {:venues => @top_venues} %>
+	</div>
 
+	<div class="">
+		<h2 class="page-header">Most-loved artists <small><a href="">more artists</a></small></h2>
+		<%= render :partial => "artists/top_artists", :locals => {:artists => @top_artists} %>
+	</div>
+</section>
+-->

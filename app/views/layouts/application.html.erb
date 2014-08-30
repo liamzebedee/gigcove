@@ -69,9 +69,13 @@
 
 	<!-- Desktop -->
 	<link rel="icon" type="image/png" href="/assets/images/icon.png">
-	<!-- iOS, Android -->
+	<!-- iOS -->
 	<link rel="apple-touch-icon-precomposed" href="/assets/images/icon-touch-precomposed.png">
-	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-startup-image" href="/assets/images/icon-touch-precomposed.png">
+	<!-- Android -->
+	<meta name="mobile-web-app-capable" content="yes">
+
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
 	<%= analytics_init if Rails.env.production? %>

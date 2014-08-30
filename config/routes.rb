@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root :to => 'pages#index'
   get 'contact', to: 'pages#contact'
 
-  resources :gigs do
+  resources :gigs, only: [:index, :new, :create, :show, :update] do
     collection do
       get 'unmoderated'
     end

@@ -1,4 +1,6 @@
 # coding: utf-8
+include Geokit::Geocoders
+
 class GigsController < ApplicationController
   def index
     @page_title = "Find gigs"
@@ -11,16 +13,16 @@ class GigsController < ApplicationController
     else
       if params[:search][:location] != ""
         # Try using location
-        latlng = Geocoder.coordinates(params[:search][:location])
+        latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
       elsif params[:search][:latitude] != nil && params[:search][:longitude] != nil
         latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
       else
         # XXX wrong error code, this is user's fault
         format.html { render status: :internal_server_error, :nothing => true }
       end
-      # Get all gigs in 150km radius that will be on within the next month
-      radius = 100
-      @gigs = Gig.near(latlng, radius, :units => :km).where(approved: true).where(:end_time => DateTime.now..DateTime.now.next_month)
+      distance_radius = 100
+      @gigs = Gig.where(approved: true, end_time: DateTime.now..DateTime.now.next_month)
+        .within(distance_radius, origin: latlng).includes(:venue)
       
       render 'gigs/index'
     end
@@ -48,10 +50,12 @@ class GigsController < ApplicationController
   end
   
   def create
-    # XXX captcha
   	gig = Gig.new(gig_params)
     gig.moderated = false
     gig.approved = false
+
+    gig.start_time = DateTime.iso8601(params[:gig][:start_time])
+    gig.end_time = DateTime.iso8601(params[:gig][:end_time])
 
     # process genres
     params[:gig][:genres].split(',').each do |genre_name|
@@ -90,6 +94,9 @@ class GigsController < ApplicationController
     # process approved
     approved = (params[:commit] == "approve" ? true : false)
 
+    gig.start_time = DateTime.iso8601(params[:gig][:start_time])
+    gig.end_time = DateTime.iso8601(params[:gig][:end_time])
+
     # process genres
     genres = []
     params[:gig][:genres].split(',').each do |genre_name|
@@ -115,6 +122,7 @@ class GigsController < ApplicationController
     # TODO may not exist
     venue = Venue.create_with(approved: false).find_by(name: params[:venue][:name])
     venue.approved = true
+    venue.save!
     
     gig.update_attributes(gig_params.slice(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description))
     gig.venue = venue
@@ -147,9 +155,11 @@ class GigsController < ApplicationController
   end
   
 private
+  
+  # TODO fix params
 
   def gig_params
-    params.require(:gig).permit(:ticket_cost, :start_time, :end_time, :title, :link_to_source, :description, :genres, :performances)
+    params.require(:gig).permit(:ticket_cost, :title, :link_to_source, :description)
   end
   
 end

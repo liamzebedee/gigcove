@@ -16,7 +16,7 @@ git push origin master # update repo
 mina deploy # mina adds code
 # manual start/stop of fig
 #!/bin/sh
-GIT_WORK_TREE=/home/git/gigcove git checkout -f
+GIT_WORK_TREE=/home/gigcove/gigcove-main.git GIT_DIR=/home/gigcove/gigcove-main.git git pull origin master
 
 ## Maintenance
 rake db:migrate RAILS_ENV=development
@@ -55,14 +55,4 @@ fig build
 fig up
 ```
 
-
-Issues:
- - cache invalidated upon file mtime change resulting from new git clone
-
-blank git repo
-hook to create new
-
-What I need:
- - git push to server
- - clones repo into file tree
- - simply rerun fig
+rsync -azP . git@gigcove.com:/home/git/gigcove-production

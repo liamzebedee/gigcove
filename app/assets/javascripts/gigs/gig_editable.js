@@ -1,8 +1,8 @@
 $(document).on('ready page:load', function () {
 	function tokenInput(element, options_given) {
-		var prePopulateData = element.attr('value');
+		var prePopulateData = element.attr('value') || "";
 		var prePopulate = [];
-		if(prePopulateData != "") {
+		if(prePopulateData.length > 0) {
 			var names = prePopulateData.split(',');
 			for(var i = 0; i < names.length; i++) {
 				prePopulate.push({name: names[i]});
@@ -25,7 +25,7 @@ $(document).on('ready page:load', function () {
 	tokenInput(gigGenres, {
 		searchDelay: 100
 	});
-	tokenInput($('.gig-editable .gig-venue-name', gigVenue), {
+	tokenInput($('.gig-venue-name', gigVenue), {
 		searchDelay: 200,
 		tokenLimit: 1,
 		allowFreeTagging: true,
@@ -59,14 +59,9 @@ $(document).on('ready page:load', function () {
 
 
 
-
-
-
-
-
-
 	// on submit, collect all fields and replace their values into the hidden inputs
-	$(".gig-form .gig-editable").submit(function(event) {
+	$(".gig-form").submit(function(event) {
+		event.preventDefault();
 		var gig = this;
 
 		// Set variables
@@ -157,6 +152,7 @@ $(document).on('ready page:load', function () {
 		$('#gig_description', gig).val(description);
 		$('#gig_genres', gig).val(genres);
 		$('#gig_performances', gig).val(performances);
-		console.log('done');
+
+		$(this)[0].submit();
 	});
 });
