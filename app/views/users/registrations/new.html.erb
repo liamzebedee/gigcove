@@ -12,6 +12,21 @@
   <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
 
+  <div><%= f.label :full_name %><br />
+    <%= f.text_field :full_name, autocomplete: "off" %></div>
+
+  <div><%= f.label :gender, :value => "Gender" %><br />
+    <div class="radio">
+      <label for="user_gender_male" class="radio-inline">
+        <%= f.radio_button :gender, "male" %>
+        Male
+      </label>
+      <label for="user_gender_female" class="radio-inline">
+        <%= f.radio_button :gender, "female" %>
+        Female
+      </label>
+  </div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
