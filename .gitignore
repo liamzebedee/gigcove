@@ -18,3 +18,5 @@
 SECRETS
 public/assets/**
 ownall.sh
+
+/doc/**

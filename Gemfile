@@ -43,6 +43,7 @@ gem 'less-rails'
 gem 'devise'
 gem "cancan"
 gem 'role_model'
+gem 'omniauth-facebook'
 
 gem 'geokit-rails'
 
