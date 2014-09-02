@@ -8,17 +8,145 @@ DONT THEORISE, TEST
  - add facebook login
  - add normal registration
  - add tests for this
- - add 'going' to gig pages
  - add 'share' button to gigs
  - add bg photo to gig event
  - add photos from instagram http://instagram.com/developer/realtime/
- - add ratings
  - SEO
 
 
 beta
  - add artist pages with mgmt functions
  - add venue pages with mgmt functions
+ - rating
+ - add 'going' to gig pages
+ - add ratings
+
+
+getting photos after an event
+#gigcove posted in location
+
+create_subscription(object, callback_url, aspect = "media", options = {})
+tag
+
+lat=-27.443747&lng=153.1718943
+
+{
+      "latitude": -27.443454,
+      "id": "116826064",
+      "longitude": 153.171466,
+      "name": "St Peters Church Hall"
+    },
+
+instagram only allows searching by recent in location/geography or tag, not both
+since the load would be smaller, try using #gigcove and filtering by location
+use streaming api
+distribute to each gig for moderation
+
+http://instagram.com/developer/endpoints/tags/
+
+MULTIPLE SUBSCRIPTIONS
+http://instagram.com/developer/realtime/
+
+Does anyone want to come learn latin dance this Sunday with me for FREE at South Bank? 
+
+
+
+
+
+
+
+To do just follow these steps.
+
+rails new multiple_image_upload_carrierwave
+In gem file
+
+gem 'carrierwave'
+bundle install
+rails generate uploader Avatar 
+Create post scaffold
+
+rails generate scaffold post title:string
+Create post_attachment scaffold
+
+rails generate scaffold post_attachment post_id:integer avatar:string
+
+rake db:migrate
+In post.rb
+
+class Post < ActiveRecord::Base
+   has_many :post_attachments
+   accepts_nested_attributes_for :post_attachments
+end
+In post_attachment.rb
+
+class PostAttachment < ActiveRecord::Base
+   mount_uploader :avatar, AvatarUploader
+   belongs_to :post
+end
+In post_controller.rb
+
+def show
+   @post_attachments = @post.post_attachments.all
+end
+
+def new
+   @post = Post.new
+   @post_attachment = @post.post_attachments.build
+end
+
+def create
+   @post = Post.new(post_params)
+
+   respond_to do |format|
+     if @post.save
+       params[:post_attachments]['avatar'].each do |a|
+          @post_attachment = @post.post_attachments.create!(:avatar => a, :post_id => @post.id)
+       end
+       format.html { redirect_to @post, notice: 'Post was successfully created.' }
+     else
+       format.html { render action: 'new' }
+     end
+   end
+ end
+
+ private
+   def post_params
+      params.require(:post).permit(:title, post_attachments_attributes: [:id, :post_id, :avatar])
+   end
+In views/posts/_form.html.erb
+
+<%= form_for(@post, :html => { :multipart => true }) do |f| %>
+   <div class="field">
+     <%= f.label :title %><br>
+     <%= f.text_field :title %>
+   </div>
+
+   <%= f.fields_for :post_attachments do |p| %>
+     <div class="field">
+       <%= p.label :avatar %><br>
+       <%= p.file_field :avatar, :multiple => true, name: "post_attachments[avatar][]" %>
+     </div>
+   <% end %>
+
+   <div class="actions">
+     <%= f.submit %>
+   </div>
+<% end %>
+In views/posts/show.html.erb
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<% @post_attachments.each do |p| %>
+  <%= image_tag p.avatar_url %>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
 
 
 
