@@ -15,7 +15,7 @@ class Venue < ActiveRecord::Base
   before_validation :geocode_address, :on => :update
 
   def geocode_address
-    if !address_geo.blank?
+    if !location.blank?
       geo = Geokit::Geocoders::MultiGeocoder.geocode(location)
       errors.add(:address, "Could not Geocode location") if !geo.success
       self.latitude, self.longitude = geo.lat, geo.lng if geo.success
@@ -23,7 +23,7 @@ class Venue < ActiveRecord::Base
   end
 
   def geocoded?
-    latitude? && longitude?
+    #latitude? && longitude?
   end
 
   def get_current_gigs

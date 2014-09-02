@@ -7,6 +7,10 @@
 <nav>
 	<div class="search">
 	<%= form_tag("/gigs", method: "get", remote: true, class: "search-gigs") do |f| %>
+		<!--<p class="lead">
+			Live music gigs near you in <input location> that are &npsp;$<input cost> and under.
+			Search
+		</p>-->
 		<p class="lead">Live music gigs near you in <span rel="popover" class="location" contenteditable placeholder="South Brisbane, Brisbane AU" data-content="Where are you?"></span> that are&nbsp;<span class="text-editable">$<span nobr><span class="max-ticket-cost" contenteditable placeholder="15"></span> and under</span>. <button type="submit" class="btn btn-primary" name="commit" value="search" data-style="expand-left"><span class="ladda-label"><span class="glyphicon glyphicon-search"></span> Search</span></button></p>
 		<%= hidden_field(:search, :location) %>
 		<%= hidden_field(:search, :latitude) %>

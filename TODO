@@ -1,12 +1,15 @@
 https://github.com/plataformatec/devise/wiki/OmniAuth%3a-Overview
 
+rapidly make mistakes
+DONT THEORISE, TEST
+
+
  - test gig search
  - add facebook login
  - add normal registration
  - add tests for this
  - add 'going' to gig pages
  - add 'share' button to gigs
- - add genres using ID3 data
  - add bg photo to gig event
  - add photos from instagram http://instagram.com/developer/realtime/
  - add ratings
@@ -28,22 +31,6 @@ ________________________
 
 
 add most hyped gigs + recent gigs
-
-
-
- - add register form
-   - add name
-   - add genres
-   - add user settings page (LINK WITH EMAIL IN HEADER MENU)
-   - add email confirmation + mailserver
-   - add FB login
-   http://stackoverflow.com/questions/tagged/devise
- - hype it up
- - manage
-
-most hyped gigs
-recent gigs
-
 
 how to retain users?
 they need to go back to the website frequently
