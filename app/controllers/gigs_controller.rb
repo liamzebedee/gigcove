@@ -3,7 +3,7 @@ include Geokit::Geocoders
 
 class GigsController < ApplicationController
   def index
-    @page_title = "Find gigs"
+    @page_title = "Find live music gigs"
     @page_description = "Find live music gigs near you"
     @gigs = []
     latlng = []
@@ -74,7 +74,7 @@ class GigsController < ApplicationController
     end
 
     # process venue
-    venue = Venue.create_with(approved: false, location: params[:venue][:location])
+    venue = Venue.create_with(approved: false, location: params[:venue][:location], cover_image: params[:venue][:cover_image])
       .find_or_create_by(name: params[:venue][:name])
     venue.save!
     gig.venue = venue

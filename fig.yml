@@ -23,4 +23,4 @@ web:
     RACK_ENV: development
     RAILS_ENV: development
     SECRET_KEY_BASE: f18e3d015bb06543e46934271f82e3d29023058e27470117d8f473f1de015fd007388b23d1bcab4579ece48eebbc8e28e299d3d67890d251d9728c17458be16c
-  dns: 127.0.0.1
+  #dns: 127.0.0.1

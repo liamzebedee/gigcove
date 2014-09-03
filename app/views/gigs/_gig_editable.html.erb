@@ -18,9 +18,16 @@
 
     <div class="gig-venue">
       <h2>Venue</h2>
-      <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue_str %>"/>
-      <strong>Location: </strong><span class="gig-venue-location" contenteditable placeholder="Enter the venue's location"><%= gig.venue.location if not gig.venue.nil? %></span>
       <%= fields_for :venue, gig.venue do |venue_fields| %>
+        <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue_str %>"/>
+        <% if gig.venue.nil? %>
+          <%= venue_fields.file_field :cover_image %>
+        <% else %>
+        <%= gig.venue.cover_image.url %>
+          <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
+        <% end %>
+
+        <strong>Location: </strong><span class="gig-venue-location" contenteditable placeholder="Enter the venue's location"><%= gig.venue.location if not gig.venue.nil? %></span>
         <%= venue_fields.hidden_field(:name) %>
         <%= venue_fields.hidden_field(:location) %>
       <% end %>

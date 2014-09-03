@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831074627) do
+ActiveRecord::Schema.define(version: 20140903091607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,18 +36,18 @@ ActiveRecord::Schema.define(version: 20140831074627) do
   end
 
   create_table "gigs", force: true do |t|
-    t.decimal  "ticket_cost"
+    t.decimal  "ticket_cost",     default: 0.0
     t.datetime "start_time"
+    t.string   "title",           default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "moderated",       default: false
     t.boolean  "approved",        default: false
     t.integer  "age_restriction"
-    t.text     "link_to_source"
+    t.text     "link_to_source",  default: ""
     t.integer  "venue_id"
-    t.text     "description"
+    t.text     "description",     default: ""
     t.datetime "end_time"
-    t.string   "title"
   end
 
   create_table "performances", force: true do |t|
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140831074627) do
     t.float    "latitude"
     t.float    "longitude"
     t.boolean  "approved"
+    t.string   "cover_image"
   end
 
 end

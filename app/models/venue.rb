@@ -11,20 +11,10 @@ class Venue < ActiveRecord::Base
 
   acts_as_mappable :distance_field_name => :distance,
     :lat_column_name => :latitude,
-    :lng_column_name => :longitude
-  before_validation :geocode_address, :on => :update
+    :lng_column_name => :longitude,
+    :auto_geocode => {:field => :location, :error_message => 'Could not geocode location'}
 
-  def geocode_address
-    if !location.blank?
-      geo = Geokit::Geocoders::MultiGeocoder.geocode(location)
-      errors.add(:address, "Could not Geocode location") if !geo.success
-      self.latitude, self.longitude = geo.lat, geo.lng if geo.success
-    end
-  end
-
-  def geocoded?
-    #latitude? && longitude?
-  end
+  mount_uploader :cover_image, CoverImageUploader
 
   def get_current_gigs
     self.gigs.where("start_time >= ?", DateTime.now).limit(10)

@@ -77,7 +77,7 @@ Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
 # Be aware that there are Terms of Use restrictions on how you can use the
 # various geocoders.  Make sure you read up on relevant Terms of Use for each
 # geocoder you are going to use.
-Geokit::Geocoders::provider_order = [:mapquest]
+Geokit::Geocoders::provider_order = [:map_quest]
 
 # The IP provider order. Valid symbols are :ip,:geo_plugin.
 # As before, make sure you read up on relevant Terms of Use for each.
