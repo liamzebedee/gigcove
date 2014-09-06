@@ -15,7 +15,7 @@
 	
 	<ul class="nav navbar-nav navbar-right">
 		<% if user_signed_in? %>
-			<a href="<%= edit_user_registration_path %>"><button type="button" class="btn btn-primary navbar-btn"><strong><%= current_user.email %></strong></button></a>
+			<a href="<%= edit_user_registration_path %>"><button type="button" class="btn btn-primary navbar-btn"><strong><%= current_user.full_name %></strong></button></a>
 			<a href="<%= destroy_user_session_path %>" data-method="delete"><button type="button" class="btn btn-primary navbar-btn">Sign out</button></a>
 		<% else %>
 			<a href="<%=  new_user_session_path %>"><button type="button" class="btn btn-primary navbar-btn">Sign in</button></a>

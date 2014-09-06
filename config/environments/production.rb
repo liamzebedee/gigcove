@@ -85,7 +85,9 @@ Rails.application.configure do
   # Google Analytics
   GA.tracker = "UA-47473342-1"
   
-  
+  # Host
+  Rails.application.routes.default_url_options[:host] = 'gigcove.com'
+
   # Devise
   config.action_mailer.default_url_options = { :host => 'gigcove.com' }
   config.action_mailer.default_options = {

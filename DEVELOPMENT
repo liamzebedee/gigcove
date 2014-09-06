@@ -1,6 +1,7 @@
 DOCS:
 http://api.rubyonrails.org/
 https://github.com/Instagram/instagram-ruby-gem
+http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#configure-instance_method
 
  - create test for model/controller
  - implement functionality

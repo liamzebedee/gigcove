@@ -5,12 +5,23 @@ DONT THEORISE, TEST
 
 
  - test gig search
- - add facebook login
  - add 'share' button to gigs
- https://developers.facebook.com/docs/plugins/share-button
+   https://developers.facebook.com/docs/plugins/share-button
  - add bg photo to gig event
  - add photos from instagram http://instagram.com/developer/realtime/
  - SEO
+
+
+problem: 
+how to get an image for each venue as submitted by the user?
+add has_many cover images field
+
+
+songhere
+open app
+starts streaming music
+anyone in immediate proximity can join via bluetooth/network
+shows picture of their face
 
 
 beta
@@ -19,21 +30,10 @@ beta
  - rating
  - add 'going' to gig pages
  - add ratings
+ - instagram use code to re-request access_token 
+ http://instagram.com/developer/authentication/ - server side explicit auth
+ http://stackoverflow.com/questions/12563259/ruby-on-rails-thread-execution-and-logging
 
-
-getting photos after an event
-#gigcove posted in location
-
-create_subscription(#gigcove)
-on_receive_gigcove_tagged_media:
-  get location -> see if matches any venue titles
-  get lat/lng -> search for venues nearby
-  if venue found - 
-
-    verify time within 1 day of gig date.day
-
-create_subscription(object, callback_url, aspect = "media", options = {})
-tag
 
 lat=-27.443747&lng=153.1718943
 

@@ -22,5 +22,9 @@ module Railsapp
     
     # Bootstrap CSS/LESS requires this
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
+
+    config.after_initialize do
+        InstagramController.init_subscriptions
+    end
   end
 end
