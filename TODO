@@ -35,6 +35,18 @@ beta
  http://stackoverflow.com/questions/12563259/ruby-on-rails-thread-execution-and-logging
 
 
+Testing
+Instagram.client.create_subscription(:object => 'tag', :callback_url => Rails.application.routes.url_helpers.instagram_subscription_callback_url, :aspect => "media", :object_id => "selfie")
+
+
+curl -F 'client_id=dd175e9ccb5247a3af84707ca4a420f3' \
+     -F 'client_secret=b1ebf646b4754449a340e81283af05b8' \
+     -F 'object=tag' \
+     -F 'aspect=media' \
+     -F 'object_id=nofilter' \
+     -F 'callback_url=http://gigcove.com/instagram/subscription_callback' \
+     https://api.instagram.com/v1/subscriptions/
+
 lat=-27.443747&lng=153.1718943
 
 {

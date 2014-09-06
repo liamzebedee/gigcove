@@ -26,4 +26,5 @@
 //= require datepair
 //= require timepicker
 //= require moment
+//= require nprogress
 //= require_tree .

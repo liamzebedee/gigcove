@@ -12,5 +12,6 @@
  *= require token-input
  *= require datepicker3
  *= require timepicker
+ *= require nprogress
  *= require_tree .
  */

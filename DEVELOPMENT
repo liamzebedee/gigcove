@@ -14,6 +14,11 @@ http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#
  - deploy
 
 
+## Deployment
+ssh
+cd /home/git/gigcove-production
+
+
 
 how to add gems:
 add line in gemfile
