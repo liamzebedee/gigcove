@@ -13,7 +13,7 @@ $(document).on('ready page:load', function () {
 			queryParam: "search",
 			searchDelay: 150,
 			placeholder: element.attr('placeholder'),
-			// Prepopualte data stored in value attr, doesn't include ids because we don't need them
+			// Prepopulate data stored in value attr, doesn't include ids because we don't need them
 			prePopulate: prePopulate
 		};
 		$.extend(options, options_given);
@@ -30,7 +30,7 @@ $(document).on('ready page:load', function () {
 		tokenLimit: 1,
 		allowFreeTagging: true,
 		onFreeTaggingAdd: function(hidden_input, token) {
-			$('.gig-venue-location', gigVenue).show();
+			$('.new-venue-info', gigVenue).show();
 			return hidden_input;
 		}
 	});
@@ -56,6 +56,18 @@ $(document).on('ready page:load', function () {
 	// initialize datepair
 	$('.gig-editable .gig-times').datepair();
 
+	var coverImageFileInput = $('#venue_cover_image');
+	var coverImageSelectButton = $('#venue-select-cover-image');
+	coverImageSelectButton.click(function(){
+		coverImageFileInput.click();
+	});
+	coverImageFileInput.change(function(){
+		var files = coverImageFileInput.prop('files');
+		if(files.length > 0) {
+			coverImageSelectButton.text(files[0].name);
+		}
+		coverImageSelectButton.blur();
+	});
 
 
 
@@ -103,7 +115,7 @@ $(document).on('ready page:load', function () {
 		}
 
 		var venueLocationJQ = $(".gig-venue-location", gig);
-		var venueLocation = venueLocationJQ.text();
+		var venueLocation = venueLocationJQ.val();
 		if(!venueLocationJQ.is(":hidden") && venueLocation == "") {
 			venueLocationJQ.createPopover("Where is the venue?");
 			return false;
@@ -153,6 +165,7 @@ $(document).on('ready page:load', function () {
 		$('#gig_genres', gig).val(genres);
 		$('#gig_performances', gig).val(performances);
 
+		// Get form element of JQuery object
 		$(this)[0].submit();
 	});
 });

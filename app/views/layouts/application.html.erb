@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <!--
 	Built by Liam Edwards-Playne <liamz.co>
---->
+-->
 <html dir="ltr" lang="en" itemscope itemtype="http://schema.org/Article">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 
 	<!-- Never cache. Ever. -->
 	<meta http-equiv="cache-control" content="max-age=0" />
@@ -29,7 +29,7 @@
 	<% page_modified_time = @page_modified_time %>
 	<% page_url = request.original_url %>
 	<% page_tags = @page_tags ? @page_tags : [] %>
-  <title><%= page_title %></title>
+	<title><%= page_title %></title>
 	<meta name="description" content="<%= raw page_description %>" />
 
 	<meta itemprop="name" content="<%= raw page_title %>">
@@ -68,11 +68,13 @@
 
 
 	<!-- Desktop -->
-	<link rel="icon" type="image/png" href="/assets/images/icon.png">
+	<link rel="icon" type="image/png" href="<%= image_path 'icon.png' %>">
 	<!-- iOS -->
-	<link rel="apple-touch-icon-precomposed" href="/assets/images/icon-touch-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="<%= image_path 'icon-touch-precomposed.png' %>">
+	<link rel="apple-touch-icon" href="<%= image_path 'icon-touch-precomposed.png' %>">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-startup-image" href="/assets/images/icon-touch-precomposed.png">
+	<!--<link rel="apple-touch-startup-image" href="<%= image_path 'icon-touch-precomposed.png' %>">-->
+	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- Android -->
 	<meta name="mobile-web-app-capable" content="yes">
 

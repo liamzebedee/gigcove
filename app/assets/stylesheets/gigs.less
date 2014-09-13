@@ -1,18 +1,17 @@
 @import "util.less";
 
 .gig-editable {
-	.left {
-		.gig-venue-location {
-			display: none;
-		}
-	}
-	.main {
-		.description { min-height: 5em; }
-	}
+	.description { min-height: 5em; }
 	input {
 		border: none;
 		background: none;
 		display: inline-block;
+	}
+	#venue_cover_image { display: none; }
+}
+.gig-form:not(.gig-approve-form) {
+	.new-venue-info {
+		display: none;
 	}
 }
 

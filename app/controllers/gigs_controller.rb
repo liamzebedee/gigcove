@@ -13,7 +13,7 @@ class GigsController < ApplicationController
     else
       if params[:search][:location] != ""
         # Try using location
-        # TODO latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
+        latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
       elsif params[:search][:latitude] != nil && params[:search][:longitude] != nil
         latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
       else
@@ -21,9 +21,8 @@ class GigsController < ApplicationController
         format.html { render status: :internal_server_error, :nothing => true }
       end
       distance_radius = 100
-      # .where(approved: true, end_time: DateTime.now..DateTime.now.next_month)
-      @gigs = Gig.joins(:venue).within(distance_radius, origin: latlng)
-      logger.debug @gigs.length
+
+      @gigs = Gig.joins(:venue).within(distance_radius, origin: latlng).where(approved: true, end_time: DateTime.now..DateTime.now.next_month)
       render 'gigs/index'
     end
     
@@ -43,7 +42,7 @@ class GigsController < ApplicationController
       return
     end
     
-    title = '“' + @gig.title + '” '
+    #title = '“' + @gig.title + '” '
     @page_title = 'Gig '+title
     @page_description = ""
     render 'gigs/show'

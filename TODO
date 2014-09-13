@@ -4,24 +4,15 @@ rapidly make mistakes
 DONT THEORISE, TEST
 
 
- - test gig search
  - add 'share' button to gigs
    https://developers.facebook.com/docs/plugins/share-button
  - add bg photo to gig event
+ - rewrite form submission process
+ - make controller methods private
+ - fix params and security
  - add photos from instagram http://instagram.com/developer/realtime/
  - SEO
 
-
-problem: 
-how to get an image for each venue as submitted by the user?
-add has_many cover images field
-
-
-songhere
-open app
-starts streaming music
-anyone in immediate proximity can join via bluetooth/network
-shows picture of their face
 
 
 beta

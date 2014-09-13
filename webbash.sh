@@ -1,0 +1,1 @@
+fig run web bash

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140903091607) do
+ActiveRecord::Schema.define(version: 20140912055508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,21 @@ ActiveRecord::Schema.define(version: 20140903091607) do
     t.integer  "venue_id"
     t.text     "description",     default: ""
     t.datetime "end_time"
+  end
+
+  create_table "instagram_apis", force: true do |t|
+    t.integer  "new_media_count"
+    t.integer  "last_seen_instagram_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "instagram_media", force: true do |t|
+    t.text     "link"
+    t.integer  "instagram_id"
+    t.datetime "created_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "performances", force: true do |t|

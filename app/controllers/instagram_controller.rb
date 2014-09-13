@@ -4,16 +4,7 @@ require "instagram"
 # We should subscribe to both location/latlng
 
 
-# class InstagramMedia
-# 	link # http://instagr.am/p/BWl6P/
-# 	id # 22699663
-# 	created_time # 1296703540
-# end
-
 # class InstagramData
-# 	attr_accessible :new_media_count
-# 	last_seen_id
-
 # 	on_change in new_media_count :update
 
 # 	def update
@@ -88,12 +79,14 @@ class InstagramController < ApplicationController
 
 			#Instagram.process_subscription('[{"changed_aspect": "media", "object": "tag", "object_id": "nofilter", "time": 1409977088, "subscription_id": 11720800, "data": {}}]') { |handler| handler.on_tag_changed { |tag_id, data| puts '1' } }
 			Instagram.process_subscription(request.raw_post) do |handler|
-				handler.on_tag_changed do |tag_id, data|
-					new_media_count += 1 #if tag_id == '#gigcove'
-				end
+				
+				#handler.on_tag_changed do |tag_id, data|
+				#	new_media_count += 1 #if tag_id == '#gigcove'
+				#end
 			end
 
-			Rails.logger.info new_media_count
+			
+
 			#InstagramData.new_media_count += new_media_temp
 		#else
 		#	render text: "not authorized", status: 401

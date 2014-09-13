@@ -27,4 +27,5 @@
 //= require timepicker
 //= require moment
 //= require nprogress
+//= require jquery-numeric
 //= require_tree .

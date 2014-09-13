@@ -3,13 +3,13 @@
   <aside class="left">
     <h2>Details</h2>
     <div>
-      <span>Costs $</span><span class="ticket-cost" contenteditable="true" placeholder="<%= gig.ticket_cost.to_i %>"></span>
+      <span>Costs $</span><input type="number" min="0" max="100" pattern="[0-9]*" class="ticket-cost" placeholder="<%= gig.ticket_cost.to_i %>"/>
       <%= f.hidden_field(:ticket_cost) %>
     </div>
     
     <div>
     <p class="gig-times">
-      <span>Starts on the </span><input type="text" class="input-date start" placeholder="dd/mm/yyyy" value="<%= gig.start_date_str %>"/> at <input type="text" class="input-time start" placeholder="time" value="<%= gig.start_time_str %>"/><span> and goes till </span><input type="text" class="input-time end" placeholder="time" value="<%= gig.end_time_str %>"/>
+      <span>Starts on the </span><input type="text" class="input-date start" placeholder="dd/mm/yyyy" value="<%= gig.start_date_str %>"> at <input type="text" class="input-time start" placeholder="time" value="<%= gig.start_time_str %>"/><span> and goes till </span><input type="text" class="input-time end" placeholder="time" value="<%= gig.end_time_str %>"/>
     </p>
 
     <%= f.hidden_field(:start_time) %>
@@ -20,16 +20,22 @@
       <h2>Venue</h2>
       <%= fields_for :venue, gig.venue do |venue_fields| %>
         <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue_str %>"/>
-        <% if gig.venue.nil? %>
-          <%= venue_fields.file_field :cover_image %>
-        <% else %>
-        <%= gig.venue.cover_image.url %>
-          <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
-        <% end %>
 
-        <strong>Location: </strong><span class="gig-venue-location" contenteditable placeholder="Enter the venue's location"><%= gig.venue.location if not gig.venue.nil? %></span>
+        <div class="new-venue-info">
+          <% if gig.venue.nil? %>
+            <%= venue_fields.file_field :cover_image, { accept: "image/*" } %>
+            <strong><span class="glyphicon glyphicon-picture"></span> Cover image: </strong><button type="button" class="btn btn-primary" id="venue-select-cover-image">Select</button><br>
+          <% else %>
+            <%= gig.venue.cover_image.url %>
+            <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
+          <% end %>
+
+          <strong><span class="glyphicon glyphicon-map-marker"></span> Location: </strong><input type="text" class="gig-venue-location" placeholder="12 Example St, Manly, Brisbane" value="<%= gig.venue.location if not gig.venue.nil? %>"></input>
+        </div>
+
         <%= venue_fields.hidden_field(:name) %>
         <%= venue_fields.hidden_field(:location) %>
+
       <% end %>
     </div>
   </aside><!-- .left -->
@@ -48,13 +54,13 @@
       <h3>Genres</h3>
       <input type="text" class="gig-genres" data-ajax="<%= genres_path %>" placeholder="What types of music will be playing?" value="<%= gig.genres_str %>"/>
     </div>
-    <%= f.hidden_field(:genres, value: "") %>
+    <%= f.hidden_field(:genres, value: gig.genres_str) %>
 
     <div>
       <h3>Artists</h3>
       <input type="text" class="gig-artists" data-ajax="<%= artists_path %>" placeholder="Who's playing?" value="<%= gig.artists_str %>"/>
     </div>
-    <%= f.hidden_field(:performances, value: "") %>
+    <%= f.hidden_field(:performances, value: gig.artists_str) %>
 
   </div><!-- .main -->
 
