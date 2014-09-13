@@ -11,9 +11,8 @@ DONT THEORISE, TEST
  - make controller methods private
  - fix params and security
  - add photos from instagram http://instagram.com/developer/realtime/
- - SEO
-
-
+ - feedback form
+ - fix mapping so that we always prompt the user for the correct address
 
 beta
  - add artist pages with mgmt functions

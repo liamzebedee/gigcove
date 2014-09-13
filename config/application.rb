@@ -26,5 +26,8 @@ module Railsapp
     config.after_initialize do
         InstagramController.init_subscriptions
     end
+
+    config.time_zone = "Brisbane"
+    config.active_record.default_timezone = :local
   end
 end

@@ -4,4 +4,15 @@ class Artist < ActiveRecord::Base
   # website   :text
   # name 			:string
   has_many :performances, inverse_of: :artist
+
+  after_initialize do 
+    defaults if self.new_record?
+  end
+
+  private
+
+  def defaults
+  	@approved = false
+  	@moderated = false
+  end
 end

@@ -1,7 +1,8 @@
 // So this works with turbolinks
 var ready = function(){	
 	$("[contenteditable=true]").contentEditable();
-	$('input[type="number"]').numeric();
+	$('span[type="number"]').numeric();
+	
 	
 	$(".gig-approve-form").on("ajax:success", function(e, data, status, xhr){
 		$(this).parents('.gig-row').addClass('moderated');

@@ -2,9 +2,12 @@
 class VenuesController < ApplicationController
   def index
     # upper(name) makes case sensitivity not an issue when searching
-    @venues = Venue.where("upper(name) LIKE upper(?)", "%#{params[:search]}%").limit(200)
+    # params[:approved]
+    venues = Venue.where(approved: false).where("upper(name) LIKE upper(?)", "%#{params[:search]}%").limit(200)
+    @venues_filtered = venues.map { |venue| {:id => venue.id, :name => venue.name} }
     respond_to do |format|
-      format.json { render json: @venues }
+      format.json { render json: @venues_filtered }
+      format.html { render json: @venues_filtered }
     end
   end
 

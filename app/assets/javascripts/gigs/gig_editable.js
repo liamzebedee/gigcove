@@ -1,73 +1,100 @@
 $(document).on('ready page:load', function () {
-	function tokenInput(element, options_given) {
-		var prePopulateData = element.attr('value') || "";
-		var prePopulate = [];
-		if(prePopulateData.length > 0) {
-			var names = prePopulateData.split(',');
-			for(var i = 0; i < names.length; i++) {
-				prePopulate.push({name: names[i]});
+	$('.gig-form').each(function(index, gigForm){
+		function tokenInput(element, options_given) {
+			var prePopulateData = $(element).attr('value') || "";
+			var prePopulate = [];
+			if(prePopulateData.length > 0) {
+				var names = prePopulateData.split(',');
+				for(var i = 0; i < names.length; i++) {
+					prePopulate.push({name: names[i]});
+				}
 			}
+			
+			var options = {
+				queryParam: "search",
+				searchDelay: 150,
+				placeholder: $(element).attr('placeholder'),
+				// Prepopulate data stored in value attr, doesn't include ids because we don't need them
+				prePopulate: prePopulate
+			};
+			$.extend(options, options_given);
+			$(element).tokenInput($(element).data("ajax"), options);
 		}
 		
-		var options = {
-			queryParam: "search",
-			searchDelay: 150,
-			placeholder: element.attr('placeholder'),
-			// Prepopulate data stored in value attr, doesn't include ids because we don't need them
-			prePopulate: prePopulate
-		};
-		$.extend(options, options_given);
-		element.tokenInput(element.data("ajax"), options);
-	}
+		var gigGenres = $(".gig-genres", gigForm);
+		tokenInput(gigGenres, {
+			searchDelay: 50
+		});
 
-	var gigGenres = $(".gig-editable .gig-genres");
-	var gigVenue = $(".gig-editable .gig-venue");
-	tokenInput(gigGenres, {
-		searchDelay: 100
-	});
-	tokenInput($('.gig-venue-name', gigVenue), {
-		searchDelay: 200,
-		tokenLimit: 1,
-		allowFreeTagging: true,
-		onFreeTaggingAdd: function(hidden_input, token) {
-			$('.new-venue-info', gigVenue).show();
-			return hidden_input;
-		}
+		var gigVenue = $(".gig-venue", gigForm);
+		tokenInput($('.gig-venue-name', gigVenue), {
+			searchDelay: 200,
+			tokenLimit: 1,
+			allowFreeTagging: true,
+			onFreeTaggingAdd: function(hidden_input, token) {
+				$('.new-venue-info', gigVenue).show();
+				return hidden_input;
+			},
+			onDelete: function() {
+				$('.new-venue-info', gigVenue).hide();
+			}
+		});
+
+		var gigArtists = $(".gig-artists", gigForm);
+		tokenInput(gigArtists, {
+			allowFreeTagging: true,
+			noResultsText: "No artists found - you can add this new artist by pressing [enter]",
+			searchDelay: 300
+		});
+
+
+
+
+
+
+
+
+		// initialize input widgets first
+		$('.gig-times .input-time', gigForm).timepicker({
+			'showDuration': true,
+			'timeFormat': 'g:ia'
+		}).on('changeTime', function(e){
+			// TODO XXX DIRTY HACK
+			$(this).text($(this).data('ui-timepicker-value'));
+		});
+
+
+		$('.gig-times .input-date', gigForm).datepicker({
+			'format': 'd/m/yyyy',
+			'autoclose': true
+		}).on('changeDate', function(e){
+			var dateFormatted = e.format(0); // 0 = first date
+			$(this).text(dateFormatted);
+		});
+
+		// initialize datepair
+		$('.gig-times', gigForm).datepair();
+
+		var coverImageFileInput = $('#venue_cover_image', gigForm);
+		var coverImageSelectButton = $('#venue-select-cover-image', gigForm);
+		coverImageSelectButton.click(function(){
+			coverImageFileInput.click();
+		});
+		coverImageFileInput.change(function(){
+			var files = coverImageFileInput.prop('files');
+			if(files.length > 0) {
+				coverImageSelectButton.text(files[0].name);
+			}
+			coverImageSelectButton.blur();
+		});
+
 	});
 
-	var gigArtists = $(".gig-editable .gig-artists");
-	tokenInput(gigArtists, {
-		allowFreeTagging: true,
-		noResultsText: "No artists found - you can add this new artist by pressing [enter]",
-		searchDelay: 300
-	});
 
-	// initialize input widgets first
-	$('.gig-editable .gig-times .input-time').timepicker({
-		'showDuration': true,
-		'timeFormat': 'g:ia'
-	});
 
-	$('.gig-editable .gig-times .input-date').datepicker({
-		'format': 'd/m/yyyy',
-		'autoclose': true
-	});
 
-	// initialize datepair
-	$('.gig-editable .gig-times').datepair();
 
-	var coverImageFileInput = $('#venue_cover_image');
-	var coverImageSelectButton = $('#venue-select-cover-image');
-	coverImageSelectButton.click(function(){
-		coverImageFileInput.click();
-	});
-	coverImageFileInput.change(function(){
-		var files = coverImageFileInput.prop('files');
-		if(files.length > 0) {
-			coverImageSelectButton.text(files[0].name);
-		}
-		coverImageSelectButton.blur();
-	});
+
 
 
 
@@ -84,10 +111,10 @@ $(document).on('ready page:load', function () {
 		}
 
 		function getDatetimeForPicker(date, time) {
-			return moment(date + ' ' + time, 'D/M/YYYY hh:mma').zone(new Date().getTimezoneOffset()).toISOString();
+			return moment(date + ' ' + time, 'D/M/YYYY hh:mma').toISOString();
 		}
-		var startDate = $('.gig-times .input-date.start').val();
-		var startTime = $('.gig-times .input-time.start').val();
+		var startDate = $('.gig-times .input-date.start').text();
+		var startTime = $('.gig-times .input-time.start').text();
 		var startDatetime = getDatetimeForPicker(startDate, startTime);
 		if(startDate == "") {
 			$('.gig-times .input-date.start', gig).createPopover('What day is the gig?');
@@ -98,24 +125,28 @@ $(document).on('ready page:load', function () {
 			return false;
 		}
 
-		var endTime = $('.gig-times .input-time.end').val();
+		var endTime = $('.gig-times .input-time.end').text();
 		var endDatetime = getDatetimeForPicker(startDate, endTime);
 		if(endTime == "") {
 			$('.gig-times .input-time.end', gig).createPopover('When does the gig end?');
 			return false;
 		}
 
-		var venueNameJQ = ($(".gig-venue-name", gig).tokenInput("get"));
+		var venueNameJQ = $(".gig-venue-name", gig).tokenInput("get");
 		var venueName;
+		var venueId;
 		if(venueNameJQ.length == 0 || venueNameJQ[0].name == "") {
 			$('.gig-venue-name', gig).createPopover("What venue is the gig at?");
 			return false;
+		} else if($(".new-venue-info").is(":hidden")) {
+			// Preexisting venue, just use id
+			venueId = venueNameJQ[0].id;
 		} else {
 			venueName = venueNameJQ[0].name;
 		}
 
 		var venueLocationJQ = $(".gig-venue-location", gig);
-		var venueLocation = venueLocationJQ.val();
+		var venueLocation = venueLocationJQ.text();
 		if(!venueLocationJQ.is(":hidden") && venueLocation == "") {
 			venueLocationJQ.createPopover("Where is the venue?");
 			return false;
@@ -159,6 +190,7 @@ $(document).on('ready page:load', function () {
 		$('#gig_end_time', gig).val(endDatetime);
 		$('#venue_name', gig).val(venueName);
 		$('#venue_location', gig).val(venueLocation);
+		$('#venue_id', gig).val(venueId);
 		$('#gig_title', gig).val(title);
 		$('#gig_link_to_source', gig).val(linkToSource)
 		$('#gig_description', gig).val(description);

@@ -3,13 +3,13 @@
   <aside class="left">
     <h2>Details</h2>
     <div>
-      <span>Costs $</span><input type="number" min="0" max="100" pattern="[0-9]*" class="ticket-cost" placeholder="<%= gig.ticket_cost.to_i %>"/>
+      <span>Costs $</span><span contenteditable type="number" min="0" max="100" pattern="[0-9]*" class="ticket-cost"><%= gig.ticket_cost.to_i %></span>
       <%= f.hidden_field(:ticket_cost) %>
     </div>
     
     <div>
     <p class="gig-times">
-      <span>Starts on the </span><input type="text" class="input-date start" placeholder="dd/mm/yyyy" value="<%= gig.start_date_str %>"> at <input type="text" class="input-time start" placeholder="time" value="<%= gig.start_time_str %>"/><span> and goes till </span><input type="text" class="input-time end" placeholder="time" value="<%= gig.end_time_str %>"/>
+      <span>Starts on the <span contenteditable class="input-date start" placeholder="dd/mm/yyyy"><%= gig.start_date_str %></span> at <span type="text" class="input-time start" placeholder="time"><%= gig.start_time_str %></span><span> and goes till </span><span size=7 type="text" class="input-time end" placeholder="time"><%= gig.end_time_str %></span>
     </p>
 
     <%= f.hidden_field(:start_time) %>
@@ -19,7 +19,8 @@
     <div class="gig-venue">
       <h2>Venue</h2>
       <%= fields_for :venue, gig.venue do |venue_fields| %>
-        <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue_str %>"/>
+      <% if gig.new_record? %>
+        <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue.name %>"/>
 
         <div class="new-venue-info">
           <% if gig.venue.nil? %>
@@ -30,12 +31,13 @@
             <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
           <% end %>
 
-          <strong><span class="glyphicon glyphicon-map-marker"></span> Location: </strong><input type="text" class="gig-venue-location" placeholder="12 Example St, Manly, Brisbane" value="<%= gig.venue.location if not gig.venue.nil? %>"></input>
+          <strong><span class="glyphicon glyphicon-map-marker"></span> Location: </strong><span contenteditable class="gig-venue-location" placeholder="12 Example Street, South Bank QLD 4000, Australia"><%= gig.venue.location if not gig.venue.nil? %></span>
         </div>
 
-        <%= venue_fields.hidden_field(:name) %>
-        <%= venue_fields.hidden_field(:location) %>
-
+          <%= venue_fields.hidden_field(:name, {value: gig.venue.name}) %>
+          <%= venue_fields.hidden_field(:location, {value: gig.venue.location}) %>
+          <%= venue_fields.hidden_field(:id) %>
+        <% end %>
       <% end %>
     </div>
   </aside><!-- .left -->
