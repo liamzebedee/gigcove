@@ -23,6 +23,6 @@ Rails.application.routes.draw do
 
   resources :genres, only: [:index] do
   end
-  resources :venues, only: [:index, :show]
+  resources :venues, only: [:index, :show, :edit]
   resources :artists, only: [:index, :show]
 end

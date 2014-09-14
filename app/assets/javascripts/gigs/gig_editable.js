@@ -102,6 +102,7 @@ $(document).on('ready page:load', function () {
 	$(".gig-form").submit(function(event) {
 		event.preventDefault();
 		var gig = this;
+		var isModerationForm = $(this).hasClass('gig-approve-form');
 
 		// Set variables
 		// -------------
@@ -132,24 +133,32 @@ $(document).on('ready page:load', function () {
 			return false;
 		}
 
-		var venueNameJQ = $(".gig-venue-name", gig).tokenInput("get");
+		var venueNameJQ;
 		var venueName;
 		var venueId;
-		if(venueNameJQ.length == 0 || venueNameJQ[0].name == "") {
-			$('.gig-venue-name', gig).createPopover("What venue is the gig at?");
-			return false;
-		} else if($(".new-venue-info").is(":hidden")) {
-			// Preexisting venue, just use id
-			venueId = venueNameJQ[0].id;
-		} else {
-			venueName = venueNameJQ[0].name;
-		}
+		var venueLocationJQ;
+		var venueLocation;
 
-		var venueLocationJQ = $(".gig-venue-location", gig);
-		var venueLocation = venueLocationJQ.text();
-		if(!venueLocationJQ.is(":hidden") && venueLocation == "") {
-			venueLocationJQ.createPopover("Where is the venue?");
-			return false;
+		if(!isModerationForm) {
+			var venueNameJQ = $(".gig-venue-name", gig).tokenInput("get");
+			var venueName;
+			var venueId;
+			if(venueNameJQ.length == 0 || venueNameJQ[0].name == "") {
+				$('.gig-venue-name', gig).createPopover("What venue is the gig at?");
+				return false;
+			} else if($(".new-venue-info").is(":hidden")) {
+				// Preexisting venue, just use id
+				venueId = venueNameJQ[0].id;
+			} else {
+				venueName = venueNameJQ[0].name;
+			}
+
+			var venueLocationJQ = $(".gig-venue-location", gig);
+			var venueLocation = venueLocationJQ.text();
+			if(!venueLocationJQ.is(":hidden") && venueLocation == "") {
+				venueLocationJQ.createPopover("Where is the venue?");
+				return false;
+			}
 		}
 
 		var title = $(".gig-title", gig).text();
@@ -198,6 +207,12 @@ $(document).on('ready page:load', function () {
 		$('#gig_performances', gig).val(performances);
 
 		// Get form element of JQuery object
-		$(this)[0].submit();
+		if(isModerationForm) {
+			// AJAX
+			$(this).trigger('submit.rails');
+		} else {
+			// Normal
+			$(this)[0].submit();
+		}		
 	});
 });

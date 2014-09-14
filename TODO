@@ -7,12 +7,10 @@ DONT THEORISE, TEST
  - add 'share' button to gigs
    https://developers.facebook.com/docs/plugins/share-button
  - add bg photo to gig event
- - rewrite form submission process
- - make controller methods private
- - fix params and security
  - add photos from instagram http://instagram.com/developer/realtime/
  - feedback form
  - fix mapping so that we always prompt the user for the correct address
+ - fix authenticity_token
 
 beta
  - add artist pages with mgmt functions

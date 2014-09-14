@@ -1,7 +1,7 @@
 class Venue < ActiveRecord::Base
   validates_length_of :name, :minimum => 1, :maximum => 200, :allow_blank => false
   validates_length_of :location, :minimum => 1, :maximum => 300, :allow_blank => false
-
+  
   # name
   # location
   # website

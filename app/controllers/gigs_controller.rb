@@ -6,6 +6,7 @@ class GigsController < ApplicationController
     # Date is in ISO8601 format
     params[:gig][:start_time] = Time.zone.parse(params[:gig][:start_time])
     params[:gig][:end_time] = Time.zone.parse(params[:gig][:end_time])
+    params[:gig][:ticket_cost] = params[:gig][:ticket_cost].to_i
   end
 
   def new
@@ -77,8 +78,8 @@ class GigsController < ApplicationController
     if params[:search] == nil
       render 'gigs/index'
     else
-      if params[:search][:location] != ""
-        # Try using location
+      if params[:search][:location] == ""
+        # Try using browser geolocation
         latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
       else
         # params[:search][:latitude] != nil && params[:search][:longitude] != nil
@@ -87,7 +88,7 @@ class GigsController < ApplicationController
       end
       distance_radius = 100
 
-      @gigs = Gig.joins(:venue).within(distance_radius, origin: latlng).where(approved: true, end_time: DateTime.now..DateTime.now.next_month)
+      @gigs = Gig.joins(:venue).within(distance_radius, origin: latlng).where(approved: true, end_time: Time.zone.now..Time.zone.now.next_month)
       render 'gigs/index'
     end
   end

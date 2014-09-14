@@ -19,24 +19,26 @@
     <div class="gig-venue">
       <h2>Venue</h2>
       <%= fields_for :venue, gig.venue do |venue_fields| %>
-      <% if gig.new_record? %>
-        <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue.name %>"/>
+        <% if gig.new_record? %>
+          <input type="text" class="gig-venue-name" data-ajax="<%= venues_path %>" placeholder="Enter the venue name" value="<%= gig.venue.name %>"/>
 
-        <div class="new-venue-info">
-          <% if gig.venue.nil? %>
-            <%= venue_fields.file_field :cover_image, { accept: "image/*" } %>
-            <strong><span class="glyphicon glyphicon-picture"></span> Cover image: </strong><button type="button" class="btn btn-primary" id="venue-select-cover-image">Select</button><br>
-          <% else %>
-            <%= gig.venue.cover_image.url %>
-            <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
-          <% end %>
+          <div class="new-venue-info">
+            <% if gig.venue.nil? %>
+              <%= venue_fields.file_field :cover_image, { accept: "image/*" } %>
+              <strong><span class="glyphicon glyphicon-picture"></span> Cover image: </strong><button type="button" class="btn btn-primary" id="venue-select-cover-image">Select</button><br>
+            <% else %>
+              <%= gig.venue.cover_image.url %>
+              <%= image_tag(gig.venue.cover_image) if gig.venue.cover_image? %>
+            <% end %>
 
-          <strong><span class="glyphicon glyphicon-map-marker"></span> Location: </strong><span contenteditable class="gig-venue-location" placeholder="12 Example Street, South Bank QLD 4000, Australia"><%= gig.venue.location if not gig.venue.nil? %></span>
-        </div>
+            <strong><span class="glyphicon glyphicon-map-marker"></span> Location: </strong><span contenteditable class="gig-venue-location" placeholder="12 Example Street, South Bank QLD 4000, Australia"><%= gig.venue.location if not gig.venue.nil? %></span>
+          </div>
 
-          <%= venue_fields.hidden_field(:name, {value: gig.venue.name}) %>
-          <%= venue_fields.hidden_field(:location, {value: gig.venue.location}) %>
-          <%= venue_fields.hidden_field(:id) %>
+            <%= venue_fields.hidden_field(:name, {value: gig.venue.name}) %>
+            <%= venue_fields.hidden_field(:location, {value: gig.venue.location}) %>
+            <%= venue_fields.hidden_field(:id) %>
+        <% else %>
+          <strong><%= gig.venue.name %> <small>(<a href="<%= edit_venue_path gig.venue %>">Edit</a>)</small></strong>
         <% end %>
       <% end %>
     </div>

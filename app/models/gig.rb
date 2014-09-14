@@ -2,6 +2,9 @@ class Gig < ActiveRecord::Base
   validates :ticket_cost, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :start_time, allow_nil: false
   validate :end_time, allow_nil: false
+  validate :venue, allow_nil: false
+  validate :performances, allow_nil: false
+  validate :genres, allow_nil: false
   validates_length_of :title, :minimum => 0, :maximum => 200, :allow_blank => false
   validates_length_of :link_to_source, :minimum => 0, :maximum => 1000, :allow_blank => true
   validates_length_of :description, :minimum => 0, :maximum => 10000, :allow_blank => false
