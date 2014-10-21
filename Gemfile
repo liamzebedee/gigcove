@@ -52,3 +52,5 @@ gem 'google-analytics-rails'
 #https://github.com/kjvarga/sitemap_generator
 gem 'instagram'#, :git => 'git://github.com/sealabcore/instagram-ruby-gem.git'
 gem 'carrierwave'
+
+gem 'mobile-fu'

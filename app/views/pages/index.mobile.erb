@@ -1,1 +1,30 @@
-index.mobile.erb
+<section class="intro jumbotron">
+	<div class="container">
+		<h1>Welcome to <strong>GigCove</strong></h1>
+		<h2>The best place to discover live music gigs near you in Brisbane</h2>
+		<div class="call-to-actions">
+			<a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Search for gigs near me</a>
+			<a class="btn btn-success btn-lg" role="button" href="<%= new_gig_path %>">Post gigs</a>
+		</div>
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+		<blockquote>Testimonial</blockqoute>
+		123213 gigs and counting...
+	</div>
+</section>
+
+<section class="body">
+	<div class="">
+		<h2 class="page-header">Top venues <small><a href="">more venues</a></small></h2>
+		<%= render :partial => "venues/top_venues.html.erb", :locals => {:venues => @top_venues} %>
+	</div>
+
+	<div class="">
+		<h2 class="page-header">New venues <small><a href="">more venues</a></small></h2>
+		<%= render :partial => "venues/top_venues.html.erb", :locals => {:venues => @top_venues} %>
+	</div>
+
+	<div class="">
+		<h2 class="page-header">Recent gigs <small><a href="">more venues</a></small></h2>
+		<%= render :partial => "venues/top_venues.html.erb", :locals => {:venues => @top_venues} %>
+	</div>
+</section>

@@ -13,5 +13,6 @@
  *= require datepicker3
  *= require timepicker
  *= require nprogress
+ *= require_directory ../../../vendor/assets/stylesheets/ratchet
  *= require_tree .
  */

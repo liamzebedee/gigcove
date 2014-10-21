@@ -28,4 +28,5 @@
 //= require moment
 //= require nprogress
 //= require jquery-numeric
+//= require ratchet.min
 //= require_tree .
