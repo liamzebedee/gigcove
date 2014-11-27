@@ -11,19 +11,18 @@ mail:
 
 web:
   build: .
-  command: "bundle exec rackup -p 80"
+  command: "bundle exec rackup -p 8080"
   volumes:
     - .:/railsapp
   ports:
-    - "80:80"
+    - "8080:8080"
   links:
     - db
     - mail
 
   # These keys do not require a `fig build` on change
   environment:
-    RACK_ENV:
-    RAILS_ENV:
+    RACK_ENV: development
     SECRET_KEY_BASE: f18e3d015bb06543e46934271f82e3d29023058e27470117d8f473f1de015fd007388b23d1bcab4579ece48eebbc8e28e299d3d67890d251d9728c17458be16c
   # Set to localhost when not connected to Internet (e.g. development)
-  # dns: localhost
+  dns: localhost

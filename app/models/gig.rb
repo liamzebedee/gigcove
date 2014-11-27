@@ -24,6 +24,10 @@ class Gig < ActiveRecord::Base
   # TODO hype		has_many Hypes
   # TODO rating		has_many Ratings
 
+  def self.approved_gigs
+    where(approved: true)
+  end
+
   def start_date_str
     self.start_time.strftime('%-d/%-m/%Y')
   end
@@ -51,6 +55,14 @@ class Gig < ActiveRecord::Base
       artists_names << performance.artist.name
     end
     artists_names.join ','
+  end
+
+  def self.upcoming_gigs(max=10)
+    self.where("start_time >= ?", Time.zone.now).limit(max)
+  end
+
+  def self.recent_gigs(max=10)
+    self.where("start_time <= ?", Time.zone.now).limit(max)
   end
 
   private

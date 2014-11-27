@@ -1,7 +1,85 @@
-https://github.com/plataformatec/devise/wiki/OmniAuth%3a-Overview
+ALPHA
+=====
 
-rapidly make mistakes
-DONT THEORISE, TEST
+Complete mobile UX sketch for:
+ - homepage
+ - gig page
+ - submit gig
+Body copy for About, Help Out
+Implement mobile:
+ - homepage
+ - gig page
+Implement desktop
+ - homepage
+ - gig page
+ - submit gig
+Implement web crawler
+
+
+Then continue with implementing
+- search page to show list of gigs
+- each individual gig page
+- post a gig page
+Then mobile versions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+KEEP IT MINIMAL AND ITERATIVE RELEASES
+Focus on two things:
+ 1. Progress
+ 2. Marketing
+
+Make it easy to post/search for gigs
+
+
+key aspects of gigs after search:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MARKETING
+ - schema.org
+ - OpenGraph
+ - Add Twitter/Facebook
 
 
  - add 'share' button to gigs
@@ -10,7 +88,11 @@ DONT THEORISE, TEST
  - add photos from instagram http://instagram.com/developer/realtime/
  - feedback form
  - fix mapping so that we always prompt the user for the correct address
- - fix authenticity_token
+ - fix facebook login
+
+
+MOBILE APP!
+
 
 beta
  - add artist pages with mgmt functions
@@ -51,13 +133,6 @@ distribute to each gig for moderation
 
 http://instagram.com/developer/endpoints/tags/
 
-MULTIPLE SUBSCRIPTIONS
-http://instagram.com/developer/realtime/
-
-http://stackoverflow.com/questions/25640054/rails-devise-facebook-omniauth-registration-fails-with-could-not-authenticate-y
-
-
-
 
 
 
@@ -68,12 +143,6 @@ http://stackoverflow.com/questions/25640054/rails-devise-facebook-omniauth-regis
 
 
 ________________________
-
-
-add most hyped gigs + recent gigs
-
-how to retain users?
-they need to go back to the website frequently
 
 https://cloud.digitalocean.com/login
 https://manage.www.namecheap.com/myaccount/sslcert/sslInfo.aspx?cid=553327

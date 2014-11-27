@@ -1,30 +1,35 @@
-<section class="intro jumbotron">
-	<div class="container">
-		<h1>Welcome to <strong>GigCove</strong></h1>
-		<h2>The best place to discover live music gigs near you in Brisbane</h2>
-		<div class="call-to-actions">
-			<a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Search for gigs near me</a>
-			<a class="btn btn-success btn-lg" role="button" href="<%= new_gig_path %>">Post gigs</a>
-		</div>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-		<blockquote>Testimonial</blockqoute>
-		123213 gigs and counting...
-	</div>
-</section>
+<h1 class="brand">gigcove</h1>
 
-<section class="body">
-	<div class="">
-		<h2 class="page-header">Top venues <small><a href="">more venues</a></small></h2>
-		<%= render :partial => "venues/top_venues", :locals => {:venues => @top_venues} %>
-	</div>
+<h1>Gigcove</h1>
+<h2>Find local live music in <em>Brisbane</em></h2>
 
-	<div class="">
-		<h2 class="page-header">New venues <small><a href="">more venues</a></small></h2>
-		<%= render :partial => "venues/top_venues", :locals => {:venues => @top_venues} %>
-	</div>
+<nav>
+	<ul>
+		<li><a class="btn btn-success btn-lg" role="button" href="<%= new_gig_path %>">Post a gig</a></li>
+		<li><a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Talk to us</a></li>
+	</ul>
+</nav>
 
-	<div class="">
-		<h2 class="page-header">Recent gigs <small><a href="">more venues</a></small></h2>
-		<%= render :partial => "venues/top_venues", :locals => {:venues => @top_venues} %>
+<hr>
+
+<div class="Gig"><div class="panel-body">
+	<div class="Gig--Main">
+		<p>in 2 days &middot; 7pm&mdash;9pm</p>
+		<p>#rock #indie #ether</p>
+		<p>20km @ The Hive &middot; $5</p>
 	</div>
-</section>
+	<div class="Gig--Venue"></div>
+</div></div>
+
+<%= react_component('GigSearchForm', { maxCost: 15, location: "South Brisbane"}, {prerender: true}) %>
+
+<q><%= Gig.count %> gigs and counting...</q>
+
+<%= react_component('GigSearchForm', { maxCost: 15, location: "South Brisbane"}, {prerender: true}) %>
+
+
+<h2>Upcoming gigs <small><a href="">more venues</a></small></h2>
+<%= render :partial => "gigs/upcoming_gigs" %>
+
+<h2>Recent gigs <small><a href="">more venues</a></small></h2>
+<%= render :partial => "gigs/recent_gigs" %>

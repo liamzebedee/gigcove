@@ -1,0 +1,5 @@
+<article class="gig gig-readonly"><div class="gig-inner">
+<%= gig.title %> at <%= gig.venue.name %> <span class="gig-venue-location"><a href="http://maps.google.com/?q=<%= gig.venue.location %>"><%= gig.venue.location %> <span class="glyphicon glyphicon-map-marker"></span></a></span> for $<%= gig.ticket_cost %>
+<span class="glyphicon glyphicon-calendar"></span> <span class="date start"/><%= gig.start_date_str %></span> at <span class="glyphicon glyphicon-time"></span> <span class="time start"> <%= gig.start_time_str %></span>  till <span class="glyphicon glyphicon-time"></span> <span class="time end"><%= gig.end_time_str %></span>
+
+</div></article><!-- .gig -->

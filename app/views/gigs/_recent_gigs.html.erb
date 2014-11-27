@@ -1,0 +1,7 @@
+<ul class="new-gigs">
+<% Gig.recent_gigs.each do |gig| %>
+	<li>
+		<%= render :partial => "gigs/gig_small", :locals => {:gig => gig} %>
+	</li>
+<% end %>
+</ul>

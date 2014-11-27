@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 //= require bootstrap
 //= require number-polyfill
 //= require contentEditable
@@ -29,4 +32,5 @@
 //= require nprogress
 //= require jquery-numeric
 //= require ratchet.min
+//= require react
 //= require_tree .

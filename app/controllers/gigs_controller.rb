@@ -78,18 +78,21 @@ class GigsController < ApplicationController
     if params[:search] == nil
       render 'gigs/index'
     else
-      if params[:search][:location] == ""
+      if params[:search][:location] != ""
+        # Search for location coords
+        latlng = Geocoder.geocode(params[:search][:location].to_s)
+      else
         # Try using browser geolocation
         latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
-      else
-        # params[:search][:latitude] != nil && params[:search][:longitude] != nil
-        # XXX wrong error code, this is user's fault
-        format.html { render status: :internal_server_error, :nothing => true }
+        if latlng == nill
+          # XXX wrong error code, this is user's fault
+          format.html { render status: :internal_server_error, :nothing => true }
+        end
       end
       distance_radius = 100
 
-      @gigs = Gig.joins(:venue).within(distance_radius, origin: latlng).where(approved: true, end_time: Time.zone.now..Time.zone.now.next_month)
-      render 'gigs/index'
+      @gigs = Gig.approved_gigs.joins(:venue).within(distance_radius, origin: latlng).where(end_time: Time.zone.now..Time.zone.now.next_month)
+      render json: @gigs
     end
   end
 

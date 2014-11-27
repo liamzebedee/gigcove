@@ -3,6 +3,9 @@ http://api.rubyonrails.org/
 https://github.com/Instagram/instagram-ruby-gem
 http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#configure-instance_method
 
+rapidly make mistakes
+DONT THEORISE, TEST
+
  - create test for model/controller
  - implement functionality
  - run test
@@ -17,6 +20,7 @@ http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#
 ## Deployment
 ssh
 cd /home/git/gigcove-production
+rsync -azP --xattrs --delete --filter=':- .gitignore' . git@gigcove.com:/home/git/gigcove-production
 
 
 

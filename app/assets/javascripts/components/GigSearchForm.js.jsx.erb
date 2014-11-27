@@ -1,0 +1,82 @@
+var Gig = React.createClass({
+    render: function(){
+        return (<div>{this.props.name}</div>);
+    }
+});
+
+var GigSearchForm = React.createClass({
+    submitForm: function() {
+        var form = this;
+        $.ajax({
+            type: "GET",
+            url: "<%= gigs_path %>",
+            dataType: "json",
+            data: {
+                search: {
+                    location: this.state.location, 
+                    cost: this.state.maxCost
+                }
+            }
+        }).done(function(data){
+            form.setState({
+                gigs: data
+            });
+            alert(form.state.gigs);
+        });
+    },
+
+	render: function() {
+		var gigs = [];
+		this.state.gigs.forEach(function(gig){
+			gigs.push(<Gig {...gig}/>);
+		});
+
+		return (
+			<div class="gigSearchForm">
+    			<div class="gigSearchForm-params">
+    				<span>Find gigs near <ContentEditable html={this.state.location}/> that are $<input type="number" max="30" min="0" step="5" defaultValue={this.state.maxCost}/> and under</span>
+    				
+                    <LaddaButton onClick={this.submitForm}>
+                        <button class="btn--primary"><span class="ladda-label u-searchIcon"></span> Search</button>
+                    </LaddaButton>
+    			</div>
+
+    			<ul class="gigSearchForm-results">
+                    {gigs}
+    			</ul>
+			</div>
+		);
+	},
+	getInitialState: function() {
+		return { maxCost: this.props.maxCost, location: this.props.location, gigs: [] };
+	}
+});
+
+var ContentEditable = React.createClass({
+    render: function(){
+        return (
+        	<span onInput={this.handleInput} onBlur={this.handleChange} contentEditable="true" dangerouslySetInnerHTML={{__html: this.props.html}}>
+        	</span>
+        );
+    },
+    shouldComponentUpdate: function(nextProps){
+        return nextProps.html !== this.getDOMNode().innerHTML;
+    },
+    handleChange: function(){
+        var html = this.getDOMNode().innerHTML;
+        if (this.props.onChange && html !== this.lastHtml) {
+            this.props.onChange({
+                target: {
+                    value: html
+                }
+            });
+        } else if(html === this.props.html) {
+        	this.props.onChange({
+        		target: {
+        			value: ""
+        		}
+        	});
+        }
+        this.lastHtml = html;
+    }
+});

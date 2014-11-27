@@ -12,10 +12,11 @@
 	<link rel="apple-touch-icon-precomposed" href="<%= image_path 'icon-touch-precomposed.png' %>">
 	<link rel="apple-touch-icon" href="<%= image_path 'icon-touch-precomposed.png' %>">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<!--<link rel="apple-touch-startup-image" href="<%= image_path 'icon-touch-precomposed.png' %>">-->
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<!-- Android -->
 	<meta name="mobile-web-app-capable" content="yes">
+  
+<link href='http://fonts.googleapis.com/css?family=Lekton:400,700,400italic|Arvo:400,700,400italic,700italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Crushed|Fredericka+the+Great|Yeseva+One|Quicksand:300,400,700|Monofett|Six+Caps|Oxygen:400,300,700|Stoke:400,300|Megrim' rel='stylesheet' type='text/css'>
 
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
@@ -37,7 +38,7 @@
   </header>
   
   <% page_id = "#{controller_name}-#{action_name}" %>
-  <div id="page-wrap"><div class="page" id="<%= page_id %>">
+  <div id="pageWrapper"><div id="page" id="<%= page_id %>">
     <%= yield %>
   </div></div>
   

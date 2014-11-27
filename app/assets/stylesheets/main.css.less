@@ -1,76 +1,31 @@
-@import "util.less";
-@import "gigs.less";
-@import "venues.less";
-@import "social-icons.less";
-@import "token-input.less";
-@import "pages.less";
-@import "ratchet-mobile-stuff.less";
+@import url("http://fonts.googleapis.com/css?family=Quicksand:300,400,700");
+@import url(http://fonts.googleapis.com/css?family=Lekton:400,700,400italic|Arvo:400,700,400italic,700italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Crushed|Fredericka+the+Great|Yeseva+One|Quicksand:300,400,700|Monofett|Six+Caps|Oxygen:400,300,700|Stoke:400,300|Megrim);
 
-@font-size-base: 16px;
-@icon-font-path: "";
+@import "bootstrap/bootstrap.less";
+@import "bootstrap/mixins.less";
 
-@link-color:            lighten(#DEBB27, 15%);
-@link-hover-color:      #DEBB27;
+@import "./variables.less";
 
-@navbar-margin-bottom: 0;
-.navbar {
-	margin-bottom: 0px!important; // TODO ugly hack
+.brand {
+	font-family: 'Monofett', cursive;
+	font-size: 77px;
+	/* font-weight: 600; */
+	font-variant: small-caps;
 }
 
-//http://nebulab.it/blog/abc-of-seo-for-ruby-on-rails-developers
+.Gig {
+	.panel;
+	.panel-default;
 
-body {
+	// 	.col-md-6;
 }
 
-#header {
-	& > div {
-		.make-row;
-		.make-md-column-offset(1);
-		.make-md-column(10);
-	}
+.Gig--Main {
+
 }
 
-.page {
-	.make-md-column-offset(1);
-	.make-md-column(10);
-}
-
+#header,
+#pageWrapper
 #footer {
-	.make-row;
-	.make-md-column(12);
-	padding-top: 3em;
-}
-
-.page-header {
-	margin-top: 0px !important;
-}
-
-[contentEditable]:empty:before{
-	content: attr(placeholder);
-	color: @gray-light;
-	border: none;
-}
-
-[contentEditable]:focus, textarea:focus, input:focus{
-     outline: 0px solid transparent;
-}
-
-[contentEditable] {
-	display: inline-block;
-}
-
-.popover-content {
-	color: black;
-}
-
-// NO BReaking of text
-[nobr] {
-  white-space: nowrap;
-}
-
-.input-date,
-.input-time {
-	color: @gray-light;
-	border: none;
-	background: none;
+	.container-fluid;	
 }

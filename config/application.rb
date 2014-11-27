@@ -35,5 +35,7 @@ module Railsapp
     config.active_record.default_timezone = :local
 
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    config.react.addons = true
   end
 end

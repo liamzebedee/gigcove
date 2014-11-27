@@ -1,0 +1,330 @@
+@import "bootstrap/mixins.less";
+@import "bootstrap/bootstrap.less";
+
+@font-face {
+    font-family: Ratchicons;
+    font-style: normal;
+    font-weight: 400;
+    src: url(/assets/ratchicons.eot);
+    src: url(/assets/ratchicons.eot?#iefix) format("embedded-opentype"), url(/assets/ratchicons.woff) format("woff"), url(/assets/ratchicons.ttf) format("truetype"), url(/assets/ratchicons.svg#svgFontName) format("svg");
+}
+
+// Basic container for added tokens and ones that can be added
+ul.token-input-list {
+    .form-control;
+    border: none;
+
+    overflow: hidden;
+    height: auto !important;
+    height: 1%;
+    cursor: text;
+    min-height: 1px;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    clear: left;
+
+
+    li {
+        input {
+            border: none;
+            background: none;
+        }
+    }
+
+    // An added token to be submitted in the form
+    li.token-input-token {
+        overflow: hidden;
+        height: auto !important;
+        height: 15px;
+        margin: 3px;
+        padding: 1px 3px;
+        background-color: #eff2f7;
+        color: #000;
+        cursor: default;
+        border: 1px solid #ccd5e4;
+        font-size: 11px;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        float: left;
+        white-space: nowrap;
+        p {
+            display: inline;
+            padding: 0;
+            margin: 0;
+        }
+        span {
+            color: #a6b3cf;
+            margin-left: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+
+    // An added token that has been selected
+    li.token-input-selected-token {
+        background-color: #5670a6;
+        border: 1px solid #3b5998;
+        color: #fff;
+    }
+
+    // A new token to be added
+    li.token-input-input-token {
+        input { width: 100%; }
+    }    
+}
+
+div.token-input-dropdown {
+    position: absolute;
+    width: 400px;
+    overflow: hidden;
+    cursor: default;
+    z-index: 1;
+    background: @input-bg;
+    border-color: @input-border;
+    border: 1px solid @input-border;
+    border-top: none;
+
+    p {
+        margin: 0;
+        padding: 5px;
+        font-weight: bold;
+        color: #777;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            background-color: #fff;
+            padding: 3px;
+            margin: 0;
+            list-style-type: none;
+            em {
+                font-weight: bold;
+                font-style: normal;
+            }
+        }
+        li.token-input-dropdown-item {
+            background-color: #fff;
+        }
+        li.token-input-dropdown-item2 {
+            background-color: #fff;
+        }
+        li.token-input-selected-dropdown-item {
+            background-color: #3b5998;
+            color: #fff;
+        }
+    }
+}
+
+
+.gig-venue ul.token-input-list {
+    background: none;
+    color: white;
+    border: none;
+}
+
+.social-icons {
+	.list-inline;	
+}
+.social-icon {
+	@w: 32px;
+	width: @w;
+	height: @w;
+	background-size: @w @w;
+	border: 0;
+	box-shadow: 0;
+	display: block;
+	
+	&.facebook {
+		background-image: url("/assets/images/social-icons/facebook.png");
+	}
+	&.twitter {
+		background-image: url("/assets/images/social-icons/twitter.png");
+	}
+	&.reddit {
+		background-image: url("/assets/images/social-icons/reddit.png");
+	}
+	&.email {
+		background-image: url("/assets/images/social-icons/email.png");
+	}
+}
+
+#pages-index {
+	.make-row;
+	.make-md-column(12);
+	.full-width;
+
+	.intro {
+		background-image: image-url("intro3.jpg");
+		background-size: cover;
+		background-position-y: 37%;
+		//background-position: center;
+		color: white;
+		text-align: center;
+		ul {
+			.list-unstyled;
+		}
+	}
+
+	.body {
+		div {
+			.make-row;
+			.make-md-column-offset(1);
+			.make-md-column(10);
+			margin-bottom: 1em;
+			ul { .list-unstyled; }
+			div {
+				.make-md-column(3);
+				h2 {
+					margin: 0 0 0 0;
+					padding: 0 0 0 0;
+				}
+			}
+			.artist-box {
+				h2 { color: inherit; }
+			}
+		}
+	}
+}
+
+.full-width {
+	padding-left: 0;
+	padding-right: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.form-styled {
+	input[type=password],
+	input[type=text],
+	input[type=email] {
+		.form-control;
+	}
+}
+
+// Hide spinners for number inputs
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+span[contenteditable] {
+	min-width: 10px; // so blinking pointer is not hidden
+}
+
+.gig-editable {
+	.description { min-height: 5em; }
+	input {
+		border: none;
+		background: none;
+		display: inline-block;
+	}
+	#venue_cover_image { display: none; }
+}
+.gig-form:not(.gig-approve-form) {
+	.new-venue-info {
+		display: none;
+	}
+}
+
+#gigs-new {
+}
+
+#gigs-unmoderated {
+	.gig-row {
+		.make-row;
+		.gig {
+			.make-md-column(9);
+		}
+		.tools {
+			.make-md-column(3);
+		}
+		&.moderated {
+			opacity: 0.5;
+		}
+	}
+}
+
+#gigs-index {
+	nav {
+		.btn-group,
+		.search {
+			margin-bottom: 1em;
+		}
+		
+		.search {
+			p { font-size: 32px; }
+			button { display: block; }
+		}
+	}
+}
+
+#gigs-show {
+}
+
+.gig {
+	display: flex;
+	flex-flow: column wrap;
+	
+	margin-bottom: 1em;
+	
+	text-align: center;
+	
+	.gig-inner {
+		display: flex;
+    	flex-grow: 1;
+	}
+	
+	
+	.left,
+	.main {
+		font-size: 20px;
+		flex: 1 1 auto;
+		padding-top: 0.5em;
+		padding-bottom: 0.5em;
+	}
+	
+	.left {
+		.make-md-column(4);
+		.box-sizing(border-box);
+		background-color: #333;
+		color: white;
+		
+		vertical-align: top;
+		border-right: 1px solid @gray-light;
+		
+		& > div {
+			padding-bottom: 1em;
+		}
+		& > div:last-child {
+			border-bottom: none;
+		}
+		text-align: left;
+	}
+	.main {
+		background-color: white;
+		.make-md-column(8);
+		border-top: 1px solid #333;
+		border-bottom: 1px solid #333;
+		border-right: 1px solid #333;
+
+		text-align: left;
+		vertical-align: top;
+		a {
+			color: #333;
+		}
+		h2 {
+			margin-top: 0;
+		}
+
+		textarea { padding-top: 0.5em; }
+	}
+}

@@ -9,10 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require token-input
  *= require datepicker3
  *= require timepicker
  *= require nprogress
- *= require_directory ../../../vendor/assets/stylesheets/ratchet
- *= require_tree .
+ * require_directory ../../../vendor/assets/stylesheets/ratchet
+ *= require main.css.less
  */
