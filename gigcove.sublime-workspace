@@ -1,0 +1,1312 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"crea",
+				"createClass"
+			],
+			[
+				"wp_enqu",
+				"wp_enqueue_script"
+			],
+			[
+				"fie",
+				"field_name"
+			],
+			[
+				"tab",
+				"table_name"
+			],
+			[
+				"venueLoca",
+				"venueLocation"
+			],
+			[
+				"venu",
+				"venue_params"
+			],
+			[
+				"link",
+				"link_to_source"
+			],
+			[
+				"venue",
+				"venue_data"
+			],
+			[
+				"gig",
+				"gig_data"
+			],
+			[
+				"process_",
+				"process_genres_param"
+			],
+			[
+				"process",
+				"process_performances_param"
+			],
+			[
+				"genre",
+				"genres_str"
+			],
+			[
+				"coverImage",
+				"coverImageFileInput"
+			],
+			[
+				"clien",
+				"client_id"
+			],
+			[
+				"new_med",
+				"new_media_num"
+			],
+			[
+				"Instagr",
+				"InstagramData"
+			],
+			[
+				"ned",
+				"new_media_temp"
+			],
+			[
+				"geocode",
+				"geocode_address"
+			],
+			[
+				"artists",
+				"artists_str"
+			],
+			[
+				"ticket",
+				"ticket_cost"
+			],
+			[
+				"perfor",
+				"performances"
+			],
+			[
+				"end",
+				"end_time"
+			],
+			[
+				"artist",
+				"artists_names"
+			],
+			[
+				"preP",
+				"prePopulateData"
+			],
+			[
+				"prePop",
+				"prePopulate"
+			],
+			[
+				"start",
+				"start_time"
+			],
+			[
+				"app",
+				"approved"
+			],
+			[
+				"arti",
+				"artist"
+			],
+			[
+				"find_",
+				"find_or_create_by"
+			],
+			[
+				"hidden",
+				"hidden_input"
+			],
+			[
+				"search",
+				"searchDelay"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 2871,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/application.js",
+			"settings":
+			{
+				"buffer_size": 1248,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/gigs/_gig_list.html.erb",
+			"settings":
+			{
+				"buffer_size": 460,
+				"line_ending": "Unix",
+				"name": "_gig_list.html.erb"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/main.css.less",
+			"settings":
+			{
+				"buffer_size": 1823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
+			"settings":
+			{
+				"buffer_size": 2497,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/pages/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 1283,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"mar",
+				"Set Syntax: MultiMarkdown"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown Extended"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/bootstrap.less",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig.html.erb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/glyphicons.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/variables.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/application.css",
+		"/home/liamzebedee/Documents/gigcove/TODO",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/main.css.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/ratchet.css.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/variables.less",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/mixins.less",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/pages_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/DEVELOPMENT",
+		"/home/liamzebedee/Documents/gigcove/README.md",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/scaffolding.less",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/media.less",
+		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.mobile.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/shared/_header.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components.js",
+		"/home/liamzebedee/Documents/gigcove/Gemfile",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/application_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/application.js",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/mixins/grid-framework.less",
+		"/home/liamzebedee/Documents/27-11-2014-gigcove-draft-design.svg",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/grid.less",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/gigs_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/old.less",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/instagram_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/shared/_metadata.html.erb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/flatly/variables.less",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/draft.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/utilities.less",
+		"/home/liamzebedee/Documents/gigcove/public/robots.txt",
+		"/home/liamzebedee/Documents/design-prac/liamzco-1.html",
+		"/home/liamzebedee/Documents/gigcove/config/initializers/erb_helpers.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/Utilities.js.jsx",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/gigs/gig_index.js",
+		"/home/liamzebedee/Documents/gigcove/config/application.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.jsx",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/index.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/GUIDE.md",
+		"/home/liamzebedee/Documents/gigcove/app/models/gig.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/venue.rb",
+		"/home/liamzebedee/Documents/gigcove/fig.yml",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/ratchet-mobile-stuff.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/token-input.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/social-icons.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/pages.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/gigs.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/util.less",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/gigSearchForm.js.jsx",
+		"/home/liamzebedee/Documents/gigcove/Dockerfile",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.mobile.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/test.html",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig_small.html.erb",
+		"/home/liamzebedee/Documents/gigcove/db/schema.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_recent_gigs.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_new_gigs.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_recent_gigs.erb.html",
+		"/home/liamzebedee/Documents/gigcove/app/views/venues/_top_venues.html.erb",
+		"/home/liamzebedee/Documents/gigcove/config/environments/development.rb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/ratchet/ratchet.min.css",
+		"/home/liamzebedee/Documents/gigcove/config/initializers/mime_types.rb",
+		"/home/liamzebedee/Documents/gigcove/config/routes.rb",
+		"/home/liamzebedee/Documents/ghost-0.5.2/content/themes/liamz/package.json",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/liamz/stylesheets/wordpress-stuff.css",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/liamz/footer.php",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/liamz/header.php",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/liamz/functions.php",
+		"/opt/lampp/htdocs/wordpress/wp-content/themes/liamz/style.css",
+		"/opt/lampp/htdocs/wordpress/wp-config.php",
+		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.m.html.erb",
+		"/home/liamzebedee/Downloads/ratchet-2.0.2/docs/examples/app-ios-mail/index.html",
+		"/home/liamzebedee/Downloads/ratchet-2.0.2/docs/examples/app-ios-mail/inbox.html",
+		"/home/liamzebedee/Documents/gigcove/db/pretty_schema.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/users/registrations/edit.html.erb",
+		"/home/liamzebedee/Documents/gigcove/db/seeds.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/main.js",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/gigs/gig_editable.js",
+		"/home/liamzebedee/Documents/gigcove/ERRORS.md",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/users/registrations_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/new.html.erb",
+		"/home/liamzebedee/Documents/gigcove/log/development.log",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/unmoderated.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/venues_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/genres_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/genre.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig_editable.html.erb",
+		"/home/liamzebedee/Documents/gigcove/test/controllers/gigs_controller_test.rb",
+		"/home/liamzebedee/Documents/gigcove/db/seeds/genres.rb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/timepicker.js",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/bootstrap-datepicker.js",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/thanks.html.erb",
+		"/home/liamzebedee/Documents/gigcove/development.sh",
+		"/home/liamzebedee/Documents/gigcove/webbash.sh",
+		"/home/liamzebedee/Documents/gigcove/.gitignore",
+		"/home/liamzebedee/Documents/gigcove/app/models/performance.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/artist.rb",
+		"/home/liamzebedee/Documents/gigcove/production.sh",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/jquery-numeric.js",
+		"/home/liamzebedee/Documents/gigcove/app/models/instagram_api.rb",
+		"/home/liamzebedee/Documents/gigcove/log.txt",
+		"/home/liamzebedee/Documents/gigcove/app/models/instagram_media.rb",
+		"/home/liamzebedee/Documents/gigcove/config/initializers/instagram.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/cover_image.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20140912074612_create_cover_images.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20140912074741_update_cover_image_information.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20140119041449_add_approved_to_gig.rb",
+		"/home/liamzebedee/Documents/gigcove/app/uploaders/cover_image_uploader.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20140912055508_create_instagram_apis.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20140912054956_create_instagram_media.rb",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/nprogress.css",
+		"/home/liamzebedee/Documents/gigcove/log/production.log",
+		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/nprogress.js",
+		"/home/liamzebedee/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/liamzebedee/.config/sublime-text-2/Packages/knockdown/Markdown (Github Flavored).sublime-settings",
+		"/home/liamzebedee/.config/sublime-text-2/Packages/User/Markdown (Github Flavored).sublime-settings",
+		"/home/liamzebedee/Documents/gigcove/webserver.sh",
+		"/home/liamzebedee/Documents/gigcove/docker-web/webserver.sh",
+		"/home/liamzebedee/Documents/gigcove/app/helpers/application_helper.rb",
+		"/home/liamzebedee/Documents/gigcove/config/environments/production.rb",
+		"/home/liamzebedee/Documents/gigcove/_instagram.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/user.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/users/registrations/new.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/users/passwords/edit.html.erb",
+		"/home/liamzebedee/Documents/gigcove/config/initializers/geokit.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"bootstrap",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"money\n\ndollar",
+			"coin",
+			"cash",
+			"dollar",
+			"glyphicons",
+			".panel",
+			"button-size",
+			"input-lg",
+			"nav",
+			"brand",
+			"body",
+			"	",
+			"Quicksand",
+			"font",
+			"typ",
+			"token-input",
+			"nbpc",
+			"gigs",
+			"placeholder",
+			"polyfill",
+			"Variables",
+			"components",
+			"variable",
+			"font-family",
+			"font",
+			"debounce",
+			"/assets",
+			"jquery",
+			"item",
+			"LIKE",
+			"process_genres_param",
+			"process_performances_param",
+			"gig_params",
+			"trigger",
+			"changeTime",
+			"trigger",
+			"changeTime",
+			"this.element.find('input').va",
+			"this.element.find('input')",
+			"isInput",
+			"this.element",
+			"val",
+			"attr",
+			"Time.zone.parse",
+			".name",
+			"venue",
+			"id",
+			"disapprove-gig",
+			"viewport",
+			"sprockets",
+			"sprockets-2.12.1",
+			"cover",
+			"init_subscriptions",
+			"[a-z &+]+",
+			"[a-zA-Z -&]+",
+			"venue",
+			"schema",
+			"   ",
+			"schema",
+			"[0-9]. ",
+			"tzinfo",
+			"    ",
+			"tzinfo",
+			"^[^\\s]*\\s",
+			" ",
+			"[0-9][0-9]. ",
+			" [0-9]. ",
+			" [0-9].",
+			" [0-9]. ",
+			"^([0-9]+,?)$",
+			"^([0-9])$",
+			"^([0-9]).$",
+			"^([0-9].)$",
+			"schema",
+			"lat",
+			"permit",
+			"div",
+			"@gig",
+			"unstyled",
+			"call-to-actions",
+			"unstyle",
+			"style",
+			"ul",
+			":from",
+			"gig_params",
+			"from",
+			"startTime",
+			"this",
+			"tokenInput",
+			".data",
+			"onFreeTaggingAdd",
+			"free",
+			"allowFreeTagging",
+			"    ",
+			"font-size"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\\t",
+			"nbsp",
+			"<?= get_bloginfo('template_url') ?>",
+			"\\t\"$&\",",
+			"\\t\"$&\",\\n",
+			"\\t\"$&\",",
+			"\\t\"$0\",",
+			"\"$0\"",
+			"\"$1\"",
+			"\"%1\"",
+			"[\\t]$1",
+			"\\t$1",
+			"\\t\"$1\",",
+			" - ",
+			"",
+			"gig",
+			"startDatetime",
+			"gig",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 2871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1215,
+								1215
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/assets/javascripts/application.js",
+					"settings":
+					{
+						"buffer_size": 1248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1179,
+								1179
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/views/gigs/_gig_list.html.erb",
+					"settings":
+					{
+						"buffer_size": 460,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "_gig_list.html.erb",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/assets/stylesheets/main.css.less",
+					"settings":
+					{
+						"buffer_size": 1823,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1821,
+								1821
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1037.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
+					"settings":
+					{
+						"buffer_size": 2497,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1040,
+								1040
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/pages/index.html.erb",
+					"settings":
+					{
+						"buffer_size": 1283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": "<",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
+								}
+							],
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CSS Extended Completions":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"gigsearc",
+				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
+			],
+			[
+				"glyphi",
+				"vendor/assets/stylesheets/bootstrap/glyphicons.less"
+			],
+			[
+				"bootstrap.less",
+				"vendor/assets/stylesheets/bootstrap/bootstrap.less"
+			],
+			[
+				"variables",
+				"vendor/assets/stylesheets/bootstrap/variables.less"
+			],
+			[
+				"application.css",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"varia",
+				"app/assets/stylesheets/variables.less"
+			],
+			[
+				"mixins.less",
+				"vendor/assets/stylesheets/bootstrap/mixins.less"
+			],
+			[
+				"pages",
+				"app/controllers/pages_controller.rb"
+			],
+			[
+				"bootstr",
+				"vendor/assets/stylesheets/bootstrap/bootstrap.less"
+			],
+			[
+				"applica",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"media.",
+				"vendor/assets/stylesheets/bootstrap/media.less"
+			],
+			[
+				"application",
+				"app/assets/stylesheets/application.css"
+			],
+			[
+				"scaff",
+				"vendor/assets/stylesheets/bootstrap/scaffolding.less"
+			],
+			[
+				"scaffold",
+				"vendor/assets/stylesheets/bootstrap/scaffolding.less"
+			],
+			[
+				"gigsear",
+				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
+			],
+			[
+				"index",
+				"app/views/pages/index.html.erb"
+			],
+			[
+				"compone",
+				"app/assets/javascripts/components.js"
+			],
+			[
+				"scaffol",
+				"vendor/assets/stylesheets/bootstrap/scaffolding.less"
+			],
+			[
+				"gigsea",
+				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
+			],
+			[
+				"grid",
+				"vendor/assets/stylesheets/bootstrap/mixins/grid-framework.less"
+			],
+			[
+				"grid.",
+				"vendor/assets/stylesheets/bootstrap/grid.less"
+			],
+			[
+				"mixins",
+				"vendor/assets/stylesheets/bootstrap/mixins.less"
+			],
+			[
+				"main.css",
+				"app/assets/stylesheets/main.css.less"
+			],
+			[
+				"vari",
+				"app/assets/stylesheets/variables.less"
+			],
+			[
+				"mixin",
+				"vendor/assets/stylesheets/bootstrap/mixins.less"
+			],
+			[
+				"old",
+				"app/assets/stylesheets/old.less"
+			],
+			[
+				"variables.less",
+				"vendor/assets/stylesheets/flatly/variables.less"
+			],
+			[
+				"todo",
+				"TODO"
+			],
+			[
+				"gig_contr",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"gig_cn",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"application_con",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"config",
+				"config/application.rb"
+			],
+			[
+				"guide",
+				"app/assets/stylesheets/GUIDE.md"
+			],
+			[
+				"venue",
+				"app/models/venue.rb"
+			],
+			[
+				"gig",
+				"app/models/gig.rb"
+			],
+			[
+				"gig.r",
+				"app/models/gig.rb"
+			],
+			[
+				"fig",
+				"fig.yml"
+			],
+			[
+				"applic",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"docker",
+				"Dockerfile"
+			],
+			[
+				"sche",
+				"db/schema.rb"
+			],
+			[
+				"develop",
+				"config/environments/development.rb"
+			],
+			[
+				"ratchet",
+				"vendor/assets/stylesheets/ratchet/ratchet.min.css"
+			],
+			[
+				"page",
+				"app/controllers/pages_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"mime",
+				"config/initializers/mime_types.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"edit",
+				"app/views/users/registrations/edit.html.erb"
+			],
+			[
+				"user_con",
+				"app/controllers/users/registrations_controller.rb"
+			],
+			[
+				"seed",
+				"db/seeds.rb"
+			],
+			[
+				"error",
+				"ERRORS.md"
+			],
+			[
+				"new",
+				"app/views/gigs/new.html.erb"
+			],
+			[
+				"unmo",
+				"app/views/gigs/unmoderated.html.erb"
+			],
+			[
+				"develo",
+				"log/development.log"
+			],
+			[
+				"gig_edit",
+				"app/assets/javascripts/gigs/gig_editable.js"
+			],
+			[
+				"gig_con",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"venue.r",
+				"app/models/venue.rb"
+			],
+			[
+				"venue_c",
+				"app/controllers/venues_controller.rb"
+			],
+			[
+				"venue_contr",
+				"app/controllers/venues_controller.rb"
+			],
+			[
+				"genre_con",
+				"app/controllers/genres_controller.rb"
+			],
+			[
+				"genre",
+				"app/models/genre.rb"
+			],
+			[
+				"genres_c",
+				"app/controllers/genres_controller.rb"
+			],
+			[
+				"un",
+				"app/views/gigs/unmoderated.html.erb"
+			],
+			[
+				"timepi",
+				"vendor/assets/javascripts/timepicker.js"
+			],
+			[
+				"main",
+				"app/assets/javascripts/main.js"
+			],
+			[
+				"util.l",
+				"app/assets/stylesheets/util.less"
+			],
+			[
+				"main.js",
+				"app/assets/javascripts/main.js"
+			],
+			[
+				"gig.le",
+				"app/assets/stylesheets/gigs.less"
+			],
+			[
+				"venu",
+				"app/models/venue.rb"
+			],
+			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"sch",
+				"db/schema.rb"
+			],
+			[
+				"perfo",
+				"app/models/performance.rb"
+			],
+			[
+				"artist",
+				"app/models/artist.rb"
+			],
+			[
+				"gig.",
+				"app/models/gig.rb"
+			],
+			[
+				"gigs.le",
+				"app/assets/stylesheets/gigs.less"
+			],
+			[
+				"editabl",
+				"app/assets/javascripts/gigs/gig_editable.js"
+			],
+			[
+				"layout",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"instagr",
+				"app/models/instagram_api.rb"
+			],
+			[
+				"deve",
+				"log/development.log"
+			],
+			[
+				"util",
+				"app/assets/stylesheets/util.less"
+			],
+			[
+				"less",
+				"app/assets/stylesheets/gigs.less"
+			],
+			[
+				"scha",
+				"db/schema.rb"
+			],
+			[
+				"instagra",
+				"app/models/instagram_api.rb"
+			],
+			[
+				"create",
+				"db/migrate/20140912074612_create_cover_images.rb"
+			],
+			[
+				"approved",
+				"db/migrate/20140119041449_add_approved_to_gig.rb"
+			],
+			[
+				"update",
+				"db/migrate/20140912074741_update_cover_image_information.rb"
+			],
+			[
+				"cover",
+				"app/models/cover_image.rb"
+			],
+			[
+				"instagram",
+				"app/models/instagram_media.rb"
+			],
+			[
+				"create_insta",
+				"db/migrate/20140912054956_create_instagram_media.rb"
+			],
+			[
+				"devel",
+				"log/development.log"
+			],
+			[
+				"pr",
+				"log/production.log"
+			],
+			[
+				"insta",
+				"config/initializers/instagram.rb"
+			],
+			[
+				"rote",
+				"config/routes.rb"
+			],
+			[
+				"header",
+				"app/views/shared/_header.html.erb"
+			],
+			[
+				"register",
+				"app/views/users/registrations/new.html.erb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"geoc",
+				"config/initializers/geocoder.rb"
+			],
+			[
+				"gig_",
+				"app/views/gigs/_gig_editable.html.erb"
+			],
+			[
+				"_gig",
+				"app/views/gigs/_gig.html.erb"
+			],
+			[
+				"cov",
+				"app/uploaders/cover_image_uploader.rb"
+			],
+			[
+				"gig_ed",
+				"app/views/gigs/_gig_editable.html.erb"
+			],
+			[
+				"uplo",
+				"app/uploaders/cover_image_uploader.rb"
+			],
+			[
+				"addcov",
+				"db/migrate/20140903091607_add_cover_image_to_venue.rb"
+			],
+			[
+				"regi",
+				"app/controllers/users/registrations_controller.rb"
+			],
+			[
+				"schema",
+				"db/schema.rb"
+			],
+			[
+				"regist",
+				"app/controllers/users/registrations_controller.rb"
+			],
+			[
+				"gig_c",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"gig_cno",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"viewinde",
+				"app/views/gigs/index.js.erb"
+			],
+			[
+				"searc",
+				"doc/app/js/search.js"
+			],
+			[
+				"head",
+				"app/views/shared/_header.html.erb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"devise",
+				"config/initializers/devise.rb"
+			],
+			[
+				"devise.",
+				"config/initializers/devise.rb"
+			],
+			[
+				"sessions",
+				"app/controllers/users/sessions_controller.rb"
+			],
+			[
+				"links",
+				"app/views/users/shared/_links.erb"
+			],
+			[
+				"sign",
+				"app/views/gigs/new.html.erb"
+			],
+			[
+				"util.",
+				"app/assets/stylesheets/util.less"
+			],
+			[
+				"gemfi",
+				"Gemfile.lock"
+			],
+			[
+				"read",
+				"README.md"
+			],
+			[
+				"contr",
+				"app/controllers/gigs_controller.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 231.0,
+	"status_bar_visible": true
+}

@@ -4,7 +4,7 @@
 -->
 <html dir="ltr" lang="en">
 <head>
-	<%= render 'shared/metadata' %>
+  <%= render 'shared/metadata' %>
 
 	<!-- Desktop -->
 	<link rel="icon" type="image/png" href="<%= image_path 'icon.png' %>">
@@ -25,24 +25,47 @@
   	<%= javascript_include_tag "application", "data-turbolinks-track" => true, "data-turbolinks-eval" => false %>
 </head>
 
-<body>
-  <header id="header">
-    <%= render 'shared/header' %>
-    
-    <% if notice or alert %>
-    <div class="notice">
-    	<% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
-    	<% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
-    </div>
-    <% end %>
+
+<body class="Page" id="<%= "#{controller_name}-#{action_name}" %>">  
+  <header id="Page--Head" class="bar bar-nav">
+    <!--
+    <a class="icon icon-home pull-left" href="/"></a>
+    <a class="icon icon-search pull-right" href="/"></a>
+  -->
+    <a href="#Page--Popover"><h1 class="title"><strong>GigCove</strong> <span class="icon icon-caret"></span></h1></a>
   </header>
+
+  <footer id="Page--Footer" class="bar bar-footer">
+    <nav class="bar bar-tab">
+      <a class="tab-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab-item <%= "active" if current_page?(contact_path) %>" href="<%= contact_path %>">
+        <span class="icon glyphicon glyphicon-earphone"></span>
+        <span class="tab-label">Say hi</span>
+      </a>
+      <a class="tab-item <%= "active" if current_page?(new_gig_path) %>" href="<%= new_gig_path %>">
+        <span class="icon icon-compose"></span>
+        <span class="tab-label">Submit a gig</span>
+      </a>
+      <a class="tab-item <%= "active" if current_page?(gigs_path) %>" href="<%= gigs_path %>">
+        <span class="icon icon-search"></span>
+        <span class="tab-label">Find gigs</span>
+      </a>
+    </nav>
+  </footer>
   
-  <% page_id = "#{controller_name}-#{action_name}" %>
-  <div id="pageWrapper"><div id="page" id="<%= page_id %>">
+  <div id="Page--Content" class="content">
+    <% if notice or alert %>
+    <aside class="notice">
+      <% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
+      <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
+    </aside>
+    <% end %>
+
     <%= yield %>
-  </div></div>
-  
-  <footer id="footer"></footer>
+  </div>
 </body>
 
 </html>

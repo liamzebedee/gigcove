@@ -1,6 +1,37 @@
-var Gig = React.createClass({
+var GigListItem = React.createClass({
     render: function(){
-        return (<div>{this.props.name}</div>);
+        return (
+            <li className="table-view-cell media">
+              <a className="navigate-right">
+                <img className="media-object pull-left" src="http://placehold.it/42x42">
+                <div className="media-body">
+                  this.props.title}
+                  <p>this.props.description}</p>
+                </div>
+              </a>
+            </li>
+        );
+    }
+});
+
+var GigList = React.createClass({
+    render: function() {
+        return (
+            <ul className="table-view">
+                {this.state.gigs}
+            </ul>
+        );
+    },
+    getInitialState: function() {
+        var state = { 
+            gigs: [] 
+        };
+        this.props.gigs.forEach(function(gig){
+            state.gigs.push(
+                <GigListItem {...gig}/>
+            );
+        });
+        return state;
     }
 });
 
@@ -21,62 +52,43 @@ var GigSearchForm = React.createClass({
             form.setState({
                 gigs: data
             });
-            alert(form.state.gigs);
         });
     },
 
 	render: function() {
-		var gigs = [];
-		this.state.gigs.forEach(function(gig){
-			gigs.push(<Gig {...gig}/>);
-		});
-
 		return (
-			<div class="gigSearchForm">
-    			<div class="gigSearchForm-params">
-    				<span>Find gigs near <ContentEditable html={this.state.location}/> that are $<input type="number" max="30" min="0" step="5" defaultValue={this.state.maxCost}/> and under</span>
-    				
-                    <LaddaButton onClick={this.submitForm}>
-                        <button class="btn--primary"><span class="ladda-label u-searchIcon"></span> Search</button>
-                    </LaddaButton>
-    			</div>
+			<div className="GigSearchForm">
+                <div className="content-padded">
+        			<div className="GigSearchForm-params">
+                        <div className="location">
+                            Events near <span className="u-inputStuffIndicator"><span className="glyphicon glyphicon-map-marker"></span><ContentEditable html={this.state.location}/></span>
+                        </div>
 
-    			<ul class="gigSearchForm-results">
-                    {gigs}
+                        <div className="maxCost">
+                            <label>
+                                <select value={this.state.maxCost}>
+                                  <option value="0">Free</option>
+                                  <option value="20">$20 and under</option>
+                                  <option value="50">$50 and under</option>
+                                </select>
+                                <span className="icon icon-caret"></span>
+                            </label>
+                        </div>
+
+                        <LaddaButton onClick={this.submitForm}>
+                            <button className="btn btn-block btn-primary"><span className="ladda-label u-searchIcon"></span> Search</button>
+                        </LaddaButton>
+        			</div>
+                </div>
+
+
+    			<div className="GigSearchForm-results">
+                    <GigList gigs={this.props.gigs}/>
     			</ul>
 			</div>
 		);
 	},
 	getInitialState: function() {
-		return { maxCost: this.props.maxCost, location: this.props.location, gigs: [] };
+		return { maxCost: this.props.maxCost, location: this.props.location };
 	}
-});
-
-var ContentEditable = React.createClass({
-    render: function(){
-        return (
-        	<span onInput={this.handleInput} onBlur={this.handleChange} contentEditable="true" dangerouslySetInnerHTML={{__html: this.props.html}}>
-        	</span>
-        );
-    },
-    shouldComponentUpdate: function(nextProps){
-        return nextProps.html !== this.getDOMNode().innerHTML;
-    },
-    handleChange: function(){
-        var html = this.getDOMNode().innerHTML;
-        if (this.props.onChange && html !== this.lastHtml) {
-            this.props.onChange({
-                target: {
-                    value: html
-                }
-            });
-        } else if(html === this.props.html) {
-        	this.props.onChange({
-        		target: {
-        			value: ""
-        		}
-        	});
-        }
-        this.lastHtml = html;
-    }
 });

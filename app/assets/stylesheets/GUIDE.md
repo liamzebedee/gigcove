@@ -9,10 +9,10 @@ Quick outline:
    + **1 NEWLINE** between different CSS selectors
    + `@<property>-<value>[--componentName]` variables naming e.g. `@color-grayLight--highlightMenu`
  - Components
-   + `.componentName` - a component is like a class. Try naming components like `.gigSearchForm`
-   + `.componentName.is-stateOfComponent` - indicates different states of component (often toggled by js) like .is-disabled
-   + `.componentName--modifierName` - different varieties of a component
-   + `.componentName-subcomponentName` - basic parent-child inheritance
+   + `.ComponentName` - a component is like a class. Try naming components like `.gigSearchForm`
+   + `.ComponentName.is-stateOfComponent` - indicates different states of component (often toggled by js) like .is-disabled
+   + `.ComponentName--modifierName` - different varieties of a component
+   + `.ComponentName-subcomponentName` - basic parent-child inheritance
  - Other things
    + `.u-` prefixed class name for single purpose utility classes like .u-underline, .u-capitalize, etc.
    + `.m-` prefix for polyfill mixins

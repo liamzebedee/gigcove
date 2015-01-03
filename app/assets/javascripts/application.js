@@ -12,11 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
-//= require bootstrap
 //= require number-polyfill
 //= require contentEditable
 //= require latlong
@@ -31,6 +29,10 @@
 //= require moment
 //= require nprogress
 //= require jquery-numeric
-//= require ratchet.min
-//= require react
 //= require_tree .
+
+// Include both Turbolinks and Push.js (part of Ratchet)
+// Turbolinks doesn't work on Chrome for iOS, which is why we include Push.js
+//= require turbolinks
+//= require ratchet.min
+// require bootstrap

@@ -12,6 +12,9 @@
  *= require datepicker3
  *= require timepicker
  *= require nprogress
- * require_directory ../../../vendor/assets/stylesheets/ratchet
+
+The order below is important:
+ *= require ../../../vendor/assets/stylesheets/ratchet/ratchet.min.css
+  require ../../../vendor/assets/stylesheets/ratchet/ratchet-theme-ios.min.css
  *= require main.css.less
  */

@@ -1,35 +1,49 @@
-<h1 class="brand">gigcove</h1>
+<div class="content-padded">
+<h2 class="lead text-center">Get out and involved!</h2>
+</div>
 
-<h1>Gigcove</h1>
-<h2>Find local live music in <em>Brisbane</em></h2>
+<%= react_component('GigSearchForm', { maxCost: 20, location: "South Brisbane"}, {prerender: 0}) %>
 
-<nav>
-	<ul>
-		<li><a class="btn btn-success btn-lg" role="button" href="<%= new_gig_path %>">Post a gig</a></li>
-		<li><a class="btn btn-success btn-lg" role="button" href="<%= gigs_path %>">Talk to us</a></li>
-	</ul>
-</nav>
+<!--
+<%= render :partial => "gigs/gig_list", :locals => {:gigs => []} %>
 
-<hr>
+
+
+<form>
+  <span class="glyphicon glyphicon-map-marker"></span><input type="text" placeholder="Location">
+  $<input type="number" max="30" min="0" step="5" value=15>
+  <button class="btn btn-positive btn-block">Find gigs</button>
+</form>
+
+<form class="input-group">
+  <span class="glyphicon glyphicon-map-marker"></span><input type="text" placeholder="Location">
+  $<input type="number" max="30" min="0" step="5" value=15>
+  <button class="btn btn-positive btn-block">Find gigs</button>
+</form>
+
+<form class="input-group">
+  <div class="input-row">
+    <label><span class="glyphicon glyphicon-map-marker"></span></label>
+    <input type="text" placeholder="Brisbane AU">
+  </div>
+  <div class="input-row">
+    <label>Max cost $</label>
+    <input type="number" max="30" min="0" step="5" value=15>
+  </div>
+</form>
+
+
+
 
 <div class="Gig"><div class="panel-body">
-	<div class="Gig--Main">
-		<p>in 2 days &middot; 7pm&mdash;9pm</p>
-		<p>#rock #indie #ether</p>
-		<p>20km @ The Hive &middot; $5</p>
-	</div>
-	<div class="Gig--Venue"></div>
+  <div class="Gig--Main">
+    <p>in 2 days &middot; 7pm&mdash;9pm</p>
+    <p>#rock #indie #ether</p>
+    <p>20km @ The Hive &middot; $5</p>
+  </div>
+  <div class="Gig--Venue"></div>
 </div></div>
 
-<%= react_component('GigSearchForm', { maxCost: 15, location: "South Brisbane"}, {prerender: true}) %>
 
 <q><%= Gig.count %> gigs and counting...</q>
-
-<%= react_component('GigSearchForm', { maxCost: 15, location: "South Brisbane"}, {prerender: true}) %>
-
-
-<h2>Upcoming gigs <small><a href="">more venues</a></small></h2>
-<%= render :partial => "gigs/upcoming_gigs" %>
-
-<h2>Recent gigs <small><a href="">more venues</a></small></h2>
-<%= render :partial => "gigs/recent_gigs" %>
+-->
