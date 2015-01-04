@@ -5,38 +5,20 @@ ALPHA
 BUILD MOBILE PROTOTYPE
 ----------------------
 
-Make placeholder.js for ContentEditable component
-Add a MODERATABLE trait to Gig, Venue
-Add cover_image to venue
-Add description to venue
-
 Add sample data for UI testing
-Complete mobile UX sketch for:
- - homepage
- - gig page
- - submit gig
-Body copy for About, Help Out
 Implement mobile:
  - homepage
- - gig page
+ - submit gig
 Implement desktop
  - homepage
  - gig page
  - submit gig
-Implement web crawler
 
-
-Then continue with implementing
-- search page to show list of gigs
-- each individual gig page
-- post a gig page
-Then mobile versions
-
-
-
-
-
-BUILD DESKTOP PROTOTYPE
+Make placeholder.js for ContentEditable component
+Add a MODERATABLE trait to Gig, Venue
+Add cover_image to venue http://placehold.it/
+Add description to venue
+Make bundle install run locally. bundle install --local should be what you want. From the bundle-install manpage: Do not attempt to connect to rubygems.org, instead using just the gems located in vendor/cache. Note that if a more appropriate platform-specific gem exists on rubygems.org, this will bypass the normal lookup.
 
 what do I need with bootstrap?
  - styling 
@@ -59,24 +41,18 @@ https://github.com/hzamani/active_record-acts_as
 
 
 
+If I was to make the design completely tight, this is what I would do:
+
+JSX for all interactive components
+LESS CSS everywhere that compiled instantly
+Bootstrap for desktop, Ratchet for mobile
+Complete access to 
 
 
 
 
 
 
-
-
-
-KEEP IT MINIMAL AND ITERATIVE RELEASES
-Focus on two things:
- 1. Progress
- 2. Marketing
-
-Make it easy to post/search for gigs
-
-
-key aspects of gigs after search:
 
 
 

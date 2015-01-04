@@ -11,15 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104101459) do
+ActiveRecord::Schema.define(version: 20150104103859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "genres_gigs", id: false, force: true do |t|
-    t.integer "genre_id"
-    t.integer "gig_id"
-  end
 
   create_table "gigs", force: true do |t|
     t.decimal  "cost",           default: 0.0

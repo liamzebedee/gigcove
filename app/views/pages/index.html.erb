@@ -2,48 +2,23 @@
 <h2 class="lead text-center">Get out and involved!</h2>
 </div>
 
+Want to find something to do with friends? Have a night free, moved to a new city? Tired of trawling through websites looking for events? Missed a band you liked because you weren't aware of their gig?
+
 <%= react_component('GigSearchForm', { maxCost: 20, location: "South Brisbane", gigs: []}, {prerender: true}) %>
 
-<!--
-<%= render :partial => "gigs/gig_list", :locals => {:gigs => []} %>
-
-
-
-<form>
-  <span class="glyphicon glyphicon-map-marker"></span><input type="text" placeholder="Location">
-  $<input type="number" max="30" min="0" step="5" value=15>
-  <button class="btn btn-positive btn-block">Find gigs</button>
-</form>
-
-<form class="input-group">
-  <span class="glyphicon glyphicon-map-marker"></span><input type="text" placeholder="Location">
-  $<input type="number" max="30" min="0" step="5" value=15>
-  <button class="btn btn-positive btn-block">Find gigs</button>
-</form>
-
-<form class="input-group">
-  <div class="input-row">
-    <label><span class="glyphicon glyphicon-map-marker"></span></label>
-    <input type="text" placeholder="Brisbane AU">
-  </div>
-  <div class="input-row">
-    <label>Max cost $</label>
-    <input type="number" max="30" min="0" step="5" value=15>
-  </div>
-</form>
-
-
-
-
-<div class="Gig"><div class="panel-body">
-  <div class="Gig--Main">
-    <p>in 2 days &middot; 7pm&mdash;9pm</p>
-    <p>#rock #indie #ether</p>
-    <p>20km @ The Hive &middot; $5</p>
-  </div>
-  <div class="Gig--Venue"></div>
-</div></div>
-
-
-<q><%= Gig.count %> gigs and counting...</q>
--->
+<div class="segmented-control">
+  <a class="control-item active" href="#item1mobile">
+    Thing one
+  </a>
+  <a class="control-item" href="#item2mobile">
+    Thing two
+  </a>
+  <a class="control-item" href="#item3mobile">
+    Thing three
+  </a>
+</div>
+<div class="card">
+  <span id="item1mobile" class="control-content active">Item 1</span>
+  <span id="item2mobile" class="control-content">Item 2</span>
+  <span id="item3mobile" class="control-content">Item 3</span>
+</div>

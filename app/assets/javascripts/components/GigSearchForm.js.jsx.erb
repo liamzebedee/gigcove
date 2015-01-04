@@ -5,8 +5,10 @@ var GigListItem = React.createClass({
               <a className="navigate-right">
                 <img className="media-object pull-left" src="http://placehold.it/42x42"/>
                 <div className="media-body">
-                  this.props.title}
-                  <p>this.props.description}</p>
+                    Gig Title
+                    <p>in 2 days &middot; 7pm&mdash;9pm</p>
+                    <p>#rock #indie #ether</p>
+                    <p>20km @ The Hive &middot; $5</p>
                 </div>
               </a>
             </li>
@@ -55,6 +57,10 @@ var GigSearchForm = React.createClass({
         });
     },
 
+    handleCostChange: function(event) {
+        this.setState({maxCost: event.target.value});
+    },
+
 	render: function() {
 		return (
 			<div className="GigSearchForm">
@@ -66,10 +72,10 @@ var GigSearchForm = React.createClass({
 
                         <div className="maxCost">
                             <label>
-                                <select value={this.state.maxCost}>
+                                <select defaultValue={this.props.maxCost} onChange={this.handleCostChange}>
                                   <option value="0">Free</option>
-                                  <option value="20">$20 and under</option>
-                                  <option value="50">$50 and under</option>
+                                  <option value="25">$25 and under</option>
+                                  <option value="1000">People of my class don't care about cost</option>
                                 </select>
                                 <span className="icon icon-caret"></span>
                             </label>
