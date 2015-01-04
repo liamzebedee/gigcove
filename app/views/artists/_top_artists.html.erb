@@ -1,9 +1,0 @@
-<ul class="top-artists">
-<% artists.each do |artist| %>
-	<li>
-		<div class="artist-box">
-			<a href="#"><h2><%= artist.name %></h2></a>
-			<p><span class="glyphicon glyphicon-heart"></span> <%= 1+Random.rand(15) %> <%= artist.website %></p>
-		</div>
-<% end %>
-</ul>

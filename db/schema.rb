@@ -11,24 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912055508) do
+ActiveRecord::Schema.define(version: 20150104101459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "artists", force: true do |t|
-    t.text     "website"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.boolean  "approved"
-  end
-
-  create_table "genres", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "genres_gigs", id: false, force: true do |t|
     t.integer "genre_id"
@@ -36,18 +22,18 @@ ActiveRecord::Schema.define(version: 20140912055508) do
   end
 
   create_table "gigs", force: true do |t|
-    t.decimal  "ticket_cost",     default: 0.0
-    t.datetime "start_time"
-    t.string   "title",           default: ""
+    t.decimal  "cost",           default: 0.0
+    t.datetime "start_datetime"
+    t.string   "name",           default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "moderated",       default: false
-    t.boolean  "approved",        default: false
-    t.integer  "age_restriction"
-    t.text     "link_to_source",  default: ""
+    t.boolean  "moderated",      default: false
+    t.boolean  "approved",       default: false
+    t.text     "link_to_source", default: ""
     t.integer  "venue_id"
-    t.text     "description",     default: ""
-    t.datetime "end_time"
+    t.text     "description",    default: ""
+    t.datetime "end_datetime"
+    t.boolean  "eighteen_plus"
   end
 
   create_table "instagram_apis", force: true do |t|
@@ -65,12 +51,17 @@ ActiveRecord::Schema.define(version: 20140912055508) do
     t.datetime "updated_at"
   end
 
-  create_table "performances", force: true do |t|
-    t.integer  "gig_id"
-    t.integer  "artist_id"
+  create_table "tags", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "approved",   default: false
+    t.boolean  "moderated"
+    t.boolean  "approved"
+  end
+
+  create_table "tags_gigs", id: false, force: true do |t|
+    t.integer "tag_id"
+    t.integer "gig_id"
   end
 
   create_table "users", force: true do |t|

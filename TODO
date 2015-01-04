@@ -1,6 +1,16 @@
 ALPHA
 =====
 
+
+BUILD MOBILE PROTOTYPE
+----------------------
+
+Make placeholder.js for ContentEditable component
+Add a MODERATABLE trait to Gig, Venue
+Add cover_image to venue
+Add description to venue
+
+Add sample data for UI testing
 Complete mobile UX sketch for:
  - homepage
  - gig page
@@ -26,11 +36,17 @@ Then mobile versions
 
 
 
+BUILD DESKTOP PROTOTYPE
+
+what do I need with bootstrap?
+ - styling 
+ - typography
+ - etc.
 
 
 
 
-
+https://github.com/hzamani/active_record-acts_as
 
 
 

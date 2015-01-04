@@ -14,18 +14,8 @@ class Venue < ActiveRecord::Base
     :lng_column_name => :longitude#,
     #:auto_geocode => {:field => :location, :error_message => 'Could not geocode location'}
 
-  mount_uploader :cover_image, CoverImageUploader
-
   after_initialize do 
     defaults if self.new_record?
-  end
-
-  def get_current_gigs
-    self.gigs.where("start_time >= ?", Time.zone.now).limit(10)
-  end
-
-  def get_previous_gigs
-    self.gigs.where("start_time <= ?", Time.zone.now).limit(10)
   end
 
   private
