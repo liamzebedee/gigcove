@@ -3,7 +3,7 @@ var GigListItem = React.createClass({
         return (
             <li className="table-view-cell media">
               <a className="navigate-right">
-                <img className="media-object pull-left" src="http://placehold.it/42x42">
+                <img className="media-object pull-left" src="http://placehold.it/42x42"/>
                 <div className="media-body">
                   this.props.title}
                   <p>this.props.description}</p>
@@ -40,7 +40,7 @@ var GigSearchForm = React.createClass({
         var form = this;
         $.ajax({
             type: "GET",
-            url: "<%= gigs_path %>",
+            url: "<%= Rails.application.routes.url_helpers.gigs_path %>",
             dataType: "json",
             data: {
                 search: {
@@ -84,7 +84,7 @@ var GigSearchForm = React.createClass({
 
     			<div className="GigSearchForm-results">
                     <GigList gigs={this.props.gigs}/>
-    			</ul>
+    			</div>
 			</div>
 		);
 	},

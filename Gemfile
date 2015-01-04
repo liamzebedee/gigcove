@@ -53,6 +53,7 @@ gem 'google-analytics-rails'
 gem 'instagram'#, :git => 'git://github.com/sealabcore/instagram-ruby-gem.git'
 gem 'carrierwave'
 
-gem 'mobile-fu'
-
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+
+#gem 'sass-rails'
+#gem 'forgery', '0.6.0'

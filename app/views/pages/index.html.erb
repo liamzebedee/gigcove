@@ -2,7 +2,7 @@
 <h2 class="lead text-center">Get out and involved!</h2>
 </div>
 
-<%= react_component('GigSearchForm', { maxCost: 20, location: "South Brisbane"}, {prerender: 0}) %>
+<%= react_component('GigSearchForm', { maxCost: 20, location: "South Brisbane", gigs: []}, {prerender: true}) %>
 
 <!--
 <%= render :partial => "gigs/gig_list", :locals => {:gigs => []} %>
