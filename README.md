@@ -6,8 +6,8 @@ Install docker, fig
 Run `fig build`
 Run `fig up` and boom
 
-For deployment:
-`gem install mina`
+### Bundler Gem caching
+Run `fig run web bundle package` to store the gems to your local machine cache, such that when you rebuild the Docker image it doesn't need to redownload all of these gems
 
 ## Development
 Mina for deployment

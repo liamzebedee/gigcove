@@ -5,7 +5,6 @@ ALPHA
 BUILD MOBILE PROTOTYPE
 ----------------------
 
-fix path issue
 Add sample data for UI testing
 Write unit tests
 Implement mobile:
