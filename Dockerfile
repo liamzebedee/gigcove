@@ -5,5 +5,5 @@ RUN mkdir /railsapp
 WORKDIR /railsapp
 ADD Gemfile /railsapp/Gemfile
 ADD Gemfile.lock /railsapp/Gemfile.lock
-RUN bundle install
+RUN bundle install --deployment --path "/railsapp/vendor/bundle"
 ADD . /railsapp

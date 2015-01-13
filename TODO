@@ -5,26 +5,28 @@ ALPHA
 BUILD MOBILE PROTOTYPE
 ----------------------
 
+fix path issue
 Add sample data for UI testing
+Write unit tests
 Implement mobile:
- - homepage
  - submit gig
 Implement desktop
  - homepage
  - gig page
- - submit gig
+ - submit info
+Write marketing material: intro homepage for mobile and desktop
+Add blog/twitter
+
 
 Make placeholder.js for ContentEditable component
 Add a MODERATABLE trait to Gig, Venue
 Add cover_image to venue http://placehold.it/
 Add description to venue
-Make bundle install run locally. bundle install --local should be what you want. From the bundle-install manpage: Do not attempt to connect to rubygems.org, instead using just the gems located in vendor/cache. Note that if a more appropriate platform-specific gem exists on rubygems.org, this will bypass the normal lookup.
 
 what do I need with bootstrap?
  - styling 
  - typography
  - etc.
-
 
 
 
@@ -35,7 +37,14 @@ https://github.com/hzamani/active_record-acts_as
 
 
 
+IDEAS
+=====
 
+Instagram media related to event info
+Crawler based on Schema.org event markup
+User sign-in for posting reviews, link automatically to instagram to import photos
+Event maps
+Post events to Twitter automatically to get publicity
 
 
 

@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"gig",
+				"gig_i"
+			],
+			[
+				"venue",
+				"venue_i"
+			],
+			[
 				"font-",
 				"font-style"
 			],
@@ -38,14 +46,6 @@
 			[
 				"link",
 				"link_to_source"
-			],
-			[
-				"venue",
-				"venue_data"
-			],
-			[
-				"gig",
-				"gig_data"
 			],
 			[
 				"process_",
@@ -140,35 +140,18 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/layouts/application.html.erb",
+			"file": "TODO",
 			"settings":
 			{
-				"buffer_size": 2871,
+				"buffer_size": 2976,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/assets/javascripts/application.js",
+			"file": "config/initializers/sprockets.rb",
 			"settings":
 			{
-				"buffer_size": 1248,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/gigs/_gig_list.html.erb",
-			"settings":
-			{
-				"buffer_size": 460,
-				"line_ending": "Unix",
-				"name": "_gig_list.html.erb"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/main.css.less",
-			"settings":
-			{
-				"buffer_size": 1823,
+				"buffer_size": 258,
 				"line_ending": "Unix"
 			}
 		},
@@ -176,15 +159,15 @@
 			"file": "app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
 			"settings":
 			{
-				"buffer_size": 2497,
+				"buffer_size": 3384,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/views/pages/index.html.erb",
+			"file": "config/application.rb",
 			"settings":
 			{
-				"buffer_size": 1283,
+				"buffer_size": 1454,
 				"line_ending": "Unix"
 			}
 		}
@@ -192,19 +175,23 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 96.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"a",
+				"About"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
 			],
 			[
 				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"install",
 				"Package Control: Install Package"
 			],
 			[
@@ -220,7 +207,7 @@
 				"Set Syntax: Markdown Extended"
 			]
 		],
-		"width": 449.0
+		"width": 521.0
 	},
 	"console":
 	{
@@ -237,14 +224,43 @@
 	},
 	"file_history":
 	[
+		"/home/liamzebedee/Documents/gigcove/db/seeds/test_data.rb",
+		"/home/liamzebedee/Documents/gigcove/TODO",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/about.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/gigs_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/Utilities.js.jsx",
+		"/home/liamzebedee/Documents/gigcove/app/models/gig.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.mobile.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/pages/thanks.html.erb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20150104103858_drop_genres_gigs_table.rb",
+		"/home/liamzebedee/Documents/gigcove/db/schema.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/venue.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20150104101459_add_moderation_to_tags.rb",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20150104094938_add_tags_to_gig.rb",
+		"/home/liamzebedee/Documents/gigcove/db/seeds/genres.rb",
+		"/home/liamzebedee/Documents/gigcove/app/controllers/tags_controller.rb",
+		"/home/liamzebedee/Documents/gigcove/app/models/genre.rb",
+		"/home/liamzebedee/Documents/gigcove/fig.yml",
+		"/home/liamzebedee/Documents/gigcove/db/migrate/20150103114218_refactor_gig.rb",
+		"/home/liamzebedee/Documents/gigcove/test/test_helper.rb",
+		"/home/liamzebedee/Documents/gigcove/config/application.rb",
+		"/home/liamzebedee/Documents/gigcove/config/initializers/erb_helpers.rb",
+		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig_list.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.html.erb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/main.css.less",
+		"/home/liamzebedee/Documents/gigcove/db/seeds.rb",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/application.js",
+		"/home/liamzebedee/Documents/gigcove/ERRORS.md",
+		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.erb.jsx",
+		"/home/liamzebedee/Documents/gigcove/Gemfile",
+		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/GUIDE.md",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/bootstrap.less",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig.html.erb",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/glyphicons.less",
-		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/variables.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/application.css",
-		"/home/liamzebedee/Documents/gigcove/TODO",
-		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/main.css.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/ratchet.css.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/variables.less",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/mixins.less",
@@ -254,17 +270,12 @@
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/scaffolding.less",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/media.less",
 		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.mobile.erb",
-		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.html.erb",
 		"/home/liamzebedee/Documents/gigcove/app/views/shared/_header.html.erb",
-		"/home/liamzebedee/Documents/gigcove/app/views/layouts/application.html.erb",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components.js",
-		"/home/liamzebedee/Documents/gigcove/Gemfile",
 		"/home/liamzebedee/Documents/gigcove/app/controllers/application_controller.rb",
-		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/application.js",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/mixins/grid-framework.less",
 		"/home/liamzebedee/Documents/27-11-2014-gigcove-draft-design.svg",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/stylesheets/bootstrap/grid.less",
-		"/home/liamzebedee/Documents/gigcove/app/controllers/gigs_controller.rb",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/old.less",
 		"/home/liamzebedee/Documents/gigcove/app/controllers/instagram_controller.rb",
 		"/home/liamzebedee/Documents/gigcove/app/views/shared/_metadata.html.erb",
@@ -273,16 +284,9 @@
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/utilities.less",
 		"/home/liamzebedee/Documents/gigcove/public/robots.txt",
 		"/home/liamzebedee/Documents/design-prac/liamzco-1.html",
-		"/home/liamzebedee/Documents/gigcove/config/initializers/erb_helpers.rb",
-		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/Utilities.js.jsx",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/gigs/gig_index.js",
-		"/home/liamzebedee/Documents/gigcove/config/application.rb",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/GigSearchForm.js.jsx",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/index.html.erb",
-		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/GUIDE.md",
-		"/home/liamzebedee/Documents/gigcove/app/models/gig.rb",
-		"/home/liamzebedee/Documents/gigcove/app/models/venue.rb",
-		"/home/liamzebedee/Documents/gigcove/fig.yml",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/ratchet-mobile-stuff.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/token-input.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/social-icons.less",
@@ -291,10 +295,8 @@
 		"/home/liamzebedee/Documents/gigcove/app/assets/stylesheets/util.less",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/components/gigSearchForm.js.jsx",
 		"/home/liamzebedee/Documents/gigcove/Dockerfile",
-		"/home/liamzebedee/Documents/gigcove/app/views/pages/index.mobile.erb",
 		"/home/liamzebedee/Documents/gigcove/app/views/pages/test.html",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig_small.html.erb",
-		"/home/liamzebedee/Documents/gigcove/db/schema.rb",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_recent_gigs.html.erb",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_new_gigs.html.erb",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_recent_gigs.erb.html",
@@ -315,23 +317,18 @@
 		"/home/liamzebedee/Downloads/ratchet-2.0.2/docs/examples/app-ios-mail/inbox.html",
 		"/home/liamzebedee/Documents/gigcove/db/pretty_schema.rb",
 		"/home/liamzebedee/Documents/gigcove/app/views/users/registrations/edit.html.erb",
-		"/home/liamzebedee/Documents/gigcove/db/seeds.rb",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/main.js",
 		"/home/liamzebedee/Documents/gigcove/app/assets/javascripts/gigs/gig_editable.js",
-		"/home/liamzebedee/Documents/gigcove/ERRORS.md",
 		"/home/liamzebedee/Documents/gigcove/app/controllers/users/registrations_controller.rb",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/new.html.erb",
 		"/home/liamzebedee/Documents/gigcove/log/development.log",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/unmoderated.html.erb",
 		"/home/liamzebedee/Documents/gigcove/app/controllers/venues_controller.rb",
 		"/home/liamzebedee/Documents/gigcove/app/controllers/genres_controller.rb",
-		"/home/liamzebedee/Documents/gigcove/app/models/genre.rb",
 		"/home/liamzebedee/Documents/gigcove/app/views/gigs/_gig_editable.html.erb",
 		"/home/liamzebedee/Documents/gigcove/test/controllers/gigs_controller_test.rb",
-		"/home/liamzebedee/Documents/gigcove/db/seeds/genres.rb",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/timepicker.js",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/bootstrap-datepicker.js",
-		"/home/liamzebedee/Documents/gigcove/app/views/pages/thanks.html.erb",
 		"/home/liamzebedee/Documents/gigcove/development.sh",
 		"/home/liamzebedee/Documents/gigcove/webbash.sh",
 		"/home/liamzebedee/Documents/gigcove/.gitignore",
@@ -354,17 +351,7 @@
 		"/home/liamzebedee/Documents/gigcove/log/production.log",
 		"/home/liamzebedee/Documents/gigcove/vendor/assets/javascripts/nprogress.js",
 		"/home/liamzebedee/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/liamzebedee/.config/sublime-text-2/Packages/knockdown/Markdown (Github Flavored).sublime-settings",
-		"/home/liamzebedee/.config/sublime-text-2/Packages/User/Markdown (Github Flavored).sublime-settings",
-		"/home/liamzebedee/Documents/gigcove/webserver.sh",
-		"/home/liamzebedee/Documents/gigcove/docker-web/webserver.sh",
-		"/home/liamzebedee/Documents/gigcove/app/helpers/application_helper.rb",
-		"/home/liamzebedee/Documents/gigcove/config/environments/production.rb",
-		"/home/liamzebedee/Documents/gigcove/_instagram.rb",
-		"/home/liamzebedee/Documents/gigcove/app/models/user.rb",
-		"/home/liamzebedee/Documents/gigcove/app/views/users/registrations/new.html.erb",
-		"/home/liamzebedee/Documents/gigcove/app/views/users/passwords/edit.html.erb",
-		"/home/liamzebedee/Documents/gigcove/config/initializers/geokit.rb"
+		"/home/liamzebedee/.config/sublime-text-2/Packages/knockdown/Markdown (Github Flavored).sublime-settings"
 	],
 	"find":
 	{
@@ -372,7 +359,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"",
@@ -385,6 +372,13 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"title",
+			"random",
+			"table",
+			"Migration",
+			"_table",
+			"Gigcove",
+			"scss",
 			"money\n\ndollar",
 			"coin",
 			"cash",
@@ -516,23 +510,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/layouts/application.html.erb",
+					"file": "TODO",
 					"settings":
 					{
-						"buffer_size": 2871,
+						"buffer_size": 2976,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1215,
-								1215
+								60,
+								60
 							]
 						],
 						"settings":
@@ -554,32 +548,36 @@
 								{
 									"characters": ".#",
 									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
 								}
 							],
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 153.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "app/assets/javascripts/application.js",
+					"file": "config/initializers/sprockets.rb",
 					"settings":
 					{
-						"buffer_size": 1248,
+						"buffer_size": 258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1179,
-								1179
+								238,
+								238
 							]
 						],
 						"settings":
@@ -601,9 +599,13 @@
 								{
 									"characters": ".#",
 									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
 								}
 							],
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -613,47 +615,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/views/gigs/_gig_list.html.erb",
+					"file": "app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
 					"settings":
 					{
-						"buffer_size": 460,
+						"buffer_size": 3384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "_gig_list.html.erb",
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/assets/stylesheets/main.css.less",
-					"settings":
-					{
-						"buffer_size": 1823,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1821,
-								1821
+								669,
+								669
 							]
 						],
 						"settings":
@@ -667,39 +640,13 @@
 								{
 									"characters": ".#",
 									"selector": "text.html"
-								}
-							],
-							"syntax": "Packages/LESS/LESS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1037.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/assets/javascripts/components/GigSearchForm.js.jsx.erb",
-					"settings":
-					{
-						"buffer_size": 2497,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1040,
-								1040
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
+								},
 								{
-									"characters": "<",
+									"characters": ".#",
+									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
 									"selector": "text.html"
 								},
 								{
@@ -712,25 +659,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 510.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/views/pages/index.html.erb",
+					"buffer": 3,
+					"file": "config/application.rb",
 					"settings":
 					{
-						"buffer_size": 1283,
+						"buffer_size": 1454,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1454,
+								1454
 							]
 						],
 						"settings":
@@ -752,14 +699,18 @@
 								{
 									"characters": ".#",
 									"selector": "text.html"
+								},
+								{
+									"characters": ".#",
+									"selector": "text.html"
 								}
 							],
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -813,8 +764,80 @@
 		"selected_items":
 		[
 			[
+				"gigsea",
+				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
+			],
+			[
+				"todo",
+				"TODO"
+			],
+			[
+				"utilit",
+				"app/assets/javascripts/components/Utilities.js.jsx"
+			],
+			[
+				"inde",
+				"app/views/pages/index.html.erb"
+			],
+			[
 				"gigsearc",
 				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
+			],
+			[
+				"drop_gen",
+				"db/migrate/20150104103858_drop_genres_gigs_table.rb"
+			],
+			[
+				"sche",
+				"db/schema.rb"
+			],
+			[
+				"add_moderat",
+				"db/migrate/20150104101459_add_moderation_to_tags.rb"
+			],
+			[
+				"genre",
+				"db/seeds/genres.rb"
+			],
+			[
+				"gig_contr",
+				"app/controllers/gigs_controller.rb"
+			],
+			[
+				"add_tags",
+				"db/migrate/20150104094938_add_tags_to_gig.rb"
+			],
+			[
+				"gig.r",
+				"app/models/gig.rb"
+			],
+			[
+				"seeds",
+				"db/seeds.rb"
+			],
+			[
+				"fig",
+				"fig.yml"
+			],
+			[
+				"util",
+				"app/assets/javascripts/components/Utilities.js.jsx"
+			],
+			[
+				"application.",
+				"config/application.rb"
+			],
+			[
+				"application.rb",
+				"config/application.rb"
+			],
+			[
+				"err",
+				"ERRORS.md"
+			],
+			[
+				"gemfi",
+				"Gemfile"
 			],
 			[
 				"glyphi",
@@ -885,10 +908,6 @@
 				"vendor/assets/stylesheets/bootstrap/scaffolding.less"
 			],
 			[
-				"gigsea",
-				"app/assets/javascripts/components/GigSearchForm.js.jsx.erb"
-			],
-			[
 				"grid",
 				"vendor/assets/stylesheets/bootstrap/mixins/grid-framework.less"
 			],
@@ -921,14 +940,6 @@
 				"vendor/assets/stylesheets/flatly/variables.less"
 			],
 			[
-				"todo",
-				"TODO"
-			],
-			[
-				"gig_contr",
-				"app/controllers/gigs_controller.rb"
-			],
-			[
 				"gig_cn",
 				"app/controllers/gigs_controller.rb"
 			],
@@ -953,24 +964,12 @@
 				"app/models/gig.rb"
 			],
 			[
-				"gig.r",
-				"app/models/gig.rb"
-			],
-			[
-				"fig",
-				"fig.yml"
-			],
-			[
 				"applic",
 				"app/assets/javascripts/application.js"
 			],
 			[
 				"docker",
 				"Dockerfile"
-			],
-			[
-				"sche",
-				"db/schema.rb"
 			],
 			[
 				"develop",
@@ -1049,10 +1048,6 @@
 				"app/controllers/genres_controller.rb"
 			],
 			[
-				"genre",
-				"app/models/genre.rb"
-			],
-			[
 				"genres_c",
 				"app/controllers/genres_controller.rb"
 			],
@@ -1123,10 +1118,6 @@
 			[
 				"deve",
 				"log/development.log"
-			],
-			[
-				"util",
-				"app/assets/stylesheets/util.less"
 			],
 			[
 				"less",
@@ -1281,16 +1272,8 @@
 				"app/assets/stylesheets/util.less"
 			],
 			[
-				"gemfi",
-				"Gemfile.lock"
-			],
-			[
 				"read",
 				"README.md"
-			],
-			[
-				"contr",
-				"app/controllers/gigs_controller.rb"
 			]
 		],
 		"width": 0.0

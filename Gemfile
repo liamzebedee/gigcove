@@ -57,3 +57,4 @@ gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 #gem 'sass-rails'
 #gem 'forgery', '0.6.0'
+#gem "js-routes"

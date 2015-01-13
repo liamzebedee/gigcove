@@ -21,8 +21,7 @@ Rails.application.routes.draw do
   end
   
 
-  resources :genres, only: [:index] do
+  resources :tags, only: [:index] do
   end
   resources :venues, only: [:index, :show, :edit]
-  resources :artists, only: [:index, :show]
 end

@@ -39,5 +39,3 @@ module Railsapp
     config.react.addons = true
   end
 end
-
-require "#{Rails.root}/config/initializers/erb_helpers.rb"

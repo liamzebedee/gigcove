@@ -42,7 +42,7 @@ var GigSearchForm = React.createClass({
         var form = this;
         $.ajax({
             type: "GET",
-            url: "<%= Rails.application.routes.url_helpers.gigs_path %>",
+            url: "/gigs",
             dataType: "json",
             data: {
                 search: {
@@ -64,7 +64,6 @@ var GigSearchForm = React.createClass({
 	render: function() {
 		return (
 			<div className="GigSearchForm">
-                <div className="content-padded">
         			<div className="GigSearchForm-params">
                         <div className="location">
                             Events near <span className="u-inputStuffIndicator"><span className="glyphicon glyphicon-map-marker"></span><ContentEditable html={this.state.location}/></span>
@@ -77,7 +76,6 @@ var GigSearchForm = React.createClass({
                                   <option value="25">$25 and under</option>
                                   <option value="1000">People of my class don't care about cost</option>
                                 </select>
-                                <span className="icon icon-caret"></span>
                             </label>
                         </div>
 
@@ -85,7 +83,6 @@ var GigSearchForm = React.createClass({
                             <button className="btn btn-block btn-primary"><span className="ladda-label u-searchIcon"></span> Search</button>
                         </LaddaButton>
         			</div>
-                </div>
 
 
     			<div className="GigSearchForm-results">

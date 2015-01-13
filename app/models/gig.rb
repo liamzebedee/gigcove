@@ -27,12 +27,12 @@ class Gig < ActiveRecord::Base
     self.start_datetime.strftime('%-d/%-m/%Y')
   end
 
-  def start_time_str
+  def start_datetime_str
     # strip because for some reason, ruby doesn't have a 12-hour NO blank-spaced parameter
     self.start_datetime.strftime('%l:%M%P').strip
   end
 
-  def end_time_str
+  def end_datetime_str
     self.end_datetime.strftime('%l:%M%P').strip
   end
 

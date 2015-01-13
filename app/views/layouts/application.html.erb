@@ -38,20 +38,12 @@
   <footer id="Page--Footer" class="bar bar-footer">
     <nav class="bar bar-tab">
       <a class="tab-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">
-        <span class="icon icon-home"></span>
-        <span class="tab-label">Home</span>
-      </a>
-      <a class="tab-item <%= "active" if current_page?(contact_path) %>" href="<%= contact_path %>">
-        <span class="icon glyphicon glyphicon-earphone"></span>
-        <span class="tab-label">Say hi</span>
+        <span class="icon icon-search"></span>
+        <span class="tab-label">Find gigs</span>
       </a>
       <a class="tab-item <%= "active" if current_page?(new_gig_path) %>" href="<%= new_gig_path %>">
         <span class="icon icon-compose"></span>
-        <span class="tab-label">Submit a gig</span>
-      </a>
-      <a class="tab-item <%= "active" if current_page?(gigs_path) %>" href="<%= gigs_path %>">
-        <span class="icon icon-search"></span>
-        <span class="tab-label">Find gigs</span>
+        <span class="tab-label">Submit info</span>
       </a>
     </nav>
   </footer>

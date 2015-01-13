@@ -1,13 +1,2 @@
-<header class="page-header">
-	<h1>Post a gig</h1>
-</header>
-
-<%= form_for(@gig, html: {autocomplete: "off", class: "gig-form"}) do |f| %>
-  <%= render :partial => "gig_editable", :locals => {:gig => @gig, :f => f} %>
-
-  <footer>
-    <p>Shortly after sending us the gig's details, we will moderate it for quality and then post it.</p>
-    <p>If you have any feedback on this process or GigCove in general, please do <%= link_to "contact us", contact_path %>. And thanks for contributing!</p>
-    <button type="submit" class="btn btn-success btn-lg" value="submit" name="commit">Post Gig</button>
-  </footer>
-<% end %>
+Post a new gig
+Tell us about a new venue
