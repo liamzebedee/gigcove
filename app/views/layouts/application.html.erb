@@ -41,9 +41,9 @@
         <span class="icon icon-search"></span>
         <span class="tab-label">Find gigs</span>
       </a>
-      <a class="tab-item <%= "active" if current_page?(new_gig_path) %>" href="<%= new_gig_path %>">
+      <a class="tab-item <%= "active" if current_page?(contribute_path) or current_page?(new_gig_path) %>" href="<%= contribute_path %>">
         <span class="icon icon-compose"></span>
-        <span class="tab-label">Submit info</span>
+        <span class="tab-label">Contribute info</span>
       </a>
     </nav>
   </footer>

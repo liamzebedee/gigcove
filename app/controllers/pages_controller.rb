@@ -12,10 +12,10 @@ class PagesController < ApplicationController
     @page_description = "The origins and history of GigCove."
     render 'about'
   end
- 
-  def contact
-    @page_title = "Contact Us"
-    @page_description = "How to contact the people behind GigCove."
-    render 'contact'
+
+  def contribute
+    @page_title = "Contribute"
+    @page_description = ""
+    render 'contribute'
   end
 end

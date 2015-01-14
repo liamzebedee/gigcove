@@ -5,7 +5,6 @@
 @import "bootstrap/bootstrap.less";
 @import "bootstrap/mixins.less";
 }
-@import "bootstrap/glyphicons.less";
 
 @font-face {
     font-family: Ratchicons;
@@ -16,6 +15,7 @@
 }
 
 @import "./variables.less";
+@import "bootstrap/glyphicons.less";
 @brand-primary: #ff9955; // nice orange
 
 @header-footer-padding: 60px;
@@ -105,4 +105,13 @@
 }
 .u-inputStuffIndicator {
 	border-bottom: 2px dotted #525252 !important;
+}
+.input-row {
+  position: relative;
+}
+
+.input-row .toggle {
+  position: absolute;
+  top: 4px;
+  right: 10px;
 }

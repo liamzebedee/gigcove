@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Static pages
   root :to => 'pages#index'
   get 'contact', to: 'pages#contact'
+  get 'contribute', to: 'pages#contribute'
 
   # Instagram
   get '/instagram/subscription_callback', to: 'instagram#verify_subscriptions'

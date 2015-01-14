@@ -11,7 +11,7 @@ File.readlines('schema.rb').each do |line|
 		# field
 		if parts[0][0] == 't'
 			field_name = parts[1].delete("\",").chomp('t.')
-			puts ' - '+field_name
+			puts "\t"+field_name
 		end
 	end
 end

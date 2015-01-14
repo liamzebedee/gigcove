@@ -9,10 +9,15 @@ Add sample data for UI testing
 Write unit tests
 Implement mobile:
  - submit gig
+   contribute page
+   submit venue/gig info
 Implement desktop
  - homepage
  - gig page
  - submit info
+    contribute page
+Compartmentalize mobile and desktop sites
+
 Write marketing material: intro homepage for mobile and desktop
 Add blog/twitter
 
@@ -33,7 +38,10 @@ https://github.com/hzamani/active_record-acts_as
 
 
 
-
+Why not Ratchet?
+ - not well maintained (2014 April last release)
+ - button not working!
+ - many bugs reported
 
 
 IDEAS
@@ -45,6 +53,9 @@ User sign-in for posting reviews, link automatically to instagram to import phot
 Event maps
 Post events to Twitter automatically to get publicity
 
+
+http://quojs.tapquo.com/
+Ionic mobile CSS framewokr
 
 
 
