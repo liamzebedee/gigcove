@@ -27,25 +27,26 @@
 
 
 <body class="Page" id="<%= "#{controller_name}-#{action_name}" %>">  
-  <header id="Page--Head" class="bar bar-nav">
-    <!--
-    <a class="icon icon-home pull-left" href="/"></a>
-    <a class="icon icon-search pull-right" href="/"></a>
-  -->
-    <a href="#Page--Popover"><h1 class="title"><strong>GigCove</strong> <span class="icon icon-caret"></span></h1></a>
+  <header id="Page--Head" class="bar bar-header bar-light">
+    <h1 class="title"><strong>GigCove</strong></h1>
   </header>
 
-  <footer id="Page--Footer" class="bar bar-footer">
-    <nav class="bar bar-tab">
-      <a class="tab-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">
-        <span class="icon icon-search"></span>
+  <footer id="Page--Footer" class="bar bar-footer bar-light">
+    <!--
+      <a class=" <%= "active" if current_page?(root_path) %>" href="<%= root_path %>"><button class="button button-clear">
+        <span class="button-icon icon icon-search"></span>
         <span class="tab-label">Find gigs</span>
-      </a>
-      <a class="tab-item <%= "active" if current_page?(contribute_path) or current_page?(new_gig_path) %>" href="<%= contribute_path %>">
-        <span class="icon icon-compose"></span>
+      </button></a>
+      <a class=" <%= "active" if current_page?(contribute_path) or current_page?(new_gig_path) %>" href="<%= contribute_path %>"><button class="button button-clear">
+        <span class="button-icon icon icon-compose"></span>
         <span class="tab-label">Contribute info</span>
-      </a>
-    </nav>
+      </button></a>
+    -->
+    <div class="button-bar">
+    <button class="button button-clear">Hello</button>
+    <button class="button button-clear">Search</button>
+    <button class="button button-clear">Contribute</button>
+    </div>
   </footer>
   
   <div id="Page--Content" class="content">

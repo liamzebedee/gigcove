@@ -34,5 +34,5 @@
 // Include both Turbolinks and Push.js (part of Ratchet)
 // Turbolinks doesn't work on Chrome for iOS, which is why we include Push.js
 //= require turbolinks
-//= require ratchet.min
+//= require ionic
 // require bootstrap

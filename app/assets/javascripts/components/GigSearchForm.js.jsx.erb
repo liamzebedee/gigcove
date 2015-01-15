@@ -65,23 +65,34 @@ var GigSearchForm = React.createClass({
 		return (
 			<div className="GigSearchForm">
         			<div className="GigSearchForm-params">
-                        <div className="location">
-                            Events near <span className="u-inputStuffIndicator"><span className="glyphicon glyphicon-map-marker"></span><ContentEditable html={this.state.location}/></span>
-                        </div>
+                    <div className="list">
 
-                        <div className="maxCost">
-                            <label>
-                                <select defaultValue={this.props.maxCost} onChange={this.handleCostChange}>
-                                  <option value="0">Free</option>
-                                  <option value="25">$25 and under</option>
-                                  <option value="1000">People of my class don't care about cost</option>
-                                </select>
+                      <div className="item item-input-inset">
+                            <label className="item-input-wrapper">
+                              <div className="location">
+                                Gigs near <span className="u-inputStuffIndicator"><span className="glyphicon glyphicon-map-marker"></span><ContentEditable html={this.state.location}/></span>
+                                </div>
                             </label>
-                        </div>
 
-                        <LaddaButton onClick={this.submitForm}>
-                            <button className="btn btn-block btn-primary"><span className="ladda-label u-searchIcon"></span> Search</button>
-                        </LaddaButton>
+                            <div className="maxCost">
+                                <label className="item-input-wrapper">
+                                    <select defaultValue={this.props.maxCost} onChange={this.handleCostChange}>
+                                      <option value="0">Free</option>
+                                      <option value="25">$30 and under</option>
+                                      <option value="1000">Any cost</option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <LaddaButton onClick={this.submitForm}>
+                            <button className="button button-small">
+                              <span className="ladda-label u-searchIcon"></span> Find
+                            </button>
+                            </LaddaButton>
+                      </div>
+
+                    </div>
+
         			</div>
 
 

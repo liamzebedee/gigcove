@@ -24,7 +24,6 @@
 	&~.content { padding-bottom: @header-footer-padding; }
 
 	.title {
-		position: relative;
 		font-family: 'Quicksand';
 		font-size: 3em; // 40px
 		font-weight: 700;
@@ -36,9 +35,6 @@
 }
 #Page--Footer {
 	&~.content { padding-top: @header-footer-padding; }
-	.bar-tab .tab-item.active, .bar-tab .tab-item:active {
-		color: @brand-primary;
-	}
 }
 #Page--Content {
 }
@@ -72,32 +68,6 @@
 	float: left;
 }
 
-.GigSearchForm-params {
-	line-height: 1.5 !important;
-	font-size: 22px !important;
-
-	.maxCost input { 
-		.u-inputStuffIndicator; 
-		padding-right: 0px;
-		padding-left: 5px;
-		width: 3em!important;
-	}
-
-
-	@media (min-width: @screen-md-min) {
-		.bs.make-row();
-		.location {
-			.bs.make-md-column(6);
-			text-align: left;
-		}
-		.maxCost {
-			.bs.make-md-column(6);
-			text-align: right;
-		}
-		button { .bs.make-row(); .bs.make-md-column(12); }
-	}
-
-}
 
 .u-inputNumberMinimal {
 	width: inherit !important;
@@ -105,13 +75,4 @@
 }
 .u-inputStuffIndicator {
 	border-bottom: 2px dotted #525252 !important;
-}
-.input-row {
-  position: relative;
-}
-
-.input-row .toggle {
-  position: absolute;
-  top: 4px;
-  right: 10px;
 }

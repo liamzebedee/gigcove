@@ -1,34 +1,65 @@
+<div class="list">
+  <label class="item item-input">
+    <span class="input-label">Gig name</span>
+    <input type="text"/>
+  </label>
 
-    <div class="toggle">
-      <div class="toggle-handle"></div>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <span class="input-label">Starts</span>
+        <input type="text"/>
+      </label>
+      <label class="item-input-wrapper">
+        <span class="input-label">Ends</span>
+        <input type="text"/>
+      </label>
     </div>
-<form class="input-group">
-  <div class="input-row">
-    <label>Gig name</label>
-    <input type="text" placeholder="February weekly dance">
-  </div>
 
-  <textarea rows="5"></textarea>
+  <label class="item item-input">
+    <textarea rows=5 placeholder="Description"></textarea>
+  </label>
 
-  <div class="input-row">
-    <label>Link to source</label>
-    <input type="email" placeholder="http://super-nice-place.com/event/42">
-  </div>
-  <div class="input-row">
-    <label>Cost</label>
-    <input type="text" placeholder="$20">
-  </div>
-  <div class="input-row">
-    <label>18+</label>
-    <div class="toggle">
-      <div class="toggle-handle"></div>
-    </div>
-  </div>
+  <label class="item item-input">
+    <span class="input-label">Tags</span>
+  </label>  
 
-  <h2 class="divider">Venue details</h2>
+  <li class="item item-toggle">
+    <span>18+</span>
+     <label class="toggle toggle-assertive">
+       <input type="checkbox">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+   </li>
 
-
-
-  <button class="btn btn-positive btn-block">Post gig</button>
-</form>
+  <label class="item item-input">
+    <span class="input-label">Cost</span>
+    <input type="number" pattern="[0-9]+" max=200/>
+  </label>
   
+  <label class="item item-input">
+    <span class="input-label">Link to source</span>
+    <input type="text"/>
+  </label>
+
+  <div class="item-divider"></div>
+  <label class="item"><h2>Venue details</h2></label>
+
+  <label class="item item-input">
+    <span class="input-label">Venue name</span>
+    <input type="text"/>
+  </label>
+
+  <label class="item item-input">
+    <span class="input-label">Location</span>
+    <input type="text"/>
+  </label>
+
+
+  <div class="padding">
+    <button class="button button-block button-positive">Post gig</button>
+  </div>
+</div>
+
+

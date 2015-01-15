@@ -2,22 +2,32 @@ ALPHA
 =====
 
 
-BUILD MOBILE PROTOTYPE
-----------------------
+BUILD MINIMUM PROTOTYPE
+-----------------------
 
 Add sample data for UI testing
 Write unit tests
 Implement mobile:
- - submit gig
-   contribute page
-   submit venue/gig info
-Implement desktop
- - homepage
- - gig page
- - submit info
-    contribute page
+  fix general menus
+  submit gig
+    start and end time
+    tags
+    link to source highlight like link
+    venue autocomplete
+  contribute page
+    icons
+  submit venue info
+  home
+    add body marketing text
 Compartmentalize mobile and desktop sites
-
+  ERB views
+  CSS
+  react JS
+Implement desktop
+  homepage
+  gig page
+  submit info
+  contribute page
 Write marketing material: intro homepage for mobile and desktop
 Add blog/twitter
 
@@ -32,6 +42,11 @@ what do I need with bootstrap?
  - typography
  - etc.
 
+
+
+Contribute page explanation:
+  Post a gig will mainly be for us and particularly dedicated people who want to post.
+  Link us will be for people who want to easily let us know about a venue we should index
 
 
 https://github.com/hzamani/active_record-acts_as

@@ -26,10 +26,13 @@ class GigsController < ApplicationController
 
       @gigs = Gig.approved_gigs.joins(:venue).within(distance_radius, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
       render json: @gigs
-
     end
   end
 
   def new
+  end
+
+  def create
+    
   end
 end

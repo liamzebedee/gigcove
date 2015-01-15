@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   # Static pages
   root :to => 'pages#index'
-  get 'contact', to: 'pages#contact'
+  get 'hello', to: 'pages#hello'
   get 'contribute', to: 'pages#contribute'
 
   # Instagram
@@ -20,9 +20,7 @@ Rails.application.routes.draw do
       get 'unmoderated'
     end
   end
-  
-
   resources :tags, only: [:index] do
   end
-  resources :venues, only: [:index, :show, :edit]
+  resources :venues, only: [:index, :new, :create, :show, :edit]
 end
