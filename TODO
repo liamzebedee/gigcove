@@ -8,7 +8,6 @@ BUILD MINIMUM PROTOTYPE
 Add sample data for UI testing
 Write unit tests
 Implement mobile:
-  fix general menus
   submit gig
     start and end time
     tags
@@ -30,6 +29,7 @@ Implement desktop
   contribute page
 Write marketing material: intro homepage for mobile and desktop
 Add blog/twitter
+Get NProgress working
 
 
 Make placeholder.js for ContentEditable component

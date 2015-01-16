@@ -1,19 +1,27 @@
 <div class="list">
   <label class="item item-input">
-    <span class="input-label">Gig name</span>
-    <input type="text"/>
+    <strong><input type="text" placeholder="Gig name"/></strong>
   </label>
 
-    <div class="item item-input-inset">
-      <label class="item-input-wrapper">
-        <span class="input-label">Starts</span>
-        <input type="text"/>
-      </label>
-      <label class="item-input-wrapper">
-        <span class="input-label">Ends</span>
-        <input type="text"/>
-      </label>
-    </div>
+  <label class="item item-input">
+      <span class="input-label">Start date</span>
+      <input type="date">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">Start time</span>
+      <input type="text" class="timepicker" onclick="$(this).pickatime()"/>
+    </label>
+
+  <label class="item item-input">
+      <span class="input-label">End date</span>
+      <input type="date">
+    </label>
+    <label class="item item-input">
+      <span class="input-label">End time</span>
+      <input type="text"/>
+    </label>
+
+
 
   <label class="item item-input">
     <textarea rows=5 placeholder="Description"></textarea>
@@ -25,41 +33,47 @@
 
   <li class="item item-toggle">
     <span>18+</span>
-     <label class="toggle toggle-assertive">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-   </li>
+    <label class="toggle toggle-assertive">
+     <input type="checkbox">
+     <div class="track">
+       <div class="handle"></div>
+     </div>
+   </label>
+ </li>
 
-  <label class="item item-input">
-    <span class="input-label">Cost</span>
-    <input type="number" pattern="[0-9]+" max=200/>
-  </label>
-  
-  <label class="item item-input">
-    <span class="input-label">Link to source</span>
-    <input type="text"/>
-  </label>
+ <label class="item item-input">
+  <span class="input-label">Telephone</span>
+  <input type="tel">
+</label>
 
-  <div class="item-divider"></div>
-  <label class="item"><h2>Venue details</h2></label>
+<label class="item item-input">
+  <span class="input-label">Cost</span>
+  <input type="number" pattern="[0-9]+" max=200/>
+</label>
 
-  <label class="item item-input">
-    <span class="input-label">Venue name</span>
-    <input type="text"/>
-  </label>
+<label class="item item-input">
+  <span class="input-label">Link to source</span>
+  <input type="text"/>
+</label>
 
-  <label class="item item-input">
-    <span class="input-label">Location</span>
-    <input type="text"/>
-  </label>
+<h2 class="item-divider">
+  Venue details
+</h2>
+
+<label class="item item-input">
+  <span class="input-label">Venue name</span>
+  <input type="text"/>
+</label>
+
+<label class="item item-input">
+  <span class="input-label">Location</span>
+  <input type="text"/>
+</label>
 
 
-  <div class="padding">
-    <button class="button button-block button-positive">Post gig</button>
-  </div>
+<div class="padding">
+  <button class="button button-block button-positive">Post gig</button>
+</div>
 </div>
 
 

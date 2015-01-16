@@ -12,6 +12,8 @@
  *= require datepicker3
  *= require timepicker
  *= require nprogress
+ *= require pickadate
+ *= require pickadate.time
 
 The order below is important:
  *= require ionic

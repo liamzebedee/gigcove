@@ -29,10 +29,14 @@
 //= require moment
 //= require nprogress
 //= require jquery-numeric
+//= require picker
+//= require picker.time
 //= require_tree .
 
 // Include both Turbolinks and Push.js (part of Ratchet)
 // Turbolinks doesn't work on Chrome for iOS, which is why we include Push.js
-//= require turbolinks
+// require turbolinks
 //= require ionic
+//= require push
+// require ionic-angular
 // require bootstrap

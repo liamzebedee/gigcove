@@ -1,14 +1,13 @@
-<div class="card">
-<ul class="table-view">
-  <li class="table-view-cell">
-    <a class="navigate-right" href="<%= new_gig_path %>" data-transition="slide-out">
-      <span class="glyphicon glyphicon-calendar"></span> Tell us about a new gig!
-    </a>
-  </li>
-  <li class="table-view-cell">
-    <a class="navigate-right" href="<%= new_venue_path %>" data-transition="slide-out">
-      <span class="glyphicon glyphicon-map-marker"></span> Know about a venue we should follow? Link us!
-    </a>
-  </li>
-</ul>
+<div class="list card">
+
+  <a href="<%= new_gig_path %>" class="item item-icon-left">
+    <span class="icon ion-calendar"></span>
+    Tell us about a new gig!
+  </a>
+
+  <a href="<%= new_venue_path %>" class="item item-icon-left">
+    <span class="icon ion-map"></span>
+    Know about a venue we should follow? Link us!
+  </a>
+
 </div>

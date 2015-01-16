@@ -31,25 +31,29 @@
     <h1 class="title"><strong>GigCove</strong></h1>
   </header>
 
-  <footer id="Page--Footer" class="bar bar-footer bar-light">
-    <!--
-      <a class=" <%= "active" if current_page?(root_path) %>" href="<%= root_path %>"><button class="button button-clear">
-        <span class="button-icon icon icon-search"></span>
-        <span class="tab-label">Find gigs</span>
-      </button></a>
-      <a class=" <%= "active" if current_page?(contribute_path) or current_page?(new_gig_path) %>" href="<%= contribute_path %>"><button class="button button-clear">
-        <span class="button-icon icon icon-compose"></span>
-        <span class="tab-label">Contribute info</span>
-      </button></a>
-    -->
-    <div class="button-bar">
-    <button class="button button-clear">Hello</button>
-    <button class="button button-clear">Search</button>
-    <button class="button button-clear">Contribute</button>
-    </div>
-  </footer>
-  
-  <div id="Page--Content" class="content">
+    <footer id="Page--Footer" class="tabs tabs-icon-top">
+      <a class="tab-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">
+        <span class="icon ion-home"></span>
+        Hello
+      </a>
+
+      <a class="tab-item <%= "active" if current_page?(root_path) %>" href="<%= root_path %>">
+        <span class="icon ion-search"></span>
+        Search
+      </a>
+
+      <a class="tab-item <%= "active" if current_page?(contribute_path) %>" href="<%= contribute_path %>">
+        <span class="icon ion-compose"></span>
+        Contribute
+      </a>
+
+      <a class="tab-item <%= "active" if current_page?(hello_path) %>" href="<%= hello_path %>">
+        <span class="icon ion-chatbox"></span>
+        Hello
+      </a>
+    </footer>
+
+  <div id="Page--Content" class="content scroll overflow-scroll padding has-header has-tabs has-bouncing">
     <% if notice or alert %>
     <aside class="notice">
       <% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
@@ -59,6 +63,7 @@
 
     <%= yield %>
   </div>
+
 </body>
 
 </html>
