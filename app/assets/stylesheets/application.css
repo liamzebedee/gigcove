@@ -9,15 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require datepicker3
- *= require timepicker
  *= require nprogress
- *= require pickadate
- *= require pickadate.time
-
-The order below is important:
  *= require ionic
- * require ../../../vendor/assets/stylesheets/ratchet/ratchet.min.css
- * require ../../../vendor/assets/stylesheets/ratchet/ratchet-theme-ios.min.css
  *= require main.css.less
  */
