@@ -29,4 +29,7 @@
 //= require ../../../vendor/assets/javascripts/ionic/angular/angular
 //= require ../../../vendor/assets/javascripts/ionic/core/ionic
 //= require_tree ../../../vendor/assets/javascripts/ionic
+
+// AngularJS includes below
+
 //= require_tree .

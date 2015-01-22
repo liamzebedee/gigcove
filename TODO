@@ -10,7 +10,6 @@ Write unit tests
 Implement mobile:
   submit gig
     tags
-    link to source highlight like link
     venue autocomplete
   submit venue info
   home
