@@ -6,38 +6,14 @@ angular.module('app', ['ionic'])
   }).then(function(modal) {
     $scope.modal = modal;
   });
-
-
 });
 
-var ready = function(){	
+var ready = function(){
+  // Bootstrap Angular here because stuff with Turbolinks
+  // http://stackoverflow.com/questions/14797935/using-angularjs-with-turbolinks
+  angular.bootstrap(document.body, ['app']);
+
 	$("[contenteditable=true]").contentEditable();
-	$('span[type="number"]').numeric();
-	
-	$('.timepicker').pickatime();
-	
-	
-	$(".gig-approve-form").on("ajax:success", function(e, data, status, xhr){
-		$(this).parents('.gig-row').addClass('moderated');
-		$('button', this).attr('disabled', 'disabled');
-	}).bind("ajax:error", function(e, xhr, status, error){
-    	
-    });
-
-  
-    
-
-  $('a[role=modal]').on('touchstart click', function(event) {
-  	event.stopPropagation(); event.preventDefault();
-  	if(event.handled !== true) {
-
-    var modal = $($(this).attr('href'));
-    modal.toggleClass('hide');
-    $('#modal-wrapper', modal).toggleClass('active');
-                event.handled = true;
-  }
-  });
-
 };
 
 $(document).ready(ready);

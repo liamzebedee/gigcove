@@ -9,12 +9,9 @@ Add sample data for UI testing
 Write unit tests
 Implement mobile:
   submit gig
-    start and end time
     tags
     link to source highlight like link
     venue autocomplete
-  contribute page
-    icons
   submit venue info
   home
     add body marketing text

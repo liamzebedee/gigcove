@@ -24,7 +24,8 @@
 //= require moment
 //= require nprogress
 //= require jquery-numeric
-//= require push
+//= require turbolinks
+// require push
 //= require ../../../vendor/assets/javascripts/ionic/angular/angular
 //= require ../../../vendor/assets/javascripts/ionic/core/ionic
 //= require_tree ../../../vendor/assets/javascripts/ionic
