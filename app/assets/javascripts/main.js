@@ -1,10 +1,11 @@
-angular.module('app', ['ionic', 'ngTagsInput'])
+angular.module('app', ['ionic'])
 .controller('NewGigCtrl', function($scope, $ionicModal) {
-  $ionicModal.fromTemplateUrl('my-modal.html', {
+  
+  $ionicModal.fromTemplateUrl('selectVenueModal.html', {
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function(modal) {
-    $scope.modal = modal;    
+    $scope.selectVenueModal = modal;    
   });
 
   $ionicModal.fromTemplateUrl('tagsModal.html', {
@@ -14,12 +15,26 @@ angular.module('app', ['ionic', 'ngTagsInput'])
     $scope.tagsModal = modal;
   });
 
-  $scope.tags = [
-            { text: 'just' },
-            { text: 'some' },
-            { text: 'cool' },
-            { text: 'tags' }
-          ];
+  $scope.tags = [];
+  $scope.loadedTags = [
+    { name: "dance", description: "Something something dark side of the moon" },
+    { name: "dance", description: "Something something dark side of the moon" },
+    { name: "dance", description: "Something something dark side of the moon" }
+  ];
+  $scope.venue = {
+    name: "boop",
+    location: "12 asdas st"
+  };
+
+  // Tags
+  $scope.changeTag = function(tag) {
+    /*if($scope.tags.contains(tag)) remove;
+    else addTag(tag);
+    $scope.tags.push(tag);*/
+  };
+  $scope.removeTag = function(tag) {
+    // TODO
+  };
 });
 
 var ready = function(){

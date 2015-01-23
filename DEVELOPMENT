@@ -1,36 +1,24 @@
-DOCS:
+DOCS
+----
+
 http://api.rubyonrails.org/
 https://github.com/Instagram/instagram-ruby-gem
 http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#configure-instance_method
 
-rapidly make mistakes
-DONT THEORISE, TEST
 
- - create test for model/controller
- - implement functionality
- - run test
-   * if the test fails, repeat 2
- - create view, add data
- - style according to desktop
- - style according to mobile
- - run in production
- - deploy
+Philosophy/Principles
+---------------------
+
+Move fast and break things
+Don't work against the code, work with whatever the accepted way is
+Make it pretty
+Don't theorise, write code and test
+Make it illegal on the frontend, and a minimal backend: backend is security and data
 
 
-## Deployment
-ssh
+Deployment
+----------
+
+ssh git@gigcove.com
 cd /home/git/gigcove-production
 rsync -azP --xattrs --delete --filter=':- .gitignore' . git@gigcove.com:/home/git/gigcove-production
-
-
-
-how to add gems:
-add line in gemfile
-fig build web
-
-
-
-http://www.incrementalrecords.com/waitingroom/
- 
-Waiting Room, The Old Museum, The Beetle Bar, FretFest (which isn't really a place but more of an event), Ric's Bar is meant to be really good, and the HiFi. There are always places like The Alhambra Lounge and the Zoo, 
-https://www.facebook.com/brisbane.allages?fref=ts

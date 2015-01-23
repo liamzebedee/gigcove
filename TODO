@@ -5,6 +5,7 @@ ALPHA
 BUILD MINIMUM PROTOTYPE
 -----------------------
 
+Set main brand colours for prototype and header bar - install SASS
 Add sample data for UI testing
 Write unit tests
 Implement mobile:
@@ -25,18 +26,16 @@ Implement desktop
   contribute page
 Write marketing material: intro homepage for mobile and desktop
 Add blog/twitter
-Get NProgress working
 
 
-Make placeholder.js for ContentEditable component
 Add a MODERATABLE trait to Gig, Venue
 Add cover_image to venue http://placehold.it/
 Add description to venue
 
-what do I need with bootstrap?
- - styling 
- - typography
- - etc.
+DEV TOOLING
+-----------
+
+Make sublime text or some git hook PRETTIFY CODE NOOOOOOOWWWW
 
 
 
@@ -66,8 +65,13 @@ Post events to Twitter automatically to get publicity
 
 
 http://quojs.tapquo.com/
-Ionic mobile CSS framewokr
 
+
+
+http://www.incrementalrecords.com/waitingroom/
+ 
+Waiting Room, The Old Museum, The Beetle Bar, FretFest (which isn't really a place but more of an event), Ric's Bar is meant to be really good, and the HiFi. There are always places like The Alhambra Lounge and the Zoo, 
+https://www.facebook.com/brisbane.allages?fref=ts
 
 
 

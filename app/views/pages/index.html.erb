@@ -1,25 +1,33 @@
-<div class="content-padded">
+
+
+<div class="list">
+
+<div class="item">
 <h2 class="lead text-center">Get out and involved!</h2>
 Want to find something to do with friends? Have a night free, moved to a new city? Tired of trawling through websites looking for events? Missed a band you liked because you weren't aware of their gig?
 </div>
 
-<%= react_component('GigSearchForm', { maxCost: 20, location: "South Brisbane", gigs: []}, {prerender: true}) %>
+<label class="item item-input">
+    <span class="input-label"><span className="glyphicon glyphicon-map-marker"></span>
+ Gigs near</span>
+    <input type="text" placeholder="Mascott, Sydney">
+  </label>
 
-<!--
-<div class="segmented-control">
-  <a class="control-item active" href="#item1mobile">
-    Thing one
-  </a>
-  <a class="control-item" href="#item2mobile">
-    Thing two
-  </a>
-  <a class="control-item" href="#item3mobile">
-    Thing three
-  </a>
+
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Cost
+    </div>
+    <select>
+    <option value="0">Free</option>
+    <option value="25">$30 and under</option>
+    <option value="1000">Any cost</option>
+    </select>
+  </label>
+
+  <button class="button button-large button-full button-positive">
+  Find gigs!
+</button>
+
+  
 </div>
-<div class="card">
-  <span id="item1mobile" class="control-content active">Item 1</span>
-  <span id="item2mobile" class="control-content">Item 2</span>
-  <span id="item3mobile" class="control-content">Item 3</span>
-</div>
--->

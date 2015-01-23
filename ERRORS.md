@@ -27,4 +27,4 @@ A list of errors I have made in development that I am recording so I don't make 
 
 
  - I was showing a modal on a link being clicked using some JQuery selectors. I detected this for mobile by also handling the touchend event, and I did both in one event selector. However I noticed that when I was testing this in Chrome developer tools (with responsive design and touch simulation), the modal would open and then quickly disappear. I realised that this is because I was using toggleClass('hide') and that it was handling the click event first and then because of touch event simulation (with its 300ms delay) the touchend event later, thereby showing and then encore hiding the element.
- - Never try to work against the framework/library.
+ - Never try to work against the framework/library. Tried implementing the Ionic modal dialog without using Angular JS. Took 4 hours when I could've spent 20 minutes just including it.

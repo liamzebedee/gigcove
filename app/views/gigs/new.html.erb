@@ -1,5 +1,6 @@
   <div class="list" ng-controller="NewGigCtrl">
     <label class="item item-input">
+      <i class="icon ion-information"></i>
       <strong><input type="text" placeholder="Gig name"/></strong>
     </label>
 
@@ -8,9 +9,23 @@
         <input type="date">
       </label>
 
+<div class="item item-input-inset">
+<span class="input-label">Start time</span>
+  
+    <select class="item-input-wrapper item-select" name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
+    
+    <select class="item-input-wrapper item-select" name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select>
+    
+    <select class="item-input-wrapper item-select" name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
+
+    <button class="button button-small">
+      Submit
+    </button>
+  </div>
+
       <label class="item item-input">
         <span class="input-label">Start time</span>
-        <!--<input type="time"/>-->
+
         <span><select name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select><select name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select><select name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
       </label>
 
@@ -24,109 +39,120 @@
         <span><select name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select><select name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select><select name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
       </label>
 
-
-
     <label class="item item-input">
       <textarea rows=5 placeholder="Description"></textarea>
     </label>
 
-      <a class="item item-icon-left" ng-click="tagsModal.show()">
-        <i class="icon ion-email"></i>
-        Tags
-      </a>
+  <a class="item item-icon-left item-text-wrap" ng-click="tagsModal.show()">
+    <i class="icon ion-pound"></i>
+    Tags
+    <ul><li><span ng-repeat="tag in loadedTags"><strong>#{{tag.name}}</strong></span></ul>
+  </a>
 
-    <li class="item item-toggle">
-      <span>18+</span>
-      <label class="toggle toggle-assertive">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-     </label>
-   </li>
-
-  <label class="item item-input">
-    <span class="input-label">Cost</span>
-    <input type="number" pattern="[0-9]+" max=200/>
-    <input type="tel">
-  </label>
-
-  <label class="item item-input">
-    <span class="input-label">Link to source</span>
-    <input type="text" placeholder="http://venue123.com/gig/42"/>
-  </label>
-
-  <h2 class="item-divider">
-    Venue details
-  </h2>
-
-
-  <script id="my-modal.html" type="text/ng-template">
-    <div class="modal">
-        <ion-header-bar>
-          <h1 class="title">Edit Contact</h1>
-        </ion-header-bar>
-        <ion-content>
-          <div class="list">
-            <label class="item item-input">
-              <span class="input-label">Name</span>
-              <input type="text" ng-model="contact.name">
+    <script id="tagsModal.html" type="text/ng-template">
+ <div class="modal">
+          <div class="bar bar-header bar-dark">
+            <h1 class="title">Tag this gig</h1>
+            <a ng-click="tagsModal.hide()" class="button button-icon icon ion-chevron-down"></a>
+          </div>
+          <div class="bar bar-subheader item-input-inset">
+            <label class="item-input-wrapper">
+              <i class="icon ion-ios7-search placeholder-icon"></i>
+              <input type="search" placeholder="Search">
             </label>
-            <label class="item item-input">
-              <span class="input-label">Info</span>
-              <input type="text" ng-model="contact.info">
-            </label>
+            <button class="button button-clear">
+              Cancel
+            </button>
           </div>
 
-          <button class="button button-full button-energized" ng-click="closeModal()">Done</button>
+        <ion-content class="has-header has-subheader">
+          <div class="list"> 
+
+            <div class="item item-button-right" ng-repeat="tag in loadedTags">
+              <div class="item-body">
+                <strong>#{{tag.name}}</strong> - <span>{{tag.description}}</span>
+              </div>
+              <a ng-click="changeTag(tag)" class="button button-icon icon ion-plus-circled"></a>
+            </div>
+
+          </div>
         </ion-content>
       </div>
   </script>
 
-  <script id="tagsModal.html" type="text/ng-template">
-    <div class="bar bar-header item-input-inset">
-      <label class="item-input-wrapper">
-        <i class="icon ion-ios7-search placeholder-icon"></i>
-        <input type="search" placeholder="Search">
-      </label>
-      <button class="button button-clear">
-        Cancel
-      </button>
-    </div>
+  <li class="item item-toggle">
+    <span>18+</span>
+    <label class="toggle toggle-assertive">
+     <input type="checkbox">
+     <div class="track">
+       <div class="handle"></div>
+     </div>
+   </label>
+ </li>
 
-    <ul class="list">
-      <li class="item">
-      Tag 1
-      </li>
-      <li class="item">
-      Tag 2
-      </li>
-    </ul>
+ <label class="item item-input">
+  <span class="input-label">Cost</span>
+  <input type="number" pattern="[0-9]+" max=200/>
+  <input type="tel">
+</label>
+
+<label class="item item-input">
+  <span class="input-label">Link to source</span>
+  <input type="text" placeholder="http://venue123.com/gig/42"/>
+</label>
+
+<div class="item item-divider">
+  Venue details
+</div>
+
+  <script id="selectVenueModal.html" type="text/ng-template">
+    <div class="modal">
+        <div class="bar bar-header bar-dark">
+            <h1 class="title">Find or create venue</h1>
+            <a ng-click="selectVenueModal.hide()" class="button button-icon icon ion-chevron-down"></a>
+          </div>
+          <div class="bar bar-subheader item-input-inset">
+            <label class="item-input-wrapper">
+              <i class="icon ion-ios7-search placeholder-icon"></i>
+              <input type="search" placeholder="Search">
+            </label>
+            <button class="button icon-left ion-plus">Add new venue</button>
+          </div>
+
+        <ion-content>
+          <div class="list">
+
+            <div class="item item-button-right" ng-repeat="venue in loadedVenues">
+              <a class="item item-thumbnail-left" ng-click="selectVenue(venue)">
+                <img src="cover.jpg">
+                <h2>{{venue.name}}</h2>
+                <p>{{venue.location}}</p>
+              </a>
+            </div>
+
+          </div>
+        </ion-content>
+      </div>
   </script>
-
-  <a class="item item-icon-left" ng-click="modal.show()">
-      <i class="icon ion-email"></i>
-      Enter venue
-    </a>
 
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
-    <input type="search" placeholder="Search venues">
+    <input type="search" ng-focus="selectVenueModal.show()" placeholder="Find or create venue">
   </label>
 
   <label class="item item-input">
     <span class="input-label">Venue name</span>
-    <input type="text"/>
+    <input type="text" ng-model="venue.name" ng-focus="selectVenueModal.show()" placeholder="Find or create venue"/>
   </label>
 
   <label class="item item-input">
     <span class="input-label">Location</span>
-    <input type="text"/>
+    <input type="text" ng-model="venue.location"/>
   </label>
 
 
   <div class="padding">
-    <button class="button button-block button-positive">Post gig</button>
+    <button class="button button-large button-full button-positive">Post gig</button>
   </div>
   </div>
 
