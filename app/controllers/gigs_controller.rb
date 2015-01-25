@@ -33,6 +33,20 @@ class GigsController < ApplicationController
   end
 
   def create
-    
+    # process parameters securely
+    # create tags as unapproved
+    # create gig as unapproved
+    # create venue as unapproved
+    # geolocate venue
+    # save and redirect
+  end
+
+  def unmoderated
+    # update gig simple data
+    # delete the old unused tags
+    # update simple venue data
+    # re-geolocate venue
+    # approve venue and gig
+    # save
   end
 end

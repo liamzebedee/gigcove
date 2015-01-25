@@ -46,7 +46,7 @@
   <a class="item item-icon-left item-text-wrap" ng-click="tagsModal.show()">
     <i class="icon ion-pound"></i>
     Tags
-    <ul><li><span ng-repeat="tag in loadedTags"><strong>#{{tag.name}}</strong></span></ul>
+    <ul><li><span ng-repeat="tag in gig.tags"><strong>#{{tag.name}}</strong> </span></ul>
   </a>
 
     <script id="tagsModal.html" type="text/ng-template">
@@ -72,7 +72,8 @@
               <div class="item-body">
                 <strong>#{{tag.name}}</strong> - <span>{{tag.description}}</span>
               </div>
-              <a ng-click="changeTag(tag)" class="button button-icon icon ion-plus-circled"></a>
+              <button ng-click="addTag(tag)" ng-hide="tag.added" class="button button-icon icon ion-plus-circled"></button>
+              <button ng-click="removeTag(tag)" ng-show="tag.added" class="button button-icon icon ion-minus-circled"></button>
             </div>
 
           </div>

@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require react
 //= require react_ujs
-//= require components
 //= require number-polyfill
 //= require contentEditable
 //= require latlong
@@ -25,7 +24,6 @@
 //= require nprogress
 //= require jquery-numeric
 //= require turbolinks
-// require push
 //= require ../../../vendor/assets/javascripts/ionic/angular/angular
 //= require ../../../vendor/assets/javascripts/ionic/core/ionic
 //= require_tree ../../../vendor/assets/javascripts/ionic
