@@ -58,7 +58,7 @@
           <div class="bar bar-subheader item-input-inset">
             <label class="item-input-wrapper">
               <i class="icon ion-ios7-search placeholder-icon"></i>
-              <input type="search" placeholder="Search">
+              <input type="search" placeholder="Enter tags" ng-model="searchTagQuery.q">
             </label>
             <button class="button button-clear">
               Cancel
@@ -67,13 +67,16 @@
 
         <ion-content class="has-header has-subheader">
           <div class="list"> 
+            <button ng-click="createTag(searchTagQuery.q)" class="button button-block button-positive" ng-hide="(searchTagQuery.q === '' || hasTag({name: searchTagQuery.q}))">
+              Create and tag <strong>#{{searchTagQuery.q}}</strong>
+            </button>
 
-            <div class="item item-button-right" ng-repeat="tag in loadedTags">
+            <div class="item item-button-right" ng-repeat="tag in gig.tags">
               <div class="item-body">
-                <strong>#{{tag.name}}</strong> - <span>{{tag.description}}</span>
+                <strong>#{{tag.name}}</strong>
               </div>
-              <button ng-click="addTag(tag)" ng-hide="tag.added" class="button button-icon icon ion-plus-circled"></button>
-              <button ng-click="removeTag(tag)" ng-show="tag.added" class="button button-icon icon ion-minus-circled"></button>
+
+              <button ng-click="removeTag(tag)" class="button button-icon icon ion-minus-circled"></button>
             </div>
 
           </div>

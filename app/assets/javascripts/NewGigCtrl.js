@@ -22,24 +22,31 @@ angular.module('app', ['ionic'])
     location: "12 asdas st"
   };
 
+
   $scope.loadedVenues = [];
-  $scope.loadedTags = [
-    { name: "dance", description: "Something something dark side of the moon", added: false },
-    { name: "heyhey", description: "Crazy 123", added: false }
-  ];
+  $scope.searchTagQuery = { q: "" };
 
   // Tags
+  $scope.createTag = function(tagName) {
+    var newTag = {
+      name: tagName
+    };
+    $scope.addTag(newTag);
+    $scope.searchTagQuery.q = "";
+  };
   $scope.hasTag = function(tag) {
-    return $.inArray($scope.gig.tags, {name: tag.name}) !== -1;
+    var hasTag = false;
+    $.each($scope.gig.tags, function(index, value){
+      if(value.name === tag.name) { return (hasTag = true); }
+    });
+    return hasTag;
   };
   $scope.addTag = function(tag) {
-    $scope.gig.tags.push({name: tag.name});
-    tag.added = true;
+    $scope.gig.tags.push(tag);
   };
   $scope.removeTag = function(tag) {
     $.each($scope.gig.tags, function(index, value){
       if(value.name === tag.name) { $scope.gig.tags.splice(index, 1); }
     });
-    tag.added = false;
   };
 });
