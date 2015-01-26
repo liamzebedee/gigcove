@@ -11,5 +11,6 @@
  *= require_self
  *= require nprogress
  *= require ionic
+ *= require_tree ../../../vendor/assets/stylesheets/pickadate/
  *= require main.css.less
  */

@@ -1,4 +1,5 @@
   <div class="list" ng-controller="NewGigCtrl">
+    
     <label class="item item-input">
       <i class="icon ion-information"></i>
       <strong><input type="text" placeholder="Gig name"/></strong>
@@ -6,37 +7,22 @@
 
     <label class="item item-input">
         <span class="input-label">Start date</span>
-        <input type="date">
-      </label>
+        <input type="date"/>
+    </label>
 
-<div class="item item-input-inset">
-<span class="input-label">Start time</span>
-  
-    <select class="item-input-wrapper item-select" name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>
-    
-    <select class="item-input-wrapper item-select" name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select>
-    
-    <select class="item-input-wrapper item-select" name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
-
-    <button class="button button-small">
-      Submit
-    </button>
-  </div>
-
-      <label class="item item-input">
-        <span class="input-label">Start time</span>
-
-        <span><select name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select><select name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select><select name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
-      </label>
+    <label class="item item-input">
+      <span class="input-label">Start time</span>
+      <input type="time"/>
+    </label>
 
     <label class="item item-input">
         <span class="input-label">End date</span>
-        <input type="date">
+        <input type="date"/>
       </label>
       
       <label class="item item-input">
         <span class="input-label">End time</span>
-        <span><select name="time_selector_time_hours" data-sigil="time_selector_time_hours"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9" selected="1">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select><select name="time_selector_time_minutes" data-sigil="time_selector_time_minutes"><option value="0">00</option><option value="5">05</option><option value="10">10</option><option value="15">15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option><option value="55" selected="1">55</option></select><select name="time_selector_time_am_pm" data-sigil="time_selector_time_am_pm"><option value="0" selected="1">AM</option><option value="1">PM</option></select>
+        <input type="time"/>
       </label>
 
     <label class="item item-input">
@@ -49,8 +35,9 @@
     <ul><li><span ng-repeat="tag in gig.tags"><strong>#{{tag.name}}</strong> </span></ul>
   </a>
 
+
     <script id="tagsModal.html" type="text/ng-template">
- <div class="modal">
+      <ion-modal-view>
           <div class="bar bar-header bar-dark">
             <h1 class="title">Tag this gig</h1>
             <a ng-click="tagsModal.hide()" class="button button-icon icon ion-chevron-down"></a>
@@ -81,13 +68,13 @@
 
           </div>
         </ion-content>
-      </div>
+      </<ion-modal-view>
   </script>
 
   <li class="item item-toggle">
     <span>18+</span>
     <label class="toggle toggle-assertive">
-     <input type="checkbox">
+     <input type="checkbox" ng-model="gig.eighteenPlus">
      <div class="track">
        <div class="handle"></div>
      </div>
@@ -96,8 +83,7 @@
 
  <label class="item item-input">
   <span class="input-label">Cost</span>
-  <input type="number" pattern="[0-9]+" max=200/>
-  <input type="tel">
+  <input type="tel" ng-model="gig.cost"/>
 </label>
 
 <label class="item item-input">
@@ -118,44 +104,49 @@
           <div class="bar bar-subheader item-input-inset">
             <label class="item-input-wrapper">
               <i class="icon ion-ios7-search placeholder-icon"></i>
-              <input type="search" placeholder="Search venues" ng-model="searchVenues.query" ng-model-options="{ debounce: {'default': 500, 'blur': 1} }">
+              <input type="search" placeholder="Enter a venue name" ng-model="searchVenues.query" ng-model-options="{ debounce: {'default': 500, 'blur': 1} }">
             </label>
-            <button class="button button-clear button-positive">Search</button>
           </div>
 
-        <ion-content class="has-header has-subheader">
+        <ion-content class="has-header has-subheader has-footer">
           <div class="list">
+            <div class="item" ng-show="searchVenues.searching">
+              <i class="icon ion-loading-c"></i> Finding venues...
+            </div>
 
-            <button ng-click="createVenue(searchVenues.query)" ng-hide="(searchVenues.query === '')" class="button button-block button-positive">
-              Create venue <strong>{{searchVenues.query}}</strong>
-            </button>
+            <div class="item" ng-show="searchVenues.query !== '' && searchVenues.loadedVenues.length == 0">
+              <div class="item-body">
+                We couldn't find the venue. Better create one then!
+              </div>
+            </div>
 
-            <div class="item item-button-right" ng-repeat="venue in searchVenues.loadedVenues">
-              <a class="item item-thumbnail-left">
-                <img src="cover.jpg">
-                <h2>{{venue.name}}</h2>
-                <p>{{venue.location}}</p>
-              </a>
+            <div class="item item-thumbnail-left" ng-repeat="venue in searchVenues.loadedVenues" ng-click="selectVenue(venue)">
+              <h2>{{venue.name}}</h2>
+              <p>{{venue.location}}</p>
             </div>
 
           </div>
         </ion-content>
+
+        <ion-footer-bar ng-show="searchVenues.query !== '' && searchVenues.loadedVenues.length == 0">
+          <div class="button-bar">
+          <button ng-click="createVenue(searchVenues.query)" class="button button-positive icon-left ion-plus-round">Create venue <strong>{{searchVenues.query}}</strong>
+            </button>
+          </div>
+        </ion-footer-bar>
       </div>
   </script>
 
-  <label class="item item-input">
-    <i class="icon ion-search placeholder-icon"></i>
-    <input type="search" ng-focus="selectVenueModal.show()" placeholder="Find or create venue">
-  </label>
+  <a class="item" ng-click="selectVenueModal.show()"><i class="icon ion-search placeholder-icon"></i> Find or create venue</a>
 
   <label class="item item-input">
     <span class="input-label">Venue name</span>
-    <input type="text" ng-model="venue.name" ng-focus="selectVenueModal.show()" placeholder="Find or create venue"/>
+    <input type="text" ng-model="gig.venue.name" ng-disabled="gig.venue.id !== null" placeholder="Find or create venue"/>
   </label>
 
   <label class="item item-input">
     <span class="input-label">Location</span>
-    <input type="text" ng-model="venue.location"/>
+    <input type="text" ng-model="gig.venue.location" ng-disabled="gig.venue.id !== null"/>
   </label>
 
 

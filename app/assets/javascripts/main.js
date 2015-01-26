@@ -3,7 +3,23 @@ var ready = function(){
   // http://stackoverflow.com/questions/14797935/using-angularjs-with-turbolinks
   angular.bootstrap(document.body, ['app']);
 
-	$("[contenteditable=true]").contentEditable();
+  if(!Modernizr.inputtypes.date) {
+  	$('input[type=date]').combodate({
+  		minYear: new Date().getFullYear(),
+  		maxYear: new Date().getFullYear() + 1,
+  		format: "DD/MM/YYYY",
+  		template: "D MMM YYYY",
+  		yearDescending: false,
+  		smartDays: true
+  	});
+  }
+  if(!Modernizr.inputtypes.time) {
+  	$('input[type=time]').combodate({
+  		format: "h:mm a",
+  		template: "h : mm a",
+  		minuteStep: 1
+  	});
+  }
 };
 
 $(document).ready(ready);

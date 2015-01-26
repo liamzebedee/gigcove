@@ -53,16 +53,9 @@
       </a>
     </footer>
 
-  <div id="Page--Content" class="content scroll overflow-scroll padding has-header has-tabs has-bouncing">
-    <% if notice or alert %>
-    <aside class="notice">
-      <% if notice %><p class="alert alert-info"><%= notice %></p><% end %>
-      <% if alert %><p class="alert alert-warning"><%= alert %></p><% end %>
-    </aside>
-    <% end %>
-
-    <%= yield %>
-  </div>
+    <ion-content id="Page--Content" class="has-header has-tabs" scroll>
+      <%= yield %>
+    </ion-content>
 
 </body>
 
