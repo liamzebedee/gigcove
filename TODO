@@ -6,6 +6,7 @@ BUILD MINIMUM PROTOTYPE
 -----------------------
 
 Autofocus on text boxes when opening dialogs or windows
+Add required to inputs
 Set main brand colours for prototype and header bar - install SASS
 Add sample data for UI testing
 Write unit tests

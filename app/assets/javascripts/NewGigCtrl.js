@@ -23,8 +23,11 @@ angular.module('app', ['ionic'])
   };
 
 
-  $scope.loadedVenues = [];
-  $scope.searchTagQuery = { q: "" };
+  $scope.searchVenues = {
+    loadedVenues: [],
+    query: ""
+  };
+  $scope.searchTags = { query: "" };
 
   // Tags
   $scope.createTag = function(tagName) {
@@ -32,7 +35,7 @@ angular.module('app', ['ionic'])
       name: tagName
     };
     $scope.addTag(newTag);
-    $scope.searchTagQuery.q = "";
+    $scope.searchTags.query = "";
   };
   $scope.hasTag = function(tag) {
     var hasTag = false;

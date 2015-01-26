@@ -58,7 +58,7 @@
           <div class="bar bar-subheader item-input-inset">
             <label class="item-input-wrapper">
               <i class="icon ion-ios7-search placeholder-icon"></i>
-              <input type="search" placeholder="Enter tags" ng-model="searchTagQuery.q">
+              <input type="search" placeholder="Enter tags" ng-model="searchTags.query">
             </label>
             <button class="button button-clear">
               Cancel
@@ -66,9 +66,9 @@
           </div>
 
         <ion-content class="has-header has-subheader">
-          <div class="list"> 
-            <button ng-click="createTag(searchTagQuery.q)" class="button button-block button-positive" ng-hide="(searchTagQuery.q === '' || hasTag({name: searchTagQuery.q}))">
-              Create and tag <strong>#{{searchTagQuery.q}}</strong>
+          <div class="list">
+            <button ng-click="createTag(searchTags.query)" class="button button-block button-positive" ng-hide="(searchTags.query === '' || hasTag({name: searchTags.query}))">
+              Create and tag <strong>#{{searchTags.query}}</strong>
             </button>
 
             <div class="item item-button-right" ng-repeat="tag in gig.tags">
@@ -118,16 +118,20 @@
           <div class="bar bar-subheader item-input-inset">
             <label class="item-input-wrapper">
               <i class="icon ion-ios7-search placeholder-icon"></i>
-              <input type="search" placeholder="Search">
+              <input type="search" placeholder="Search venues" ng-model="searchVenues.query" ng-model-options="{ debounce: {'default': 500, 'blur': 1} }">
             </label>
-            <button class="button icon-left ion-plus">Add new venue</button>
+            <button class="button button-clear button-positive">Search</button>
           </div>
 
-        <ion-content>
+        <ion-content class="has-header has-subheader">
           <div class="list">
 
-            <div class="item item-button-right" ng-repeat="venue in loadedVenues">
-              <a class="item item-thumbnail-left" ng-click="selectVenue(venue)">
+            <button ng-click="createVenue(searchVenues.query)" ng-hide="(searchVenues.query === '')" class="button button-block button-positive">
+              Create venue <strong>{{searchVenues.query}}</strong>
+            </button>
+
+            <div class="item item-button-right" ng-repeat="venue in searchVenues.loadedVenues">
+              <a class="item item-thumbnail-left">
                 <img src="cover.jpg">
                 <h2>{{venue.name}}</h2>
                 <p>{{venue.location}}</p>
