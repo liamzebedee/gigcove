@@ -1,0 +1,65 @@
+gigs
+	cost
+	start_datetime
+	name
+	created_at
+	updated_at
+	moderated
+	approved
+	link_to_source
+	venue_id
+	description
+	end_datetime
+	eighteen_plus
+instagram_apis
+	new_media_count
+	last_seen_instagram_id
+	created_at
+	updated_at
+instagram_media
+	link
+	instagram_id
+	created_time
+	created_at
+	updated_at
+tags
+	name
+	created_at
+	updated_at
+	moderated
+	approved
+tags_gigs
+	tag_id
+	gig_id
+users
+	email
+	encrypted_password
+	reset_password_token
+	reset_password_sent_at
+	remember_created_at
+	sign_in_count
+	current_sign_in_at
+	last_sign_in_at
+	current_sign_in_ip
+	last_sign_in_ip
+	created_at
+	updated_at
+	moderator
+	roles_mask
+	confirmation_token
+	confirmed_at
+	confirmation_sent_at
+	provider
+	uid
+	full_name
+	gender
+venues
+	name
+	location
+	website
+	created_at
+	updated_at
+	latitude
+	longitude
+	approved
+	cover_image
