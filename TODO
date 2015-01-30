@@ -5,6 +5,17 @@ ALPHA
 BUILD MINIMUM PROTOTYPE
 -----------------------
 
+
+I have learnt that building a desktop and mobile app in a single codebase is not a feasible task.
+I must divide it up into the mobile and desktop sites.
+As I have little time, I need to allocate efficiently.
+My technology stack:
+  Mobile - Ionic, AngularJS
+  Desktop - Bootstrap, AngularJS
+
+
+
+
 Add ng-init
 Remove code check for Turbolinks iOS chrome
 Add venue cover image
@@ -13,16 +24,9 @@ Set main brand colours for prototype and header bar - install SASS
 Add sample data for UI testing
 
 Implement mobile:
-  submit gig
-    tags
-    venue autocomplete
   submit venue info
   home
     add body marketing text
-Compartmentalize mobile and desktop sites
-  ERB views
-  CSS
-  react JS
 Implement desktop
   homepage
   gig page
