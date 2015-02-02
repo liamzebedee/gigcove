@@ -10,10 +10,10 @@
 module.exports = function (grunt) {
   var mobileClient = {
     hostname: "0.0.0.0",
-    port: 9000,
+    port: grunt.option('p'),
     livereload: 35729,
 
-    testPort: 9001
+    testPort: 81
   };
 
 

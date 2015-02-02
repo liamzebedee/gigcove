@@ -10,7 +10,7 @@
 module.exports = function (grunt) {
   var desktopClient = {
     hostname: "0.0.0.0",
-    port: 10000,
+    port: grunt.option('p'),
     livereload: 35730,
 
     testPort: 10001

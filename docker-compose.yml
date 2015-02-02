@@ -1,0 +1,57 @@
+db:
+  image: orchardup/postgresql
+  ports:
+    - "5432"
+
+mail:
+  build: "./mail-server"
+  command: "sh /root/fig-service.sh"
+  ports:
+    - "25"
+
+api:
+  build: "./rails-api-backend"
+  command: "bundle exec rackup -p 8081"
+  # These keys do not require a `fig build` on change
+  environment:
+    RACK_ENV: production
+    SECRET_KEY_BASE: f18e3d015bb06543e46934271f82e3d29023058e27470117d8f473f1de015fd007388b23d1bcab4579ece48eebbc8e28e299d3d67890d251d9728c17458be16c
+  links:
+    - db
+    - mail
+  volumes:
+    - "./rails-api-backend/:/app"
+  ports:
+    - "8081:8081"
+
+desktop:
+  build: "./desktop-client-frontend"
+  command: "grunt serve --p=8082"
+  volumes:
+    - "./desktop-client-frontend:/app"
+    - "./desktop-client-frontend/node_modules:/app/node_modules:ro"
+  ports:
+    - "8082:8082"
+
+mobile:
+  build: "./mobile-client-frontend"
+  command: "grunt serve --p=8083"
+  volumes:
+    - "./mobile-client-frontend:/app"
+    - "./mobile-client-frontend/node_modules:/app/node_modules:ro"
+  ports:
+    - "8083:8083"
+
+proxy:
+  build: "./main-web-proxy"
+  command: "grunt serve"
+  ports:
+   - "80:80"
+  links:
+    - api
+    - desktop
+    - mobile
+
+  # Set to localhost when not connected to Internet (e.g. development)
+  #dns: localhost
+  #dns: 8.8.8.8

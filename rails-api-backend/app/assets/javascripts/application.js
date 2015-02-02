@@ -9,30 +9,3 @@
 //
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require react
-//= require react_ujs
-//= require number-polyfill
-//= require contentEditable
-//= require latlong
-//= require spin.min
-//= require ladda
-//= require moment
-//= require nprogress
-//= require jquery-numeric
-//= require turbolinks
-//= require modernizr.custom
-//= require picker
-//= require picker.date
-//= require picker.time
-//= require combodate
-//= require ../../../vendor/assets/javascripts/ionic/angular/angular
-//= require ../../../vendor/assets/javascripts/ionic/core/ionic
-//= require_tree ../../../vendor/assets/javascripts/ionic
-
-// AngularJS includes below
-//= require match-media
-
-//= require_tree .

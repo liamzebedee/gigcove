@@ -32,3 +32,4 @@ A list of errors I have made in development that I am recording so I don't make 
  - AngularJS will not run the method ng-click="doSomething" as it has no parentheses. It treats it as an expression about a variable, not a method.
  - Ionic doesn't scroll on iOS when you have forms and labels, because they divert the attention.
  - Ionic doesn't highlight text on mobile or desktop, as it is detecting touch events etc.
+ - `docker-compose build` was taking ages to initially load, was wondering why. Used the `docker build --quiet=false` command to run, found out it was taking a long time to tar the directory because the node_modules was being sent to the daemon.

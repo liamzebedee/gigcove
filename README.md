@@ -1,30 +1,21 @@
 GigCove
 =======
 
+Copyright Liam Edwards-Playne, 2015. 
+
 ## Install
-Install docker, fig
-Run `fig build`
-Run `fig up` and boom
+You should be running a Linux-based system to host GigCove.
+ 1. Install Docker, [Fig](http://fig.sh). `pip install docker-compose==1.1.0-rc2`
+ 2. Run `sudo docker-compose build`
+ 3. `sudo docker-compose up`
+ 3. Cache the Bundler gems (see below)
+ 4. Cache the Node packages
 
 ### Bundler Gem caching
 Run `fig run web bundle package` to store the gems to your local machine cache, such that when you rebuild the Docker image it doesn't need to redownload all of these gems
 
-## Development
-Mina for deployment
-```
-git remote add origin git@gigcove.com:gigcove-main.git
-git push origin master # update repo
-mina deploy # mina adds code
-# manual start/stop of fig
-#!/bin/sh
-GIT_WORK_TREE=/home/gigcove/gigcove-main.git GIT_DIR=/home/gigcove/gigcove-main.git git pull origin master
-```
-
-## Maintenance
-rake db:migrate RAILS_ENV=development
-Use rake secret to generate new keys for the development and test sections.
-
-### Install
+## Deployment
+### Creating remote Git server
 ```
 useradd git
 passwd git
@@ -43,15 +34,25 @@ git remote set-url origin git@gigcove.com:gigcove-main.git
 # install necessary software
 curl -L https://github.com/docker/fig/releases/download/0.5.2/linux > /usr/local/bin/fig
 chmod +x /usr/local/bin/fig
+
+git remote add origin git@gigcove.com:gigcove-main.git
+git push origin master # update repo
+mina deploy # mina adds code
+# manual start/stop of fig
+#!/bin/sh
+GIT_WORK_TREE=/home/gigcove/gigcove-main.git GIT_DIR=/home/gigcove/gigcove-main.git git pull origin master
 ```
 
-### Deployment
+## Maintenance
+rake db:migrate RAILS_ENV=
+Use rake secret to generate new keys for the development and test sections.
+
+### Deploying code to production
 ```
+rsync -azP --xattrs --delete --filter=':- .gitignore' . git@gigcove.com:/home/git/gigcove-production
 fig run web rake db:create
 fig run web rake db:migrate
 fig run web rake assets:precompile
 fig build
 fig up
 ```
-
-rsync -azP --xattrs --delete --filter=':- .gitignore' . git@gigcove.com:/home/git/gigcove-production
