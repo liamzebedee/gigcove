@@ -1,5 +1,5 @@
 db:
-  image: orchardup/postgresql
+  image: "postgres:9.4"
   ports:
     - "5432"
 
@@ -11,14 +11,13 @@ mail:
 
 api:
   build: "./rails-api-backend"
-  command: "bundle exec rackup -p 8081"
+  command: "bundle exec rails s -p 8081 -b '0.0.0.0'"
   # These keys do not require a `fig build` on change
   environment:
     RACK_ENV: production
     SECRET_KEY_BASE: f18e3d015bb06543e46934271f82e3d29023058e27470117d8f473f1de015fd007388b23d1bcab4579ece48eebbc8e28e299d3d67890d251d9728c17458be16c
   links:
     - db
-    - mail
   volumes:
     - "./rails-api-backend/:/app"
   ports:

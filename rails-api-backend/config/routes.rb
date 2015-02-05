@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  namespace :api do
+  scope 'api' do
     # Devise
     devise_for :users, :controllers => { 
       sessions: "users/sessions", 

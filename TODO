@@ -7,14 +7,6 @@ BUILD MINIMUM PROTOTYPE
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 
-Current task:
-  get `fig up` working for mobile service
-node get tgz packages in a cache folder
-add to service
-let node decompress and store
-add data volume
-
-is the volume mounted while docker build is running? should be.
 
 Containerize into mobile, desktop, api
 API:
