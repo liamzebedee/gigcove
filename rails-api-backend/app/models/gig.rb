@@ -44,6 +44,10 @@ class Gig < ActiveRecord::Base
     self.where("start_datetime <= ?", Time.zone.now).limit(max)
   end
 
+  def self.cheaper_than(cost)  
+    self.where("cost <= ?", cost)  
+  end
+
   private
     def defaults
       # I would set this in the database, but the datetime would be static

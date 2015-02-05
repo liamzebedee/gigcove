@@ -28,14 +28,12 @@ module Railsapp
 
 
     config.after_initialize do
-        InstagramController.init_subscriptions
+        #InstagramController.init_subscriptions
     end
 
-    config.time_zone = "Brisbane"
+    config.time_zone = "Sydney"
     config.active_record.default_timezone = :local
 
     config.action_view.embed_authenticity_token_in_remote_forms = true
-
-    config.react.addons = true
   end
 end

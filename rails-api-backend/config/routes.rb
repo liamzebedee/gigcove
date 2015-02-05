@@ -6,18 +6,15 @@ Rails.application.routes.draw do
       registrations: 'users/registrations',
       omniauth_callbacks: "users/omniauth_callbacks" }
 
-    # Instagram
-    get '/instagram/subscription_callback', to: 'instagram#verify_subscriptions'
-    post '/instagram/subscription_callback', to: 'instagram#update'
-
     # Gigs
-    resources :gigs, only: [:index, :new, :create, :show, :update] do
+    resources :gigs, { only: [:index, :create, :show, :update], defaults: { :format => :json } } do
       collection do
         get 'unmoderated'
       end
     end
-    resources :tags, only: [:index] do
-    end
-    resources :venues, only: [:index, :new, :create, :show, :edit]
+
+    resources :tags, { only: [:index], defaults: { :format => :json } }
+
+    resources :venues, { only: [:index, :create, :show, :update], defaults: { :format => :json } }
   end
 end

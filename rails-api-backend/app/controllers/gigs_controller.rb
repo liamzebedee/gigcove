@@ -2,34 +2,31 @@
 include Geokit::Geocoders
 
 class GigsController < ApplicationController
+  def index_params
+    params.require(:search).permit(:location, :latitude, :longitude, :cost)
+  end
   def index
-    @page_title = ""
-    @page_description = ""
     @gigs = []
     latlng = []
 
-    if params[:search] == nil
-      render 'gigs/index'
+    if index_params[:search] == nil
+      render status: :not_acceptable
     else
-      if params[:search][:location] != ""
+      if index_params[:search][:location] != ""
         # Search for location coords
-        latlng = Geocoder.geocode(params[:search][:location].to_s)
+        latlng = Geocoder.geocode(index_params[:search][:location].to_s)
       else
         # Try using browser geolocation
-        latlng = [params[:search][:latitude].to_f, params[:search][:longitude].to_f]
-        if latlng == nill
-          # XXX wrong error code, this is user's fault
-          format.html { render status: :internal_server_error, :nothing => true }
+        latlng = [index_params[:search][:latitude].to_f, index_params[:search][:longitude].to_f]
+        if latlng == nil
+          render status: :not_acceptable
         end
       end
       distance_radius = 100
 
-      @gigs = Gig.approved_gigs.joins(:venue).within(distance_radius, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
+      @gigs = Gig.approved_gigs.cheaper_than(index_params[:search][:cost].to_i).joins(:venue).within(distance_radius, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
       render json: @gigs
     end
-  end
-
-  def new
   end
 
   def create
@@ -49,4 +46,6 @@ class GigsController < ApplicationController
     # approve venue and gig
     # save
   end
+
+  private :index_params
 end

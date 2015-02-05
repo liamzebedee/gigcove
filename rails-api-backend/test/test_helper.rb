@@ -8,6 +8,4 @@ end
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-  # include FactoryGirl::Syntax::Methods
-  # Add more helper methods to be used by all tests here...
 end
