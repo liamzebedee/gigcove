@@ -53,7 +53,7 @@ class GigsController < ApplicationController
       venue.location = create_params[:venue][:location]
       venue.website = create_params[:venue][:website]
       venue.save!
-    else
+    end
     gig.venue = venue
 
     gig.save!
