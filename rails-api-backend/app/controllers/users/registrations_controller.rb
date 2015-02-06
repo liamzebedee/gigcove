@@ -1,10 +1,4 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-	def new
-		@page_title = "Join GigCove"
-		@page_description = "Sign into your account on GigCove."
-		super
-	end
-
 	private
 
 	def sign_up_params

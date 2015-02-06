@@ -19,21 +19,12 @@ class Gig < ActiveRecord::Base
     defaults if self.new_record?
   end
 
+  def self.unmoderated_gigs
+    self.where(moderated: false)
+  end
+
   def self.approved_gigs
-    where(approved: true)
-  end
-
-  def start_date_str
-    self.start_datetime.strftime('%-d/%-m/%Y')
-  end
-
-  def start_datetime_str
-    # strip because for some reason, ruby doesn't have a 12-hour NO blank-spaced parameter
-    self.start_datetime.strftime('%l:%M%P').strip
-  end
-
-  def end_datetime_str
-    self.end_datetime.strftime('%l:%M%P').strip
+    self.where(approved: true)
   end
 
   def self.upcoming_gigs(max=10)

@@ -1,21 +1,20 @@
 # coding: utf-8
 class VenuesController < ApplicationController
+  def index_params
+    params.require(:search)
+  end
   def index
-    # upper(name) makes case sensitivity not an issue when searching
-    # params[:approved]
-    venues = Venue.where(approved: false).where("upper(name) LIKE upper(?)", "%#{params[:name]}%").limit(200)
-    @venues_filtered = venues.map { |venue| {:id => venue.id, :name => venue.name} }
-    render @venues_filtered
+    venues = Venue.find_similar_to_name(index_params[:search]).limit(100)
+    render json: venues
   end
 
+  def show_params
+    params.require(:id)
+  end
   def show
-    @venue = Venue.find(params[:id])
-    @page_title = "Venue — \"#{@venue.name}\""
-    @page_description = ""
-    render 'venues/show'
+    venue = Venue.find(show_params[:id])
+    render json: venue
   end
 
-  def new
-    authorize!(:new, Venue)
-  end
+  private :index_params, :show_params
 end

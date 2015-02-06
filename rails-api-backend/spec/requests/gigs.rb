@@ -6,6 +6,7 @@ require 'json'
 describe "Gigs API" do
   it 'searches for gigs' do
   	# create a bunch of gigs with venues
+  	
 
   	# now search for them
   	search_params_latlng = {
