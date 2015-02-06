@@ -6,6 +6,7 @@ class Gig < ActiveRecord::Base
   validates_length_of :name, :minimum => 0, :maximum => 200, :allow_blank => false
   validates_length_of :link_to_source, :minimum => 0, :maximum => 1000, :allow_blank => true
   validates_length_of :description, :minimum => 0, :maximum => 10000, :allow_blank => false
+  # eighteen_plus
 
   belongs_to :venue, inverse_of: :gigs
   acts_as_mappable :through => :venue

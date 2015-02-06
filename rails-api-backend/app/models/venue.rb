@@ -1,3 +1,5 @@
+include Geokit::Geocoders
+
 class Venue < ActiveRecord::Base
   validates_length_of :name, :minimum => 1, :maximum => 200, :allow_blank => false
   validates_length_of :location, :minimum => 1, :maximum => 300, :allow_blank => false
@@ -9,10 +11,11 @@ class Venue < ActiveRecord::Base
   # longitude
   has_many :gigs
 
+  before_validation :geocode_location, :on => [:create, :update]
+
   acts_as_mappable :distance_field_name => :distance,
     :lat_column_name => :latitude,
-    :lng_column_name => :longitude,
-    :auto_geocode => {:field => :location, :error_message => 'Could not geocode venue location automatically'}
+    :lng_column_name => :longitude
 
   after_initialize do 
     defaults if self.new_record?
@@ -32,5 +35,16 @@ class Venue < ActiveRecord::Base
     self.name = ""
     self.location = ""
     self.website = ""
+  end
+
+  def geocode_location
+    geo = nil
+    begin
+      geo = Geokit::Geocoders::MultiGeocoder.geocode(self.location)
+    rescue ActiveRecord::GeocodeError => e
+      puts e
+    end
+
+    self.latitude, self.longitude = geo.lat, geo.lng if geo.success
   end
 end

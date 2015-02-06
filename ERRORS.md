@@ -34,3 +34,6 @@ A list of errors I have made in development that I am recording so I don't make 
  - Ionic doesn't highlight text on mobile or desktop, as it is detecting touch events etc.
  - `docker-compose build` was taking ages to initially load, was wondering why. Used the `docker build --quiet=false` command to run, found out it was taking a long time to tar the directory because the node_modules was being sent to the daemon.
  - Using old version of Postgres image.
+ - Using create_by instead of find_or_create_by for hashtags.
+ - Strong parameters only allows one require and also 'goes into' this key of the Hash from there.
+ - For some reason there was a NoMethodFound exception being thrown on code that should work. Turns out it was a bug in rails 4.1.0. ALWAYS BE ON LATEST BUG FIX

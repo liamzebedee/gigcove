@@ -16,6 +16,14 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+module Requests
+  module JsonHelpers
+    def json_api
+      {'ACCEPT' => "application/json", 'CONTENT_TYPE' => 'application/json'}
+    end
+  end
+end
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

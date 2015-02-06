@@ -7,8 +7,10 @@ WORKDIR /app
 # Rails app
 ADD ./Gemfile /app/Gemfile
 ADD ./Gemfile.lock /app/Gemfile.lock
-RUN bundle package --all --no-prune
+ADD ./vendor/cache /app/vendor/cache
+RUN bundle update
 RUN bundle install
+RUN bundle package --all --no-prune
 
 # General
 WORKDIR /app

@@ -58,6 +58,7 @@ Geokit::Geocoders::request_timeout = 3
 
 # Most other geocoders need either no setup or a key
 #Geokit::Geocoders::BingGeocoder.key = ''
+#Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluu8216z25%2Crw%3Do5-942xqa'
 Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
 #Geokit::Geocoders::YandexGeocoder.key = ''
 #Geokit::Geocoders::MapboxGeocoder.key = 'ACCESS_TOKEN'
@@ -65,6 +66,7 @@ Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
 # Geonames has a free service and a premium service, each using a different URL
 # GeonamesGeocoder.premium = true will use http://ws.geonames.net (premium)
 # GeonamesGeocoder.premium = false will use http://api.geonames.org (free)
+#GeonamesGeocoder.premium = false
 #Geokit::Geocoders::GeonamesGeocoder.premium = false
 
 # require "external_geocoder.rb"
@@ -77,7 +79,7 @@ Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
 # Be aware that there are Terms of Use restrictions on how you can use the
 # various geocoders.  Make sure you read up on relevant Terms of Use for each
 # geocoder you are going to use.
-Geokit::Geocoders::provider_order = [:map_quest]
+Geokit::Geocoders::provider_order = [:map_quest, :geonames]
 
 # The IP provider order. Valid symbols are :ip,:geo_plugin.
 # As before, make sure you read up on relevant Terms of Use for each.

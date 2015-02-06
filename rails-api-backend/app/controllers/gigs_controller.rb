@@ -6,97 +6,101 @@ class GigsController < ApplicationController
     params.require(:search).permit(:location, :latitude, :longitude, :cost, :distance_radius)
   end
   def index
-    @gigs = []
+    gigs = []
     latlng = []
 
-    if index_params[:search] == nil
+    if index_params == nil
       render status: :not_acceptable
     else
-      if index_params[:search][:location] != ""
+      if index_params[:location] != ""
         # Search for location coords
-        latlng = Geocoder.geocode(index_params[:search][:location].to_s)
+        latlng = Geocoder.geocode(index_params[:location].to_s)
       else
         # Try using browser geolocation
-        latlng = [index_params[:search][:latitude].to_f, index_params[:search][:longitude].to_f]
+        latlng = [index_params[:latitude].to_f, index_params[:longitude].to_f]
         if latlng == nil
-          render status: :not_acceptable
+          render json: {}, status: :not_acceptable
         end
       end
 
-      @gigs = Gig.approved_gigs.cheaper_than(index_params[:search][:cost].to_i).joins(:venue).within(index_params[:search][:distance_radius].to_f, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
-      render json: @gigs
+      gigs = Gig.approved_gigs.cheaper_than(index_params[:cost].to_i).joins(:venue).within(index_params[:distance_radius].to_f, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
+      render json: gigs
     end
   end
 
-  def create_params
-    params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :tags)
+  def gig_update_params
+    params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :eighteen_plus, :approved, :tags => [])
+  end
+  def venue_update_params
     params.require(:venue).permit(:name, :location, :website, :id)
   end
+
   def create
     gig = Gig.new
-    gig.cost = create_params[:gig][:cost].to_d
-    gig.start_datetime = Time.at(create_params[:gig][:start_datetime]).to_datetime
-    gig.end_datetime = Time.at(create_params[:gig][:end_datetime]).to_datetime
-    gig.name = create_params[:gig][:name].to_s
-    gig.link_to_source = create_params[:gig][:link_to_source].to_s
-    gig.description = create_params[:gig][:description].to_s
+    gig.cost = gig_update_params[:cost].to_i
+    gig.start_datetime = Time.at(gig_update_params[:start_datetime]).to_datetime
+    gig.end_datetime = Time.at(gig_update_params[:end_datetime]).to_datetime
+    gig.name = gig_update_params[:name]
+    gig.link_to_source = gig_update_params[:link_to_source]
+    gig.description = gig_update_params[:description]
+    gig.eighteen_plus = gig_update_params[:eighteen_plus]
 
-    create_params[:gig][:tags].each do |tag|
-      gig.tags << Tag.create(tag.to_s)
+    gig_update_params[:tags].each do |tag|
+      tag = Tag.find_or_create_by(name: tag.to_s)
+      gig.tags << tag
     end
 
     # venue already exists
-    venue = Venue.find(create_params[:venue][:id].to_i)
-    if not venue.exists?
+    venue = Venue.find_by_id(venue_update_params[:id])
+    if venue == nil
       venue = Venue.new
-      venue.name = create_params[:venue][:name]
-      venue.location = create_params[:venue][:location]
-      venue.website = create_params[:venue][:website]
+      venue.name = venue_update_params[:name]
+      venue.location = venue_update_params[:location]
+      venue.website = venue_update_params[:website]
       venue.save!
     end
     gig.venue = venue
 
     gig.save!
-    render status: :created
+    render json: {}, status: :created
   end
 
   def show_params
     params.require(:id)
   end
   def show
-    gig = Gig.find(show_params[:id])
+    gig = Gig.find(show_params)
     render json: gig
   end
 
   def update_params
-    params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :tags, :approved)
-    params.require(:venue).permit(:name, :location, :website, :id)
     params.require(:id)
   end
   def update
     authorize!(:update, Gig)
-    gig = Gig.find(update_params[:id])
-    gig.cost = create_params[:gig][:cost].to_d
-    gig.start_datetime = Time.at(create_params[:gig][:start_datetime]).to_datetime
-    gig.end_datetime = Time.at(create_params[:gig][:end_datetime]).to_datetime
-    gig.name = create_params[:gig][:name].to_s
-    gig.link_to_source = create_params[:gig][:link_to_source].to_s
-    gig.description = create_params[:gig][:description].to_s
+    gig = Gig.find(update_params)
+    gig.cost = gig_update_params[:cost].to_i
+    gig.start_datetime = Time.at(gig_update_params[:start_datetime]).to_datetime
+    gig.end_datetime = Time.at(gig_update_params[:end_datetime]).to_datetime
+    gig.name = gig_update_params[:name]
+    gig.link_to_source = gig_update_params[:link_to_source]
+    gig.description = gig_update_params[:description]
+    gig.eighteen_plus = gig_update_params[:eighteen_plus]
 
     gig.tags = []
-    create_params[:gig][:tags].each do |tag|
+    gig_update_params[:tags].each do |tag|
       gig.tags << Tag.create(tag.to_s)
     end
 
-    venue = Venue.find(update_params[:id])
-    venue.name = create_params[:venue][:name]
-    venue.location = create_params[:venue][:location]
-    venue.website = create_params[:venue][:website]
+    venue = Venue.find(venue_update_params[:id])
+    venue.name = venue_update_params[:name]
+    venue.location = venue_update_params[:location]
+    venue.website = venue_update_params[:website]
     
     gig.moderated = true
-    gig.approved = update_params[:gig][:approved]
+    gig.approved = gig_update_params[:approved]
     venue.moderated = true
-    venue.approved = update_params[:gig][:approved]
+    venue.approved = gig_update_params[:approved]
     
     venue.save!
     gig.save!
@@ -109,5 +113,5 @@ class GigsController < ApplicationController
     render json: gigs
   end
 
-  private :index_params, :create_params, :update_params, :show_params
+  private :index_params, :venue_update_params, :gig_update_params, :update_params, :show_params
 end

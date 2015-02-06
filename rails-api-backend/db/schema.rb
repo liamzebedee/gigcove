@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150104103859) do
+ActiveRecord::Schema.define(version: 20150206154056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 20150104103859) do
     t.text     "description",    default: ""
     t.datetime "end_datetime"
     t.boolean  "eighteen_plus"
+  end
+
+  create_table "gigs_tags", id: false, force: true do |t|
+    t.integer "tag_id"
+    t.integer "gig_id"
   end
 
   create_table "instagram_apis", force: true do |t|
@@ -52,11 +57,6 @@ ActiveRecord::Schema.define(version: 20150104103859) do
     t.datetime "updated_at"
     t.boolean  "moderated"
     t.boolean  "approved"
-  end
-
-  create_table "tags_gigs", id: false, force: true do |t|
-    t.integer "tag_id"
-    t.integer "gig_id"
   end
 
   create_table "users", force: true do |t|
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150104103859) do
     t.float    "longitude"
     t.boolean  "approved"
     t.string   "cover_image"
+    t.boolean  "moderated"
   end
 
 end
