@@ -14,10 +14,12 @@ class Gig < ActiveRecord::Base
   validate :tags, allow_nil: false
   has_and_belongs_to_many :tags, inverse_of: :gigs
 
-  
-
   after_initialize do 
     defaults if self.new_record?
+  end
+
+  def as_json(options)
+    super({include: [:tags, :venue]}.merge(options))
   end
 
   def self.unmoderated_gigs

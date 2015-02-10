@@ -9,7 +9,7 @@ class GigsController < ApplicationController
     gigs = []
     latlng = []
 
-    if index_params == nil
+    if index_params == nil[:name]
       render status: :not_acceptable
     else
       if index_params[:location] != ""
@@ -24,12 +24,12 @@ class GigsController < ApplicationController
       end
 
       gigs = Gig.approved_gigs.cheaper_than(index_params[:cost].to_i).joins(:venue).within(index_params[:distance_radius].to_f, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
-      render json: gigs
+      render json: gigs.to_json(:include => :tags)
     end
   end
 
   def gig_update_params
-    params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :eighteen_plus, :approved, :tags => [])
+    params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :eighteen_plus, :approved, { :tags => [:name] })
   end
   def venue_update_params
     params.require(:venue).permit(:name, :location, :website, :id)
@@ -38,15 +38,15 @@ class GigsController < ApplicationController
   def create
     gig = Gig.new
     gig.cost = gig_update_params[:cost].to_i
-    gig.start_datetime = Time.at(gig_update_params[:start_datetime]).to_datetime
-    gig.end_datetime = Time.at(gig_update_params[:end_datetime]).to_datetime
+    gig.start_datetime = Time.zone.parse(gig_update_params[:start_datetime]).to_datetime
+    gig.end_datetime = Time.zone.parse(gig_update_params[:end_datetime]).to_datetime
     gig.name = gig_update_params[:name]
     gig.link_to_source = gig_update_params[:link_to_source]
     gig.description = gig_update_params[:description]
     gig.eighteen_plus = gig_update_params[:eighteen_plus]
 
     gig_update_params[:tags].each do |tag|
-      tag = Tag.find_or_create_by(name: tag.to_s)
+      tag = Tag.find_or_create_by(name: tag[:name].to_s)
       gig.tags << tag
     end
 
@@ -80,8 +80,8 @@ class GigsController < ApplicationController
     authorize!(:update, Gig)
     gig = Gig.find(update_params)
     gig.cost = gig_update_params[:cost].to_i
-    gig.start_datetime = Time.at(gig_update_params[:start_datetime]).to_datetime
-    gig.end_datetime = Time.at(gig_update_params[:end_datetime]).to_datetime
+    gig.start_datetime = Time.zone.parse(gig_update_params[:start_datetime]).to_datetime
+    gig.end_datetime = Time.zone.parse(gig_update_params[:end_datetime]).to_datetime
     gig.name = gig_update_params[:name]
     gig.link_to_source = gig_update_params[:link_to_source]
     gig.description = gig_update_params[:description]
@@ -89,7 +89,7 @@ class GigsController < ApplicationController
 
     gig.tags = []
     gig_update_params[:tags].each do |tag|
-      gig.tags << Tag.create(tag.to_s)
+      gig.tags << Tag.create(name: tag[:name].to_s)
     end
 
     venue = Venue.find(venue_update_params[:id])

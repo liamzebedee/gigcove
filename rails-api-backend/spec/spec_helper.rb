@@ -16,11 +16,24 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'devise'
+
 module Requests
   module JsonHelpers
-    def json_api
+    def json_api_headers
       {'ACCEPT' => "application/json", 'CONTENT_TYPE' => 'application/json'}
     end
+  end
+end
+
+module ControllerHelpers
+  def login(user)
+    login_as user
+  end
+
+  def current_user
+    User.find(request.session[:user])
   end
 end
 
@@ -49,6 +62,14 @@ RSpec.configure do |config|
   end
 
   config.include Requests::JsonHelpers, type: :request
+  #config.include Devise::TestHelpers#, :type => :controller
+  config.include ControllerHelpers#, :type => :controller
+  config.include Warden::Test::Helpers, :type => :request
+
+
+  config.before(:suite) do
+    Rails.application.load_seed
+  end
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.

@@ -7,5 +7,10 @@ class Ability
       can :update, Gig
       can :unmoderated, Gig
     end
+    can :update, Gig do |gig|
+      # XXX if author of gig or owner of venue return true
+      
+      false
+    end
   end
 end
