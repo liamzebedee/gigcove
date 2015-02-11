@@ -1,10 +1,8 @@
 # coding: utf-8
 class VenuesController < ApplicationController
-  def index_params
-    params.require(:search)
-  end
   def index
-    venues = Venue.find_similar_to_name(index_params[:search]).limit(100)
+    json_params = ActiveSupport::JSON.decode(params[:q]).symbolize_keys
+    venues = Venue.find_similar_to_name(json_params[:search]).limit(100)
     render json: venues
   end
 
@@ -16,5 +14,5 @@ class VenuesController < ApplicationController
     render json: venue
   end
 
-  private :index_params, :show_params
+  private :show_params
 end

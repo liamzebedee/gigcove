@@ -12,6 +12,6 @@ class Tag < ActiveRecord::Base
   def self.find_similar_to_name(name)
     # upper(name) makes case sensitivity not an issue when searching
     # ordering it descending makes it more logical
-  	Tag.where("upper(name) LIKE upper(?)", "%#{name}%").order(name: :desc)
+  	Tag.where("upper(name) LIKE upper(?)", "%#{name}%").order(name: :asc)
   end
 end

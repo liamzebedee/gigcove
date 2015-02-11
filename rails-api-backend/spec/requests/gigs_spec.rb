@@ -8,6 +8,14 @@ def moderator_user
   User.find_by(email: "moderator@gigcove.com")
 end
 
+def json_api_response
+	JSON.parse(response.body, symbolize_names: true)
+end
+
+def hash_to_url_json_params(params_hash)
+  { q: params_hash.to_json }
+end
+
 describe "Gigs API" do
   it 'searches for gigs' do
     # create a bunch of gigs with venues
@@ -80,19 +88,17 @@ describe "Gigs API" do
     expect(venue_1.latitude.round(3)).to eq(venue_1_expected_latitude.round(3))
     expect(venue_1.longitude.round(3)).to eq(venue_1_expected_longitude.round(3))
 
-
     # get them approved
     # stub authentication
     login(moderator_user)
 
     get '/api/gigs/unmoderated', {}, json_api_headers
 
-    unmoderated_gigs = JSON.parse(response.body, symbolize_names: true)
+    unmoderated_gigs = json_api_response
     
     unmoderated_gigs.each do |gig|
     	gig[:approved] = true
-    	a = {gig: gig}
-      patch "/api/gigs/#{gig[:id]}", a.to_json, json_api_headers
+      patch "/api/gigs/#{gig[:id]}", {gig: gig}.to_json, json_api_headers
     end
 
     # now search for them
@@ -104,7 +110,6 @@ describe "Gigs API" do
       }
     }
     get '/api/gigs', search_params_latlng.to_json, json_api_headers
-    puts response.body
 
     search_params_location = {
       search: {
@@ -113,30 +118,33 @@ describe "Gigs API" do
       }
     }
   end
-
-  it 'moderates gigs' do
-    # show unmoderated gigs
-
-
-    # update gig moderation status
-
-
-  end
-
-  it 'shows gig' do
-  end
 end
-
 
 
 describe 'Tags API' do
   it 'shows similar tags' do
     # create tags
-
+    Tag.create(name: 'music')
+    Tag.create(name: 'museum') # for sake of an example
+    expect(Tag.count).to eq 2
 
     # find tags
+    get '/api/tags', hash_to_url_json_params({ search: "mus" }), json_api_headers
+    similar_tags = json_api_response
+    expect(similar_tags[0]).to eq({:name => 'museum'})
+    expect(similar_tags[1]).to eq({:name => 'music'})
+  end
 
+  it 'filters gigs correctly' do
+  	Tag.create!(name: 'music')
+    Tag.create!(name: 'museum')
+		
+		get '/api/tags', hash_to_url_json_params({ search: "musi" }), json_api_headers
+    
+    similar_tags = json_api_response
 
+    expect(similar_tags.count).to eq 1
+    expect(similar_tags[0]).to eq({:name => "music"})
   end
 
   # it 'shows tags near a location, ranked by popularity'
@@ -147,11 +155,24 @@ end
 describe 'Venues API' do
   it 'finds venues' do
     # create venues
+    venue_1 = Venue.create!(
+    		name: "Brisbane Powerhouse",
+        location: "119 Lamington Street, New Farm QLD 4005",
+        website: "http://brisbanepowerhouse.org"
+    	)
+    venue_2 = Venue.create!(
+	    	name: "The Crowbar",
+        location: "Crowbar, 243 Brunswick Street, Brisbane",
+        website: "http://www.crowbarbrisbane.com/"
+      )
+    expect(Venue.count).to eq 2
 
+    # search venues by name
+    get '/api/venues', hash_to_url_json_params({search: "Brisbane"}), json_api_headers
+    similar_venues = json_api_response
 
-    # search venues by location
-
-
+    expect(similar_venues.count).to eq 1
+    expect(similar_venues[0]).to eq venue_1
   end
 
   it 'update venue info' do

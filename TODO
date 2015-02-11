@@ -10,7 +10,7 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869
 https://github.com/geokit/geokit
 Containerize into mobile, desktop, api
 API:
-
+  GET requests need to accept JSON params
 
 
   1800 132 468 centrelink dispute lines
