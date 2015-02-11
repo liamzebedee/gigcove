@@ -1,9 +1,6 @@
 require 'json'
 require 'rails_helper'
 
-#http://matthewlehner.net/rails-api-testing-guidelines/
-#http://dhartweg.roon.io/rspec-testing-for-a-json-api
-#https://github.com/rspec/rspec-rails
 def moderator_user
   User.find_by(email: "moderator@gigcove.com")
 end
@@ -104,12 +101,14 @@ describe "Gigs API" do
     # now search for them
     search_params_latlng = {
       search: {
-        cost: 50,
+        cost: 20,
         latitude: venue_1_expected_latitude,
         longitude: venue_1_expected_longitude
       }
     }
-    get '/api/gigs', search_params_latlng.to_json, json_api_headers
+    get '/api/gigs', hash_to_url_json_params(search_params_latlng), json_api_headers
+    gigs_found = json_api_response
+    expect(gigs_found.count).to eq 2
 
     search_params_location = {
       search: {
@@ -135,7 +134,7 @@ describe 'Tags API' do
     expect(similar_tags[1]).to eq({:name => 'music'})
   end
 
-  it 'filters gigs correctly' do
+  it 'shows only specific tag' do
   	Tag.create!(name: 'music')
     Tag.create!(name: 'museum')
 		
@@ -173,9 +172,6 @@ describe 'Venues API' do
 
     expect(similar_venues.count).to eq 1
     expect(similar_venues[0]).to eq venue_1
-  end
-
-  it 'update venue info' do
   end
 end
 
