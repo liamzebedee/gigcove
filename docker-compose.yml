@@ -22,7 +22,7 @@ api:
     - "./rails-api-backend/:/app"
   ports:
     - "8081:8081"
-  dns: localhost
+  #dns: localhost
 
 desktop:
   build: "./desktop-client-frontend"

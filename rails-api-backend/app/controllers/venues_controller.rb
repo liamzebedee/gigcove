@@ -2,6 +2,9 @@
 class VenuesController < ApplicationController
   def index
     json_params = ActiveSupport::JSON.decode(params[:q]).symbolize_keys
+    if json_params[:search] == ""
+      return render json: {}, status: :not_acceptable
+    end
     venues = Venue.find_similar_to_name(json_params[:search]).limit(100)
     render json: venues
   end

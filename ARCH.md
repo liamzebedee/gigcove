@@ -1,3 +1,17 @@
+Everything is containerized by **Docker** and **Compose**/Fig. This is for a couple reasons:
+ - easier to deploy on development and production when we can replicate the exact environment and configuration
+ - easier to link servers together when they're all orchestrated centrally
+ - good for security - comprimise of one service (mail server for example) remains isolated
+
+There are multiple services. The backend is built on **Rails**, because of its ORM and abundance of gems. It consists of a HTTP JSON-based API. **gigcove.com/api/** is the root path for this API. POST requests encode their parameters using JSON. GET requests encode their parameters in a JSON string mapped by the `q` URL parameter.
+
+
+
+
+
+
+
+
 # Zero downtime
 Grunt servers need to npm install, start and serve assets.
 Rails servers need to do DB migrations, bundle install, etc.

@@ -16,8 +16,8 @@ Geokit::Geocoders::request_timeout = 3
 # This is your yahoo application key for the Yahoo Geocoder.
 # See http://developer.yahoo.com/faq/index.html#appid
 # and http://developer.yahoo.com/maps/rest/V1/geocode.html
-#Geokit::Geocoders::YahooGeocoder.key = 'REPLACE_WITH_YOUR_YAHOO_KEY'
-#Geokit::Geocoders::YahooGeocoder.secret = 'REPLACE_WITH_YOUR_YAHOO_SECRET'
+Geokit::Geocoders::YahooGeocoder.key = 'dj0yJmk9Q2FFNTlaZGtXMWt0JmQ9WVdrOU9HZ3hjbEpoTnpJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD03ZQ--'
+Geokit::Geocoders::YahooGeocoder.secret = '86a50c86d7c44c406fc71f14dc11ae6a779720cf'
 
 # This is your Google Maps geocoder keys (all optional).
 # See http://www.google.com/apis/maps/signup.html
@@ -57,9 +57,8 @@ Geokit::Geocoders::request_timeout = 3
 #Geokit::Geocoders::GeonamesGeocoder.key = 'KEY'
 
 # Most other geocoders need either no setup or a key
-#Geokit::Geocoders::BingGeocoder.key = ''
-#Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluu8216z25%2Crw%3Do5-942xqa'
-Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
+Geokit::Geocoders::BingGeocoder.key = 'Av2i_CYA8Jc5zcnjq8gFzmaqOFK_qTtuOv45Y2lbMxDj5-dCofkW0Em1ezYofFZU'
+Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluu8216z25%2Crw%3Do5-942xqa'
 #Geokit::Geocoders::YandexGeocoder.key = ''
 #Geokit::Geocoders::MapboxGeocoder.key = 'ACCESS_TOKEN'
 
@@ -79,7 +78,7 @@ Geokit::Geocoders::MapQuestGeocoder.key = 'Fmjtd%7Cluur29uyl1%2C8a%3Do5-908slw'
 # Be aware that there are Terms of Use restrictions on how you can use the
 # various geocoders.  Make sure you read up on relevant Terms of Use for each
 # geocoder you are going to use.
-Geokit::Geocoders::provider_order = [:map_quest, :geonames]
+Geokit::Geocoders::provider_order = [:map_quest, :bing, :yahoo]
 
 # The IP provider order. Valid symbols are :ip,:geo_plugin.
 # As before, make sure you read up on relevant Terms of Use for each.

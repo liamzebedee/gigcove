@@ -7,13 +7,9 @@ BUILD MINIMUM PROTOTYPE
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 
-https://github.com/geokit/geokit
-Containerize into mobile, desktop, api
-API:
-  GET requests need to accept JSON params
-
-
-  1800 132 468 centrelink dispute lines
+Api:
+  finish implementing tests for API
+  implement test for devise
 Mobile:
   move code from rails app to here
   complete search gigs interface
@@ -30,13 +26,7 @@ Mobile/Desktop:
 RANDOM ERRORS
 =============
 
-  1) Gigs API searches for gigs
-     Failure/Error: expect(venue_1.latitude.round(3)).to eq(venue_1_expected_latitude.round(3))
-     NoMethodError:
-       undefined method `round' for nil:NilClass
-     # ./spec/requests/gigs_spec.rb:80:in `block (2 levels) in <top (required)>'
-
-
+Make geolocation throw error if failure
 
 
 

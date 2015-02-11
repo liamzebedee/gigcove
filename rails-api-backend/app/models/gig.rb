@@ -18,8 +18,9 @@ class Gig < ActiveRecord::Base
     defaults if self.new_record?
   end
 
-  def as_json(options)
-    super({include: [:tags, :venue]}.merge(options))
+  # as_json
+  def serializable_hash(options)
+    super({:include => [:tags, :venue]}.merge(options))
   end
 
   def self.unmoderated_gigs

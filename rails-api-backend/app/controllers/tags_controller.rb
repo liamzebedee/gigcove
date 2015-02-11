@@ -2,7 +2,6 @@
 
 class TagsController < ApplicationController
   def index
-  	#, symbolize_names: true
   	json_params = ActiveSupport::JSON.decode(params[:q]).symbolize_keys
   	if json_params[:search] == ""
   		return render json: {}, status: :not_acceptable

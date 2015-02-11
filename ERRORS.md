@@ -37,3 +37,4 @@ A list of errors I have made in development that I am recording so I don't make 
  - Using create_by instead of find_or_create_by for hashtags.
  - Strong parameters only allows one require and also 'goes into' this key of the Hash from there.
  - For some reason there was a NoMethodFound exception being thrown on code that should work. Turns out it was a bug in rails 4.1.0. ALWAYS BE ON LATEST BUG FIX
+ - Venue was not being created. Issue with MapQuest geocoding service. For some reason the servers were down and thus the geocoding was not working. Registered for some other services as fallback. Tried geocoding again, still no latitude and longitude. Issue was the address "119 Lamington Street, New Farm QLD 4005" was not recognised on services as it included a postcode. Removing the postcode fixed this.
