@@ -1,7 +1,7 @@
 GigCove
 =======
 
-Copyright Liam Edwards-Playne, 2015. 
+Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introduction to the code.
 
 ## Install
 You should be running a Linux-based system to host GigCove.

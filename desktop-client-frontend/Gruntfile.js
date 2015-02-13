@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          //livereload: '<%= connect.options.livereload %>'
         }
       },
       jsTest: {
@@ -82,9 +82,9 @@ module.exports = function (grunt) {
         hostname: desktopClient.hostname,
         livereload: desktopClient.livereload
       },
-      livereload: {
+      server: {
         options: {
-          open: true,
+          open: false,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
@@ -409,7 +409,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'connect:livereload',
+      'connect:server',
       'watch'
     ]);
   });
