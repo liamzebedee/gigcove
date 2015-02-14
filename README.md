@@ -7,7 +7,7 @@ Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introdu
 You should be running a Linux-based system to host GigCove.
  1. Install Docker, [Fig](http://fig.sh). `pip install docker-compose==1.1.0-rc2`
  2. Run `sudo docker-compose build`
- 3. `sudo docker-compose up`
+ 3. `sudo docker-compose up --no-build`
  3. Cache the Bundler gems (see below)
  4. Cache the Node packages
 

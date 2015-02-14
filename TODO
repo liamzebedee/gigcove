@@ -9,7 +9,13 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869
 
 Api:
   finish implementing tests for API
-  implement test for devise
+  implement test for deviseHome
+Mobile/Desktop:
+  Clean out old crusty shit into some folder
+
+  HOME + find gigs
+  post a gig
+  moderate
 Mobile:
   move code from rails app to here
   complete search gigs interface
@@ -17,9 +23,8 @@ Mobile:
 Desktop:
   intro
   find gigs
-  post gigk
+  post a gig
   moderate gigs
-Mobile/Desktop:
   
 
 
@@ -38,15 +43,6 @@ Add required to inputs
 Set main brand colours for prototype and header bar - install SASS
 Add sample data for UI testing
 
-Implement mobile:
-  submit venue info
-  home
-    add body marketing text
-Implement desktop
-  homepage
-  gig page
-  submit info
-  contribute page
 Write marketing material: intro homepage for mobile and desktop
 Add blog/twitter
 

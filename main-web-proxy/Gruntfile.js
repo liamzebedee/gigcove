@@ -1,24 +1,16 @@
-// Generated on 2014-07-18 using generator-angular 0.9.5
 'use strict';
-// http://www.clock.co.uk/blog/a-guide-on-how-to-cache-npm-install-with-docker
 
 var servers = {
   proxyPort: 80,
 
-  desktopClientFrontend: 'http://desktop:80',
-  mobileClientFrontend: 'http://mobile:80',
-  railsApiBackend: 'http://api:80'
+  desktopClientFrontend: 'http://desktop:8082',
+  mobileClientFrontend: 'http://mobile:8083',
+  railsApiBackend: 'http://api:8081'
 };
-
 
 module.exports = function (grunt) {
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
-
-  // Define the configuration for all the tasks
-  grunt.initConfig({
-    
-  });
 
   grunt.registerTask('serveProxy', 'Start the proxy to the various servers', function() {
     var done = this.async();
@@ -30,8 +22,8 @@ module.exports = function (grunt) {
 
     var proxy = httpProxy.createProxyServer({});
 
-    proxy.on('error', function (err, req, res) {
-      
+    proxy.on('error', function (err, req, res) {      
+      // TODO this is not good.
       res.writeHead(500, {
         'Content-Type': 'text/plain'
       });
@@ -67,7 +59,3 @@ module.exports = function (grunt) {
 
       
 };
-
-
-
-

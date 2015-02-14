@@ -1,5 +1,5 @@
 DOCS
-----
+====
 
 http://api.rubyonrails.org/
 http://ionicframework.com/docs/components/
@@ -11,8 +11,16 @@ https://github.com/Instagram/instagram-ruby-gem
 http://rubydoc.info/github/Instagram/instagram-ruby-gem/Instagram/Configuration#configure-instance_method
 
 
+Testing
+=======
+
+Test different services individually like so:
+`sudo docker-compose up --no-build api`
+
+
+
 Philosophy/Principles
----------------------
+=====================
 
 Move fast and break things
 Don't work against the code, work with whatever the accepted way is
@@ -21,8 +29,9 @@ Don't theorise, write code and test
 Make it illegal on the frontend, and a minimal backend: backend is security and data
 
 
+
 Deployment
-----------
+==========
 
 ssh git@gigcove.com
 cd /home/git/gigcove-production
