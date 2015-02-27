@@ -20,35 +20,41 @@ describe "Gigs API" do
     gig_data_1 = {
       gig: {
         cost: 25,
-        start_datetime: Time.zone.at(123213442).to_datetime.rfc3339,
-        end_datetime: Time.zone.at(1324531421).to_datetime.rfc3339,
+        start_datetime: (Time.zone.now + 1.day).to_datetime.rfc3339,
+        end_datetime: (Time.zone.now + 1.day + 2.hours).to_datetime.rfc3339,
         name: "Gig numero 1",
         link_to_source: "http://test-gig-1.com",
         description: "Words cannot \n describe this gig.",
         tags: [{name:"music"}, {name:"dance"}, {name:"hip"}, {name:"TheFestival"}],
-        eighteen_plus: false
-      },
-      venue: {
-        name: "Brisbane Powerhouse",
-        location: "119 Lamington Street, New Farm QLD",
-        website: "http://brisbanepowerhouse.org"
+        eighteen_plus: false,
+
+        venue: {
+          name: "Brisbane Powerhouse",
+          location: "119 Lamington Street, New Farm QLD",
+          latitude: -27.467882,
+          longitude: 153.053568,
+          website: "http://brisbanepowerhouse.org"
+        }
       }
     }
     gig_data_2 = {
       gig: {
         cost: 10,
-        start_datetime: Time.zone.at(123213442).to_datetime.rfc3339,
-        end_datetime: Time.zone.at(1324531421).to_datetime.rfc3339,
+        start_datetime: (Time.zone.now + 4.days).to_datetime.rfc3339,
+        end_datetime: (Time.zone.now + 4.days + 3.hours).to_datetime.rfc3339,
         name: "Gig numero 2",
         link_to_source: "http://test-gig-2.com",
         description: "Words cannot \n describe this gig.",
         tags: [{name:"music"}, {name:"dance"}, {name:"hip"}, {name:"TheFestival"}],
-        eighteen_plus: true
-      },
-      venue: {
-        name: "The Crowbar",
-        location: "Crowbar, 243 Brunswick Street, Brisbane",
-        website: "http://www.crowbarbrisbane.com/"
+        eighteen_plus: true,
+
+        venue: {
+          name: "The Crowbar",
+          location: "Crowbar, 243 Brunswick Street, Brisbane",
+          latitude: -27.456884, 
+          longitude: 153.033173,
+          website: "http://www.crowbarbrisbane.com/"
+        }
       }
     }
 
@@ -65,10 +71,11 @@ describe "Gigs API" do
         link_to_source: "http://test-gig-3.com",
         description: "Words cannot \n describe this gig.",
         tags: [{name:"music"}, {name:"dance"}, {name:"hip"}, {name:"TheFestival"}],
-        eighteen_plus: true
-      },
-      venue: {
-        id: Venue.last.id
+        eighteen_plus: true,
+
+        venue: {
+          id: Venue.last.id
+        }
       }
     }
     post "/api/gigs", gig_data_3.to_json, json_api_headers
@@ -81,10 +88,10 @@ describe "Gigs API" do
     # http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude
     # 2 decimal places is about 1km, so that's acceptable. Plus the IB used it.
     GEOLOCATION_DECIMAL_PLACES = 2
-    venue_1 = Venue.where(location: gig_data_1[:venue][:location]).first
-    puts venue_1.location
-    venue_1_expected_latitude = -27.466335
-    venue_1_expected_longitude = 153.051404
+    venue_1 = Venue.where(location: gig_data_1[:gig][:venue][:location]).first
+
+    venue_1_expected_latitude = -27.467882
+    venue_1_expected_longitude = 153.053568
     expect(venue_1.latitude.round(GEOLOCATION_DECIMAL_PLACES)).to eq(venue_1_expected_latitude.round(GEOLOCATION_DECIMAL_PLACES))
     expect(venue_1.longitude.round(GEOLOCATION_DECIMAL_PLACES)).to eq(venue_1_expected_longitude.round(GEOLOCATION_DECIMAL_PLACES))
 
@@ -105,20 +112,14 @@ describe "Gigs API" do
     search_params_latlng = {
       search: {
         cost: 20,
+        distance_radius: 60,
         latitude: venue_1_expected_latitude,
         longitude: venue_1_expected_longitude
       }
     }
     get '/api/gigs', hash_to_url_json_params(search_params_latlng), json_api_headers
     gigs_found = json_api_response
-    expect(gigs_found.count).to eq 2
-
-    search_params_location = {
-      search: {
-        cost: 50,
-        location: "Brisbane, AU"
-      }
-    }
+    expect(gigs_found.count).to eq 1
   end
 end
 
@@ -159,12 +160,16 @@ describe 'Venues API' do
     # create venues
     venue_1 = Venue.create!(
     		name: "Brisbane Powerhouse",
-        location: "119 Lamington Street, New Farm QLD 4005",
+        location: "119 Lamington Street, New Farm QLD",
+        latitude: -27.467882,
+        longitude: 153.053568,
         website: "http://brisbanepowerhouse.org"
     	)
     venue_2 = Venue.create!(
 	    	name: "The Crowbar",
         location: "Crowbar, 243 Brunswick Street, Brisbane",
+        latitude: -27.456884, 
+        longitude: 153.033173,
         website: "http://www.crowbarbrisbane.com/"
       )
     expect(Venue.count).to eq 2

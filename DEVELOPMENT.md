@@ -27,7 +27,7 @@ Don't work against the code, work with whatever the accepted way is
 Make it pretty
 Don't theorise, write code and test
 Make it illegal on the frontend, and a minimal backend: backend is security and data
-
+`git rev-list HEAD --count` makes me feel good.
 
 
 Deployment

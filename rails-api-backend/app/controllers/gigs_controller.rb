@@ -3,28 +3,24 @@ include Geokit::Geocoders
 
 class GigsController < ApplicationController
   def index_params
-    params.require(:search).permit(:location, :latitude, :longitude, :cost, :distance_radius)
+    # TODO this is before all GET reqs, refactor
+    params.deep_merge!(ActiveSupport::JSON.decode(params[:q]).symbolize_keys)
+    params.require(:search).permit(:latitude, :longitude, :cost, :distance_radius)
   end
   def index
     gigs = []
     latlng = []
 
-    if index_params == nil[:name]
-      render status: :not_acceptable
+    if index_params == nil
+      render json: {}, status: :not_acceptable
     else
-      if index_params[:location] != ""
-        # Search for location coords
-        latlng = Geocoder.geocode(index_params[:location].to_s)
-      else
-        # Try using browser geolocation
-        latlng = [index_params[:latitude].to_f, index_params[:longitude].to_f]
-        if latlng == nil
-          render json: {}, status: :not_acceptable
-        end
+      latlng = [index_params[:latitude].to_f, index_params[:longitude].to_f]
+      if latlng == nil
+        render json: {}, status: :not_acceptable
       end
 
       gigs = Gig.approved_gigs.cheaper_than(index_params[:cost].to_i).joins(:venue).within(index_params[:distance_radius].to_f, origin: latlng).where(end_datetime: Time.zone.now..Time.zone.now.next_month)
-      render json: gigs.to_json(:include => :tags)
+      render json: gigs.to_json
     end
   end
 
@@ -32,7 +28,7 @@ class GigsController < ApplicationController
     params.require(:gig).permit(:cost, :start_datetime, :end_datetime, :name, :link_to_source, :description, :eighteen_plus, :approved, { :tags => [:name] })
   end
   def venue_update_params
-    params.require(:venue).permit(:name, :location, :website, :id)
+    params.require(:gig).require(:venue).permit(:name, :location, :latitude, :longitude, :website, :id)
   end
 
   def create
@@ -56,6 +52,8 @@ class GigsController < ApplicationController
       venue = Venue.new
       venue.name = venue_update_params[:name]
       venue.location = venue_update_params[:location]
+      venue.latitude = venue_update_params[:latitude]
+      venue.longitude = venue_update_params[:longitude]
       venue.website = venue_update_params[:website]
       venue.save!
     end
@@ -96,6 +94,8 @@ class GigsController < ApplicationController
     venue.name = venue_update_params[:name]
     venue.location = venue_update_params[:location]
     venue.website = venue_update_params[:website]
+    venue.latitude = venue_update_params[:latitude]
+    venue.longitude = venue_update_params[:longitude]
     
     gig.moderated = true
     gig.approved = gig_update_params[:approved]
@@ -104,7 +104,7 @@ class GigsController < ApplicationController
     
     venue.save!
     gig.save!
-    render status: :ok
+    render json: {}, status: :ok
   end
 
   def unmoderated

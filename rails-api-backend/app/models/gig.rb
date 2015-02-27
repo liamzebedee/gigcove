@@ -20,7 +20,14 @@ class Gig < ActiveRecord::Base
 
   # as_json
   def serializable_hash(options)
-    super({:include => [:tags, :venue]}.merge(options))
+    super({
+      :include => [
+        :tags, 
+        :venue
+      ],
+      :except => [:created_at, :updated_at]
+
+      }.deep_merge(options))
   end
 
   def self.unmoderated_gigs
