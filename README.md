@@ -6,13 +6,13 @@ Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introdu
 ## Install
 You should be running a Linux-based system to host GigCove.
  1. Install Docker, [Fig](http://fig.sh). `pip install docker-compose==1.1.0-rc2`
- 2. Run `sudo docker-compose build`
- 3. `sudo docker-compose up --no-build`
+ 2. Run `docker-compose build`
+ 3. `docker-compose up --no-build`
  3. Cache the Bundler gems (see below)
  4. Cache the Node packages
 
 ### Bundler Gem caching
-Run `fig run web bundle package` to store the gems to your local machine cache, such that when you rebuild the Docker image it doesn't need to redownload all of these gems
+Run `docker-compose run api bundle package` to store the gems to your local machine cache, such that when you rebuild the Docker image it doesn't need to redownload all of these gems
 
 ## Deployment
 ### Creating remote Git server
@@ -43,16 +43,7 @@ mina deploy # mina adds code
 GIT_WORK_TREE=/home/gigcove/gigcove-main.git GIT_DIR=/home/gigcove/gigcove-main.git git pull origin master
 ```
 
-## Maintenance
-rake db:migrate RAILS_ENV=
-Use rake secret to generate new keys for the development and test sections.
-
 ### Deploying code to production
 ```
 rsync -azP --xattrs --delete --filter=':- .gitignore' . git@gigcove.com:/home/git/gigcove-production
-fig run web rake db:create
-fig run web rake db:migrate
-fig run web rake assets:precompile
-fig build
-fig up
 ```

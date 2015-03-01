@@ -9,8 +9,6 @@ There are multiple services.
  - The mobile frontend is an AngularJS app built using the Ionic framework.
  - A Node proxy redirects requests to either of the frontends by checking the user agent.
 
-
-
 # Zero downtime
 Grunt servers need to npm install, start and serve assets.
 Rails servers need to do DB migrations, bundle install, etc.

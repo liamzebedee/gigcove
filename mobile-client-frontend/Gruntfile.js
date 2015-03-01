@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  var mobileClient = {
+  var serverConfig = {
     hostname: "0.0.0.0",
     port: grunt.option('p'),
     livereload: 35729,
@@ -78,9 +78,9 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: mobileClient.port,
-        hostname: mobileClient.hostname,
-        livereload: mobileClient.livereload
+        port: serverConfig.port,
+        hostname: serverConfig.hostname,
+        livereload: serverConfig.livereload
       },
       livereload: {
         options: {
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: mobileClient.testPort,
+          port: serverConfig.testPort,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),

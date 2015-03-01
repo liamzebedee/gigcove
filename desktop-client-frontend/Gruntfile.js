@@ -8,12 +8,12 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-  var desktopClient = {
+  var serverConfig = {
     hostname: "0.0.0.0",
     port: grunt.option('p'),
-    livereload: 35730,
+    livereload: 35729,
 
-    testPort: 10001
+    testPort: 81
   };
 
 
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
-          //livereload: '<%= connect.options.livereload %>'
+          livereload: '<%= connect.options.livereload %>'
         }
       },
       jsTest: {
@@ -78,13 +78,13 @@ module.exports = function (grunt) {
     // The actual grunt server settings
     connect: {
       options: {
-        port: desktopClient.port,
-        hostname: desktopClient.hostname,
-        livereload: desktopClient.livereload
+        port: serverConfig.port,
+        hostname: serverConfig.hostname,
+        livereload: serverConfig.livereload
       },
-      server: {
+      livereload: {
         options: {
-          open: false,
+          open: true,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
@@ -99,7 +99,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          port: desktopClient.testPort,
+          port: serverConfig.testPort,
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
@@ -409,9 +409,14 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'connect:server',
+      'connect:livereload',
       'watch'
     ]);
+  });
+
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+    grunt.task.run(['serve:' + target]);
   });
 
   grunt.registerTask('test', [
