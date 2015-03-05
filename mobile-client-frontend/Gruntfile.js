@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   var serverConfig = {
     hostname: "0.0.0.0",
     port: grunt.option('p'),
-    livereload: 35729,
+    livereload: grunt.option('p') + 1000,
 
     testPort: 81
   };

@@ -1,8 +1,8 @@
 FROM nodesource/node:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
-RUN mkdir /app
-WORKDIR /app
+#RUN mkdir /app
+#WORKDIR /app
 
 # SASS
 RUN apt-get install -y software-properties-common
@@ -16,11 +16,7 @@ RUN gem install bundler \
 
 RUN gem install compass
 
-COPY ./package.json /app/package.json
-COPY ./node_modules /app/node_modules
-RUN npm install -g grunt-cli
-RUN npm install
+VOLUME ["/app", "/app/node_modules"]
+WORKDIR /app
 
-# General
-#WORKDIR /app
-ADD . /app
+RUN npm install -g grunt-cli

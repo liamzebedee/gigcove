@@ -21,5 +21,5 @@ COPY ./node_modules /app/node_modules
 RUN npm install -g grunt-cli
 RUN npm install
 
-WORKDIR /app
+# General
 COPY . /app

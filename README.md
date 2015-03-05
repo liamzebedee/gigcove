@@ -4,12 +4,20 @@ GigCove
 Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introduction to the code.
 
 ## Install
-You should be running a Linux-based system to host GigCove.
- 1. Install Docker, [Fig](http://fig.sh). `pip install docker-compose==1.1.0-rc2`
+You should be running a Linux-based system to host GigCove. We use Ubuntu 14.04 LTS. 
+ 1. Install Docker (docker-lxc) and [Docker Compose](http://fig.sh) using `pip install docker-compose==1.1.0-rc2`
  2. Run `docker-compose build`
  3. `docker-compose up --no-build`
  3. Cache the Bundler gems (see below)
  4. Cache the Node packages
+
+### Desktop and Mobile clients
+`docker-compose up desktop`
+`docker-compose up mobile`
+
+If you re-`build` any of the images, you must run the `up` twice, otherwise you'll get a timeout error probably.
+
+You can update NPM and Bower packages by `docker-compose run desktop bash` 
 
 ### Bundler Gem caching
 Run `docker-compose run api bundle package` to store the gems to your local machine cache, such that when you rebuild the Docker image it doesn't need to redownload all of these gems
