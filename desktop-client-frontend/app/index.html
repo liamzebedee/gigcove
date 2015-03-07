@@ -6,11 +6,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" />
     <!-- endbower -->
     <!-- endbuild -->
+
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -21,6 +22,32 @@
     <![endif]-->
 
 <header id="Page--Header" class="ui center inverted masthead segment">
+    
+<div class="ui secondary pointing menu">
+  <a class="active item">
+    <i class="home icon"></i> Home
+  </a>
+  <a class="item">
+    <i class="mail icon"></i> Messages
+  </a>
+  <a class="item">
+    <i class="user icon"></i> Friends
+  </a>
+  <div class="right menu">
+    <div class="item">
+      <div class="ui transparent icon input">
+        <input type="text" placeholder="Search...">
+        <i class="search link icon"></i>
+      </div>
+    </div>
+    <a class="ui item">
+      Logout
+    </a>
+  </div>
+</div>
+
+
+
   <div class="ui page grid">
     <div class="row"><h1 class="center aligned ui inverted header">Gigcove</h1></div>
     <div class="two column row" style="text-align:center">
@@ -66,7 +93,6 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/semantic-ui/dist/semantic.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

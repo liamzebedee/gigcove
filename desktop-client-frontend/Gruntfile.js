@@ -27,6 +27,8 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  grunt.loadNpmTasks('grunt-contrib-less');
+
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath,
@@ -56,9 +58,9 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+      less: {
+        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        tasks: ['less']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -177,15 +179,15 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
       },
-      sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+      less: {
+        src: ['<%= yeoman.app %>/styles/{,*/}*.less'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     },
 
     // Compiles Sass to CSS and generates necessary files if requested
-    compass: {
-      options: {
+    less: {
+      /*options: {
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
@@ -195,19 +197,12 @@ module.exports = function (grunt) {
         importPath: './bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
-      },
-      dist: {
-        options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          debugInfo: true
+        httpFontsPath: '/styles/fonts'
+      },*/
+
+      development: {
+        files: {
+          ".tmp/styles/main.css": "<%= yeoman.app %>/styles/main.less"
         }
       }
     },
@@ -359,11 +354,6 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
-          expand: true,
-          cwd: '.',
-          src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
@@ -376,14 +366,8 @@ module.exports = function (grunt) {
 
     // Run some tasks in parallel to speed up the build process
     concurrent: {
-      server: [
-        'compass:server'
-      ],
-      test: [
-        'compass'
-      ],
       dist: [
-        'compass:dist',
+        'less',
         'imagemin',
         'svgmin'
       ]
@@ -406,22 +390,16 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'concurrent:dist',
       'wiredep',
-      'concurrent:server',
       'autoprefixer',
       'connect:livereload',
       'watch'
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve:' + target]);
-  });
-
   grunt.registerTask('test', [
     'clean:server',
-    'concurrent:test',
     'autoprefixer',
     'connect:test',
     'karma'
