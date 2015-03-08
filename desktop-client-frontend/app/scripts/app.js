@@ -10,13 +10,14 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/home.html',
-        controller: 'HomeCtrl'
+        templateUrl: 'views/index.html',
+        controller: 'IndexCtrl'
       })
       .when('/post-a-gig', {
         templateUrl: 'views/post-gig.html',
@@ -29,9 +30,15 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+
+      uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyAhoPz9OZXiBiOWoJ53jwgBc8bOaxvcyDw',
+        v: '3.18',
+        libraries: ''
+      });
   });
 
-
+/*
 if(!Modernizr.inputtypes.date) {
   $('input[type=date]').combodate({
     minYear: new Date().getFullYear(),
@@ -48,4 +55,7 @@ if(!Modernizr.inputtypes.time) {
     template: "h : mm a",
     minuteStep: 1
   });
-}
+}*/
+
+
+$('.ui.checkbox').checkbox()

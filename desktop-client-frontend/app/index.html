@@ -21,51 +21,26 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-<div class="ui secondary pointing menu">
-  <a class="active item">
-    <i class="home icon"></i> Home
-  </a>
-  <a class="item">
-    <i class="mail icon"></i> Messages
-  </a>
-  <a class="item">
-    <i class="user icon"></i> Friends
-  </a>
-  <div class="right menu">
-    <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search...">
-        <i class="search link icon"></i>
-      </div>
-    </div>
-    <a class="ui item">
-      Logout
-    </a>
-  </div>
-</div>
 <header id="Page--Header" class="ui center inverted masthead segment">
-    
 
-
-
-
-  <div class="ui page grid">
     <div class="row"><h1 class="center aligned ui inverted header">Gigcove</h1></div>
-    <div class="two column row" style="text-align:center">
-      <div class="column">  
-        <i class="search icon"></i> Find gigs
-      </div>
-      <div class="column">
-        <i class="write icon"></i> Post a gig
-      </div>
-    </div>
-  </div>
+
+<div class="ui labeled icon fluid two item inverted menu">
+  <a class="red item">
+    <i class="search icon"></i>
+    Find gigs
+  </a>
+  <a class="teal item">
+    <i class="write icon"></i>
+    Post a Gig
+  </a>
+</div>
 
 </header>
 
 
 <div id="Page--Content" class="container">
-
+<div ng-view></div>
 </div>
 
 
@@ -98,7 +73,14 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/semantic.js"></script>
+    <script src="scripts/lodash.js"></script>
+    <script src="scripts/angular-google-maps.min.js"></script>
+
+
+
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/Index.js"></script>
     <!-- endbuild -->
 </body>
 </html>
