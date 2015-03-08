@@ -11,7 +11,7 @@ module.exports = function (grunt) {
   var serverConfig = {
     hostname: "0.0.0.0",
     port: grunt.option('p'),
-    livereload: 35729,
+    livereload: grunt.option('p') + 1000,
 
     testPort: 81
   };
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: serverConfig.livereload
         },
         files: [
           '<%= yeoman.app %>/{,*/}*.html',
@@ -81,8 +81,7 @@ module.exports = function (grunt) {
     connect: {
       options: {
         port: serverConfig.port,
-        hostname: serverConfig.hostname,
-        livereload: serverConfig.livereload
+        hostname: serverConfig.hostname
       },
       livereload: {
         options: {
@@ -347,14 +346,16 @@ module.exports = function (grunt) {
             '*.html',
             'views/{,*/}*.html',
             'images/{,*/}*.{webp}',
-            'fonts/{,*/}*.*'
+            'fonts/{,*/}*.*',
+            'styles/semantic/themes/basic/assets/{,*/}*.*',
+            'styles/semantic/themes/default/assets/{,*/}*.*'
           ]
         }, {
           expand: true,
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }]
+        },]
       },
       styles: {
         expand: true,
