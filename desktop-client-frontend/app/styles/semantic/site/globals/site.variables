@@ -1,3 +1,37 @@
 /*******************************
      User Global Variables
 *******************************/
+
+@import url(http://fonts.googleapis.com/css?family=Knewave|Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Poiret+One|Fira+Mono:400,700|Oleo+Script:400,700|Lobster|Luckiest+Guy|Sansita+One&subset=latin,latin-ext);
+
+/*-------------------
+       Fonts
+--------------------*/
+
+@headerFont        : 'Luckiest Guy', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@pageFont          : 'Fira Mono', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@fontSmoothing     : antialiased;
+
+@importGoogleFonts : true;
+@googleFontName    : 'Lato';
+@googleFontSizes   : '400,700,400italic,700italic';
+@googleSubset      : 'latin';
+
+@googleProtocol    : 'https://';
+@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+/*-------------------
+      Base Sizes
+--------------------*/
+
+@emSize   : 14px;
+@fontSize : 14px;
+
+
+@headerFontWeight : 400;
+
+@h5               : 1.4rem;
+@h1               : unit(2 * @h5, rem);
+@h2               : unit(1.714 * @h5, rem);
+@h3               : unit(1.28 * @h5, rem);
+@h4               : unit(1.071 * @h5, rem);

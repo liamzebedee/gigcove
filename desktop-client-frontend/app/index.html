@@ -1,12 +1,13 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Gigcove</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    
+
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
@@ -15,39 +16,58 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="app" class="">
+</head>
+
+<body ng-app="app" class="">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-<header id="Page--Header" class="ui center inverted masthead segment">
-
-    <div class="row"><h1 class="center aligned ui inverted header">Gigcove</h1></div>
-
-<div class="ui labeled icon fluid two item inverted menu">
-  <a class="red item">
-    <i class="search icon"></i>
-    Find gigs
-  </a>
-  <a class="teal item">
-    <i class="write icon"></i>
-    Post a Gig
-  </a>
-</div>
-
-</header>
+    <header id="Page--Header" class="ui center inverted masthead segment">
+        <div style="display:flex">
+            <div style="display:inline-block">
+                <span style="font-family:'Sansita One';font-size:72px;vertical-align:middle">GIGCOVE</span>
+                <span class="pink" style="font-size:35px;vertical-align:middle"><i class="location arrow icon"></i>Sydney, AU</span>
+            </div>
 
 
-<div id="Page--Content" class="container">
-<div ng-view></div>
-</div>
+            <div style="flex:1;float:right;margin-top:auto;margin-bottom:auto"><div class="ui primary labeled icon menu floated right">
+                <a class="teal item">
+                    <i class="write icon"></i> Post a Gig
+                </a>
+                <a class="item">
+                    <i class="user icon"></i> Register/Login
+                </a>
+            </div></div>
+        </div>
+
+        <!--
+        <div style="display:inline-block">
+            <span style="font-family:'Sansita One';font-size:72px;vertical-align:middle">GIGCOVE</span> 
+            <span class="pink" style="font-size:35px;vertical-align:middle"><i class="location arrow icon"></i>Sydney, AU</span>
+        </div>
+
+        <div style="display:inline-block" class="ui labeled icon menu floated right">
+            <a class="teal item">
+                <i class="write icon"></i> Post a Gig
+            </a>
+            <a class="item">
+                <i class="user icon"></i> Register/Login
+            </a>
+        </div>
+        -->
+    </header>
+
+
+    <div id="Page--Content" class="container">
+        <div ng-view></div>
+    </div>
 
 
 
-<footer id="Page--Footer">
-  
-</footer>
+    <footer id="Page--Footer">
+
+    </footer>
 
 
 
@@ -80,7 +100,8 @@
 
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/Index.js"></script>
+    <script src="scripts/controllers/Home.js"></script>
     <!-- endbuild -->
 </body>
+
 </html>

@@ -1,5 +1,7 @@
 angular.module('app')
-.controller('IndexCtrl', function($scope, uiGmapGoogleMapApi) {
+.controller('HomeCtrl', function($scope, uiGmapGoogleMapApi) {
+    $('.ui.checkbox').checkbox();
+
 	$scope.search = {
 		location: "Sydney, AU",
 		cost: 25,
@@ -18,7 +20,13 @@ angular.module('app')
 	      geocoder = new maps.Geocoder();
 	      geocoder.geocode({'latLng': initialLocation}, function(results, status) {
     	  	if (status == google.maps.GeocoderStatus.OK) {
-    	  		$scope.search.location = results[1].formatted_address;
+    	  		var city = results[1]["formatted_address"];
+    	  		$.each(results[1]["address_components"], function(index, value){
+    	  			if(_.includes(value['types'], 'locality')) {
+    	  				city = value['long_name'];
+    	  			}
+    	  		});
+    	  		$scope.search.location = city;
     	  	}
     	  });
 	    }, function() {

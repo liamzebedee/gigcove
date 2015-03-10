@@ -59,7 +59,10 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       less: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
+        files: [
+          '<%= yeoman.app %>/styles/{,*/}*.{less}',
+          '<%= yeoman.app %>/styles/semantic/site/{,*/}*.*'
+        ],
         tasks: ['less']
       },
       gruntfile: {
@@ -130,8 +133,7 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          'Gruntfile.js'
         ]
       },
       test: {
