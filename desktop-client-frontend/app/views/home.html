@@ -2,44 +2,45 @@
 
     <div class="column">
 
-    	<div class="ui segment">
-    		<h1 class="ui header" style="display:inline;vertical-align:middle">Trending:</h1> 
-    		<div class="ui horizontal list" style="vertical-align:middle">
-    			<p class="item">#music</p>
-    			<p class="item">#future2015</p>
-    		</div>
-    	</div>
+        <div class="ui segment">
+            <h1 class="ui header" style="display:inline;vertical-align:middle">Trending near you:</h1>
+            <div class="ui tag huge labels " style="vertical-align:middle">
+                <a class="ui label">#music</a>
+                <a class="ui label">#future2015</a>
+            </div>
+        </div>
 
         <div class="ui segment">
-        	<form class="ui form">
-            <h1 class="ui header">Find gigs</h1>
+            <form class="ui form">
+                <h2 class="ui header">
+                    <i class="search icon"></i>
+                    <div class="content">Find gigs</div>
+                </h2>
 
-            <div class="two fields">
-                <div class="field inline">
-                    <label>
-                        <i class="location arrow icon"></i>Near
-                    </label>
-                    <input type="text" ng-model="search.location">
+                <div class="two fields">
+                    <div class="field inline">
+                        <label>
+                            <input type="text" class="unstyled"/>
+                            <i class="calendar icon"></i>From <input type="text" class="unstyled" pick-a-date="date" ng-model="search.fromDate"/> till <input type="text" class="unstyled" pick-a-date="date" ng-model="search.tillDate">
+                        </label>
+                    </div>
+
+                    <div class="field inline">
+                        <i class="dollar icon" style="padding:0 0 0 0;margin:0 0 0 0;"></i><input style="padding:0 0 0 0;margin:0 0 0 0;" type="number" min="0" max="100" step="5" ng-model="search.cost"/> <label>and under</label>
+                    </div>
                 </div>
 
                 <div class="field inline">
-                        <i class="dollar icon"></i>
-                        <input type="number" min="0" max="100" step="5" />
-                        <label>and under</label>
+                    <div class="ui toggle checkbox">
+                        <input type="checkbox">
+                        <label>Under 18</label>
+                    </div>
                 </div>
-            </div>
 
-            <div class="field inline">
-                <div class="ui toggle checkbox">
-                    <input type="checkbox">
-                    <label>Under 18</label>
+                <div class="ui active button">
+                    <i class="search icon"></i> Search
                 </div>
-            </div>
-
-            <div class="ui active button">
-                <i class="search icon"></i> Search
-            </div>
-        </form>
+            </form>
         </div>
 
 
@@ -64,7 +65,7 @@
             <div class="extra content">
                 <a class="right floated created">Arbitrary</a>
                 <a class="friends">
-	  Arbitrary</a>
+      Arbitrary</a>
             </div>
         </div>
 

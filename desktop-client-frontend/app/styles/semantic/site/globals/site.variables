@@ -35,3 +35,10 @@
 @h2               : unit(1.714 * @h5, rem);
 @h3               : unit(1.28 * @h5, rem);
 @h4               : unit(1.071 * @h5, rem);
+
+@colPink: #f9a6c4;
+
+/*---  Brand Colors  ---*/
+@primaryColor        : @pink;
+@secondaryColor      : @blue; 
+@textColor: @secondaryColor;

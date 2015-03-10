@@ -60,7 +60,7 @@ module.exports = function (grunt) {
       },
       less: {
         files: [
-          '<%= yeoman.app %>/styles/{,*/}*.{less}',
+          '<%= yeoman.app %>/styles/{,*/}*.less',
           '<%= yeoman.app %>/styles/semantic/site/{,*/}*.*'
         ],
         tasks: ['less']
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
       },
       all: {
         src: [
-          'Gruntfile.js'
+          //'Gruntfile.js'
         ]
       },
       test: {

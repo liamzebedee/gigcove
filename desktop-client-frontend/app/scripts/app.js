@@ -11,7 +11,8 @@ angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'uiGmapgoogle-maps'
+        'uiGmapgoogle-maps',
+        'angular-datepicker'
     ])
     .config(function($routeProvider, uiGmapGoogleMapApiProvider) {
         $routeProvider

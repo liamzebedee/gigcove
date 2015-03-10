@@ -15,10 +15,12 @@
 
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/pickadate/default.css">
+    <link rel="stylesheet" href="styles/pickadate/default.date.css">
     <!-- endbuild -->
 </head>
 
-<body ng-app="app" class="">
+<body ng-app="app" class="" ng-controller="AppCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -27,15 +29,15 @@
         <div style="display:flex">
             <div style="display:inline-block">
                 <span style="font-family:'Sansita One';font-size:72px;vertical-align:middle">GIGCOVE</span>
-                <span class="pink" style="font-size:35px;vertical-align:middle"><i class="location arrow icon"></i>Sydney, AU</span>
+                <span class="pink" style="font-size:35px;vertical-align:middle"><i class="location arrow icon"></i><input type="text" ng-model="search.location" style="border:none;background:inherit;"></span>
             </div>
 
 
             <div style="flex:1;float:right;margin-top:auto;margin-bottom:auto"><div class="ui primary labeled icon menu floated right">
-                <a class="teal item">
+                <a class="primary item">
                     <i class="write icon"></i> Post a Gig
                 </a>
-                <a class="item">
+                <a class="primary item">
                     <i class="user icon"></i> Register/Login
                 </a>
             </div></div>
@@ -78,11 +80,11 @@
     <![endif]-->
     <!-- endbuild -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -96,10 +98,13 @@
     <script src="scripts/semantic.js"></script>
     <script src="scripts/lodash.js"></script>
     <script src="scripts/angular-google-maps.min.js"></script>
+    <script src="scripts/picker.js"></script>
+    <script src="scripts/picker.date.js"></script>
 
 
 
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/App.js"></script>
     <script src="scripts/controllers/Home.js"></script>
     <!-- endbuild -->
 </body>
