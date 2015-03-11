@@ -10,35 +10,59 @@
 
 @headerFont        : 'Luckiest Guy', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 @pageFont          : 'Fira Mono', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-@fontSmoothing     : antialiased;
-
-@importGoogleFonts : true;
-@googleFontName    : 'Lato';
-@googleFontSizes   : '400,700,400italic,700italic';
-@googleSubset      : 'latin';
-
-@googleProtocol    : 'https://';
-@googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
 /*-------------------
       Base Sizes
 --------------------*/
 
 @emSize   : 14px;
-@fontSize : 14px;
-
+@fontSize : 18px;
 
 @headerFontWeight : 400;
 
 @h5               : 1.4rem;
-@h1               : unit(2 * @h5, rem);
-@h2               : unit(1.714 * @h5, rem);
-@h3               : unit(1.28 * @h5, rem);
 @h4               : unit(1.071 * @h5, rem);
+@h3               : unit(1.28 * @h5, rem);
+@h2               : unit(1.714 * @h5, rem);
+@h1               : unit(2 * @h5, rem);
 
 @colPink: #f9a6c4;
 
-/*---  Brand Colors  ---*/
-@primaryColor        : @pink;
-@secondaryColor      : @blue; 
-@textColor: @secondaryColor;
+
+
+/*
+how colours and branding works:
+
+primary color - turquoise, green, purple
+always white text on different colour backgrounds
+always white or black text with a different background, NOT THE OPPOSITE WAY
+
+primary color with various shades
+different bars/sections {
+	background: @primary;
+	color: white;
+}
+as the text becomes less important, it tends more towards the background colour
+most important = opposite of background colour
+emphasised = brand colour
+semi-emphasised = bolded
+
+
+*/
+
+@pink: #d9499a;
+@blue: #3b83c0;
+@lightBlue        : #54C8FF;
+
+@primaryColor        : @blue;
+@secondaryColor      : @black;
+
+@lightPrimaryColor   : @lightBlue;
+@lightSecondaryColor : @lightBlack;
+
+//@pageBackground      : #8A66AD;
+@textColor           : @secondaryColor;
+
+//pageBackground: -webkit-linear-gradient(#d9499a, #3b83c0);
+
+@linkColor: @primaryColor;

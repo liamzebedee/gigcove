@@ -1,10 +1,29 @@
 @import "semantic/semantic.less";
+@import "semantic/themes/default/globals/site.variables";
+@import "semantic/site/globals/site.variables";
 
-.unstyled {
+.nice-input {
 	border: none !important;
 	background: inherit !important;
 	padding:0 0 0 0 !important;
 	margin:0 0 0 0 !important;
 	display: inline-block !important;
 	width: initial !important;
+}
+
+[contentEditable] {
+	min-width: 1rem;
+	border-bottom: 1px dotted #555;
+}
+
+.big {
+	font-size: 130%;
+}
+
+#Page--Header .menu .item {
+	color: @primaryColor;
+}
+
+.lightBlue {
+	color: @lightBlue;
 }

@@ -12,7 +12,7 @@ angular
         'ngSanitize',
         'ngTouch',
         'uiGmapgoogle-maps',
-        'angular-datepicker'
+        'contenteditable'
     ])
     .config(function($routeProvider, uiGmapGoogleMapApiProvider) {
         $routeProvider

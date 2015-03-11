@@ -1,3 +1,39 @@
 /*******************************
     User Variable Overrides
 *******************************/
+
+/*-------------------
+   Button Variables
+--------------------*/
+
+/* Button Variables */
+@textColor: @white;
+
+@backgroundColor: @primaryColor;
+@backgroundImage: none;
+
+
+@borderBoxShadowColor: rgba(0, 0, 0, 0.14);
+
+
+@basicActiveBackground: lighten(@backgroundColor, 0.2);
+@basicHoverBackground: lighten(@backgroundColor, 0.2);
+@basicDownBoxShadow:
+  0px 0px 0px 1px #ADADAD inset,
+  0 3px 5px rgba(0, 0, 0, 0.125) inset
+;
+
+/* States */
+
+@hoverBackgroundColor: lighten(@backgroundColor, 0.2);
+@hoverBoxShadow:
+  0px 0px 0px 1px #ADADAD inset
+;
+
+@downBackgroundColor: #E6E6E6;
+@downBoxShadow:
+  0px 0px 0px 1px #ADADAD inset,
+  0 3px 5px rgba(0, 0, 0, 0.125) inset
+;
+
+@activeBackgroundColor: #E6E6E6;

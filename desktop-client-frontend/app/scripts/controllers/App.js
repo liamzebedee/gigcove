@@ -1,11 +1,21 @@
-angular.module('app').controller('AppCtrl', function($scope, uiGmapGoogleMapApi) {
+angular.module('app').
+controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout) {
     $scope.search = {
         location: "Sydney, AU",
         cost: 25,
         under_18: false,
+        fromDatePretty: "today",
         fromDate: "",
+        tillDatePretty: "next week",
         tillDate: ""
     };
+
+    $scope.$watch('search.fromDatePretty', function(newValue, oldValue){
+        $scope.search.fromDate = Date.create(newValue).format(Date.ISO8601_DATETIME);
+    });
+    $scope.$watch('search.tillDatePretty', function(newValue, oldValue){
+        $scope.search.tillDate = Date.create(newValue).format(Date.ISO8601_DATETIME);
+    });
 
     // get user latlng
     // geolocate to address

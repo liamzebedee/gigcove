@@ -3,8 +3,11 @@
     <div class="column">
 
         <div class="ui segment">
-            <h1 class="ui header" style="display:inline;vertical-align:middle">Trending near you:</h1>
-            <div class="ui tag huge labels " style="vertical-align:middle">
+            <h2 class="ui header" style="vertical-align:middle">
+                <i class="tags icon"></i>
+                Trending near you:
+            </h2>
+            <div class="ui tag huge labels" style="vertical-align:middle">
                 <a class="ui label">#music</a>
                 <a class="ui label">#future2015</a>
             </div>
@@ -12,21 +15,21 @@
 
         <div class="ui segment">
             <form class="ui form">
-                <h2 class="ui header">
+                <h2 class="ui header" style="vertical-align:middle">
                     <i class="search icon"></i>
                     <div class="content">Find gigs</div>
                 </h2>
+                            
 
-                <div class="two fields">
+                <div class="fields big"  style="vertical-align:middle">
                     <div class="field inline">
                         <label>
-                            <input type="text" class="unstyled"/>
-                            <i class="calendar icon"></i>From <input type="text" class="unstyled" pick-a-date="date" ng-model="search.fromDate"/> till <input type="text" class="unstyled" pick-a-date="date" ng-model="search.tillDate">
+                            <i class="calendar icon"></i>From <span contenteditable='true' ng-model="search.fromDatePretty" strip-br="true" select-non-editable="true"></span><i ng-show="search.fromDate == 'Invalid Date'" class="red remove icon"></i> till <span contenteditable='true' ng-model="search.tillDatePretty" strip-br="true" select-non-editable="true"></span><i ng-show="search.tillDate == 'Invalid Date'" class="red remove icon"></i>
                         </label>
                     </div>
 
-                    <div class="field inline">
-                        <i class="dollar icon" style="padding:0 0 0 0;margin:0 0 0 0;"></i><input style="padding:0 0 0 0;margin:0 0 0 0;" type="number" min="0" max="100" step="5" ng-model="search.cost"/> <label>and under</label>
+                    <div class="field inline">- 
+                        <i class="dollar icon" style="padding:0 0 0 0;margin:0 0 0 0;"></i><input style="padding:0 0 0 0;margin:0 0 0 0;background:transparent;" type="number" min="0" max="100" step="5" ng-model="search.cost"/> <label>and under</label>
                     </div>
                 </div>
 
@@ -37,7 +40,7 @@
                     </div>
                 </div>
 
-                <div class="ui active button">
+                <div class="ui button">
                     <i class="search icon"></i> Search
                 </div>
             </form>
