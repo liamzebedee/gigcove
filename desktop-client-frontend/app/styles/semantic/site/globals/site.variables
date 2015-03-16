@@ -30,26 +30,6 @@
 
 
 
-/*
-how colours and branding works:
-
-primary color - turquoise, green, purple
-always white text on different colour backgrounds
-always white or black text with a different background, NOT THE OPPOSITE WAY
-
-primary color with various shades
-different bars/sections {
-	background: @primary;
-	color: white;
-}
-as the text becomes less important, it tends more towards the background colour
-most important = opposite of background colour
-emphasised = brand colour
-semi-emphasised = bolded
-
-
-*/
-
 @pink: #d9499a;
 @blue: #3b83c0;
 @lightBlue        : #54C8FF;
