@@ -14,4 +14,5 @@ RUN bundle package --all --no-prune
 
 # General
 WORKDIR /app
+VOLUME ["/app"]
 ADD . /app

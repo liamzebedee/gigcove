@@ -1,0 +1,87 @@
+<div class="ui page grid" ng-controller="PostGigCtrl">
+    <div class="column">
+    	<h1 class="ui icon center aligned header">
+  <i class="write icon"></i>
+  <div class="content">
+    POST A GIG
+    <div class="sub header">Cheers!.</div>
+  </div>
+</h1>
+        <div ng-controller="GigCtrl">
+            <form class="ui segment form">
+                <h2 class="ui dividing header">About the gig</h2>
+                <div class="field">
+                    <label>Name</label>
+                    <input type="text" ng-model="gig.name" placeholder="REGGAE DANCE PARTY">
+                </div>
+                <div class="field">
+                    <label>Description</label>
+                    <textarea ng-model="gig.description"></textarea>
+                </div>
+                <div class="field">
+                    <label>Tags</label>
+                    <input type="text" ng-model="other.newTag" style="display:inline;width:initial;" ng-enter="addTag()" placeholder="some-tag-here [enter]">
+                    <div class="ui tag huge labels" style="vertical-align:middle;display:inline;">
+                    	<div class="ui label" ng-repeat="tag in gig.tags">
+                    		#{{ tag.name }}
+                    		<i class="delete icon" ng-click="removeTag($index)"></i>
+                    	</div>
+		            </div>
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                    	<label>Cost</label>
+                        <i class="dollar icon" style="padding:0 0 0 0;margin:0 0 0 0;"></i>
+                        <input style="padding:0 0 0 0;margin:0 0 0 0;background:transparent;display:inline;vertical-align:middle;width:initial;" type="number" min="0" max="100" step="5" ng-model="gig.cost" />
+                    </div>
+                    <div class="field">
+                        <div class="ui toggle checkbox">
+                            <input type="checkbox" ng-model="gig.eighteen_plus">
+                            <label>Under 18 <small ng-show="gig.eighteen_plus">aw</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Link to source</label>
+                    <input type="url" ng-model="gig.link_to_source" placeholder="REGGAE DANCE PARTY">
+                </div>
+                <div class="two fields">
+                    <div class="field">
+                        <label>Starts</label>
+                        Selected Date: {{ gig.start_datetime | date:'yyyy-MM-dd a' }}
+ 
+						<datetimepicker ng-model="gig.start_datetime" datetimepicker-config="{ startView:'day', minView:'day' }"/>
+                        <input type="text" ng-model="gig.start_datetime" placeholder="dd/mm/yy hh:mm">
+                    </div>
+                    <div class="field">
+                        <label>Ends</label>
+                        <input type="text" ng-model="gig.end_datetime" placeholder="dd/mm/yy hh:mm">
+                    </div>
+                </div>
+
+                <h2 class="ui top header">Venue details</h2>
+                <div class="ui two wide">
+                    <div class="field">
+                        <label>Venue name</label>
+                        <input type="text" ng-model="gig.venue.name" placeholder="The Underground">
+                    </div>
+                    open model
+                    search venue, show options and button to create new venue
+
+                    <div class="field">
+                        <label>Website</label>
+                        <input type="text" ng-model="gig.venue.website" placeholder="REGGAE DANCE PARTY">
+                    </div>
+                    <div class="field">
+                        <label>Location</label>
+                        <input type="text" ng-model="gig.venue.location" placeholder="REGGAE DANCE PARTY">
+                    </div>
+                </div>
+
+                <div class="ui huge button" ng-click="search.searchForGigs()">
+                    <i class="send icon"></i> POST GIG
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

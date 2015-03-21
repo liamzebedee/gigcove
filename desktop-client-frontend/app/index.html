@@ -2,6 +2,7 @@
 <html class="no-js">
 
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <title>Gigcove</title>
     <meta name="description" content="">
@@ -20,7 +21,7 @@
     <!-- endbuild -->
 </head>
 
-<body ng-app="app" class="" ng-controller="AppCtrl">
+<body ng-app="app" class="" ng-controller="GigcoveCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -28,17 +29,17 @@
     <header id="Page--Header" class="ui center inverted blue masthead segment">
         <div style="display:flex">
             <div style="display:inline-block">
-                <span style="font-family:'Sansita One';font-size:72px;vertical-align:middle">GIGCOVE</span>
+                <a href="#/" style="font-family:'Sansita One';font-size:72px;vertical-align:middle;color:inherit;">GIGCOVE</a>
                 <span style="font-size:35px;vertical-align:middle" class="lightBlue"><i class="location arrow icon"></i><input type="text" ng-model="search.location" style="border:none;background:inherit;"></span>
             </div>
 
 
             <div style="flex:1;float:right;margin-top:auto;margin-bottom:auto"><div class="ui primary labeled icon menu floated right">
-                <a class="primary item">
+                <a class="primary item" href="/#/post-a-gig">
                     <i class="write icon"></i> Post a Gig
                 </a>
-                <a class="primary item">
-                    <i class="user icon"></i> Register/Login
+                <a class="primary item" href="/#/users/login">
+                    <i class="user icon"></i> Login
                 </a>
             </div></div>
         </div>
@@ -79,17 +80,23 @@
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/semantic.js"></script>
-    <script src="scripts/lodash.js"></script>
-    <script src="scripts/angular-google-maps.min.js"></script>
-    <script src="scripts/angular-contentEditable.js"></script>
-    <script src="scripts/sugar.js"></script>
-
+    <script src="scripts/lib/semantic.js"></script>
+    <script src="scripts/lib/lodash.js"></script>
+    <script src="scripts/lib/angular-google-maps.min.js"></script>
+    <script src="scripts/lib/angular-contentEditable.js"></script>
+    <script src="scripts/lib/sugar.js"></script>
+    <script src="scripts/lib/datetimepicker.js"></script>
 
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/App.js"></script>
+
+    <script src="scripts/controllers/Gigcove.js"></script>
     <script src="scripts/controllers/Home.js"></script>
+    <script src="scripts/controllers/User.js"></script>
+    <script src="scripts/controllers/PostGig.js"></script>
+    <script src="scripts/controllers/Gig.js"></script>
+
+    <script src="scripts/services/Session.js"></script>
     <!-- endbuild -->
 </body>
 

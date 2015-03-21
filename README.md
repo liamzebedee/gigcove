@@ -10,6 +10,7 @@ You should be running a Linux-based system to host GigCove. We use Ubuntu 14.04 
  3. `docker-compose up --no-build`
  3. Cache the Bundler gems (see below)
  4. Cache the Node packages
+ 5. `docker-compose up proxy`
 
 ### Desktop and Mobile clients
 `docker-compose up desktop`

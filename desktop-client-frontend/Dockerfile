@@ -1,8 +1,6 @@
 FROM nodesource/node:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
-#RUN mkdir /app
-#WORKDIR /app
 
 # SASS
 RUN apt-get install -y software-properties-common

@@ -49,13 +49,15 @@ mobile:
 
 proxy:
   build: "./main-web-proxy"
-  command: "grunt serve"
+  command: "grunt serve --p=80"
   ports:
    - "80:80"
+  volumes:
+    - "./main-web-proxy:/app"
   links:
     - api
     - desktop
-    - mobile
+  #  - mobile
 
   # Set to localhost when not connected to Internet (e.g. development)
   #dns: localhost

@@ -12,24 +12,32 @@ angular
         'ngSanitize',
         'ngTouch',
         'uiGmapgoogle-maps',
-        'contenteditable'
+        'contenteditable',
+        // 'ui.bootstrap.datetimepicker',
+
+        'sessionService'
     ])
-    .config(function($routeProvider, uiGmapGoogleMapApiProvider) {
+    .config(function($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider, $locationProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/home.html',
                 controller: 'HomeCtrl'
             })
+            .when('/users/login', {
+                templateUrl: 'views/login.html',
+                controller: 'UserCtrl'
+            })
+            .when('/moderate-gigs', {
+                templateUrl: 'views/moderate-gigs.html',
+                controller: 'ModerateGigsCtrl'
+            })
             .when('/post-a-gig', {
                 templateUrl: 'views/post-gig.html',
                 controller: 'PostGigCtrl'
             })
-            .when('/find-gigs', {
-                templateUrl: 'views/find-gigs.html',
-                controller: 'FindGigsCtrl'
-            })
             .otherwise({
-                redirectTo: '/'
+                templateUrl: 'views/home.html',
+                controller: 'HomeCtrl'
             });
 
         uiGmapGoogleMapApiProvider.configure({
@@ -37,5 +45,8 @@ angular
             v: '3.18',
             libraries: ''
         });
+
+        $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('head meta[name=csrf-token]').attr('content');
+        //$locationProvider.html5Mode(true);
 
     });

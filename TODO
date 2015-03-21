@@ -7,14 +7,6 @@ BUILD MINIMUM PROTOTYPE
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
 
-Mobile/Desktop:
-  HOME + find gigs
-  post a gig
-  moderate
-Mobile:
-  move code from rails app to here
-  complete search gigs interface
-  download packages to cache
 Desktop:
   intro
   find gigs
@@ -23,17 +15,9 @@ Desktop:
 
 
 
-fix livereload
+
 
 Add venue cover image
-Add required to inputs
-Set main brand colours for prototype and header bar - install SASS
-Add sample data for UI testing
-
-Write marketing material: intro homepage for mobile and desktop
-Add blog/twitter
-
-
 
 DEV TOOLING
 -----------

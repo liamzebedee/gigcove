@@ -3,9 +3,9 @@
 var servers = {
   proxyPort: 80,
 
-  desktopClientFrontend: 'http://desktop:8082',
+  desktopClientFrontend: 'http://desktop_1:8082',
   mobileClientFrontend: 'http://mobile:8083',
-  railsApiBackend: 'http://api:8081'
+  railsApiBackend: 'http://api_1:8081'
 };
 
 module.exports = function (grunt) {
@@ -37,7 +37,8 @@ module.exports = function (grunt) {
       } else {
         var mobileDetect = new MobileDetect(req.headers['user-agent']);
         if(mobileDetect.mobile()) {
-          proxy.web(req, res, { target: servers.mobileClientFrontend });
+          //proxy.web(req, res, { target: servers.mobileClientFrontend });
+          proxy.web(req, res, { target: servers.desktopClientFrontend });
         } else {
           proxy.web(req, res, { target: servers.desktopClientFrontend });
         }

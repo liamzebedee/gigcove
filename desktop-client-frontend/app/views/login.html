@@ -1,0 +1,27 @@
+<div class="ui page grid" ng-controller="UserCtrl">
+    <div class="column">
+
+        <form class="ui form">
+        	<span ng-bind="authError"></span>
+            <div class="two fields">
+                <div class="required field">
+                    <label>Username</label>
+                    <div class="ui icon input">
+                        <input ng-model="userInfo.email" type="text" placeholder="Username">
+                        <i class="user icon"></i>
+                    </div>
+                </div>
+                <div class="required field">
+                    <label>Password</label>
+                    <div class="ui icon input">
+                        <input ng-model="userInfo.password" type="password">
+                        <i class="lock icon"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui submit button" ng-click="login()">Submit</div>
+        </form>
+    
+    </div>
+</div>

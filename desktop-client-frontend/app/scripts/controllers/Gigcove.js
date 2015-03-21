@@ -1,5 +1,5 @@
 angular.module('app').
-controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
+controller('GigcoveCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
     $scope.search = {
         location: "Sydney, AU",
         location_lat: null,
@@ -17,13 +17,19 @@ controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
         $scope.search.isSearchingForGigs = true;
 
         var searchParams = {
-            cost: $scope.search.cost,
-            distance_radius: 60,
-            latitude: $scope.search.location_lat,
-            longitude: $scope.search.location_lng
+            search: {
+                cost: $scope.search.cost,
+                distance_radius: 60,
+                latitude: $scope.search.location_lat,
+                longitude: $scope.search.location_lng
+            }
         };
 
-        $http.get('/api/gigs', { params: { q: JSON.stringify(searchParams) } }).success(function(){
+        $http.get('/api/gigs', {
+            params: {
+                q: JSON.stringify(searchParams)
+            }
+        }).success(function() {
             $scope.search.gigs = response;
         });
     };
@@ -34,7 +40,7 @@ controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
     $scope.$watch('search.tillDatePretty', function(newValue, oldValue) {
         $scope.search.tillDate = Date.create(newValue).format(Date.ISO8601_DATETIME);
     });
-    $scope.$watch('search.location', function(newValue, oldValue){
+    $scope.$watch('search.location', function(newValue, oldValue) {
         updateLatLngFromLocation(newValue);
     });
 
@@ -45,7 +51,7 @@ controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
                 'address': location
             }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
-                    var latlng = results['geometry'].location;
+                    var latlng = results[0].geometry.location;
                     $scope.search.location_lat = latlng.lat();
                     $scope.search.location_lng = latlng.lng();
                 } else {
@@ -78,7 +84,7 @@ controller('AppCtrl', function($scope, uiGmapGoogleMapApi, $timeout, $http) {
                             }
                         });
                         $scope.search.location = city;
-                        $scope.$apply();
+                        $scope.$digest();
                     }
                 });
             }, function() {
