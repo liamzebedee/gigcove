@@ -1,8 +1,6 @@
 angular.module('app').controller('GigCtrl', function($scope) {
 	$scope.other = {
-		newTag: "",
-
-
+		newTag: ""
 	};
 
     $scope.gig = {
@@ -34,15 +32,14 @@ angular.module('app').controller('GigCtrl', function($scope) {
     };
 
     $scope.removeTag = function($index) {
-    	$scope.gigs.tags = $scope.gigs.tags.splice($index, 1);
-    	//_.pullAt($scope.gig.tags, $index);
+    	$scope.gig.tags.splice($index, 1);
     };
 
     $scope.addTag = function() {
     	var tag = $scope.other.newTag;
     	if(tag == '') return;
     	var tagToAdd = { name: tag };
-    	if(_.contains($scope.gig.tags, tagToAdd)) return;
+    	if(_.where($scope.gig.tags, tagToAdd).length) return;
     	$scope.gig.tags.push(tagToAdd);
     	$scope.other.newTag = '';
     };

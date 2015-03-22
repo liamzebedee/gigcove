@@ -48,14 +48,11 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Starts</label>
-                        Selected Date: {{ gig.start_datetime | date:'yyyy-MM-dd a' }}
- 
-						<datetimepicker ng-model="gig.start_datetime" datetimepicker-config="{ startView:'day', minView:'day' }"/>
-                        <input type="text" ng-model="gig.start_datetime" placeholder="dd/mm/yy hh:mm">
+                        <input type="text" date-time ng-model="other.start_datetime_nice">
                     </div>
                     <div class="field">
                         <label>Ends</label>
-                        <input type="text" ng-model="gig.end_datetime" placeholder="dd/mm/yy hh:mm">
+                        <input type="text" date-time ng-model="other.end_datetime_nice">
                     </div>
                 </div>
 

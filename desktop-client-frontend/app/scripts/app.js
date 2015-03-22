@@ -13,6 +13,7 @@ angular
         'ngTouch',
         'uiGmapgoogle-maps',
         'contenteditable',
+        'datePicker',
         // 'ui.bootstrap.datetimepicker',
 
         'sessionService'
