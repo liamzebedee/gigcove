@@ -37,11 +37,6 @@ Contribute page explanation:
 https://github.com/hzamani/active_record-acts_as
 
 
-Why not Ratchet?
- - not well maintained (2014 April last release)
- - button not working!
- - many bugs reported
-
 
 IDEAS
 =====
@@ -61,12 +56,6 @@ http://www.incrementalrecords.com/waitingroom/
  
 Waiting Room, The Old Museum, The Beetle Bar, FretFest (which isn't really a place but more of an event), Ric's Bar is meant to be really good, and the HiFi. There are always places like The Alhambra Lounge and the Zoo, 
 https://www.facebook.com/brisbane.allages?fref=ts
-
-
-
-If I was to make the design completely tight, this is what I would do:
-
-
 
 
 
@@ -110,8 +99,8 @@ Testing
 Instagram.client.create_subscription(:object => 'tag', :callback_url => Rails.application.routes.url_helpers.instagram_subscription_callback_url, :aspect => "media", :object_id => "selfie")
 
 
-curl -F 'client_id=dd175e9ccb5247a3af84707ca4a420f3' \
-     -F 'client_secret=b1ebf646b4754449a340e81283af05b8' \
+curl -F 'client_id=' \
+     -F 'client_secret=' \
      -F 'object=tag' \
      -F 'aspect=media' \
      -F 'object_id=nofilter' \
