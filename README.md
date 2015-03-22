@@ -1,5 +1,7 @@
-GigCove
+Gigcove
 =======
+
+Here is the source code for [Gigcove](http://gigcove.tumblr.com), a web app I originally started in Jan'2013 for building the best way to find live music gigs around in Brisbane. Since then it has undergone about 6 rewrites (from terrible Rails + JQuery spaghetti, to nicer AJAX Rails + JQuery spaghetti, to Bootstrap, now with Docker, to Ratchet, to Ionic, to Ionic and Semantic UI) and I've learnt **a lot**. I'm going to write a blog post later about the entire experience.
 
 Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introduction to the code.
 
