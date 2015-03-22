@@ -48,6 +48,4 @@ angular
         });
 
         $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('head meta[name=csrf-token]').attr('content');
-        //$locationProvider.html5Mode(true);
-
     });

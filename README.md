@@ -3,7 +3,7 @@ Gigcove
 
 Here is the source code for [Gigcove](http://gigcove.tumblr.com), a web app I originally started in Jan'2013 for building the best way to find live music gigs around in Brisbane. Since then it has undergone about 6 rewrites (from terrible Rails + JQuery spaghetti, to nicer AJAX Rails + JQuery spaghetti, to Bootstrap, now with Docker, to Ratchet and React.js, to Ionic w/ Angular, to Ionic and Semantic UI w/ Angular) and I've learnt **a lot**. I'm going to write a blog post later about the entire experience.
 
-Copyright Liam Edwards-Playne, 2015. Read [the arch doc](ARCH.md) for an introduction to the code.
+Copyright Liam Edwards-Playne, 2015. **Licensed under GPL v3**. Send me an email if you're interested on how it works. Read [the arch doc](ARCH.md) for a basic introduction to the code.
 
 ## Install
 You should be running a Linux-based system to host GigCove. We use Ubuntu 14.04 LTS. 
@@ -72,6 +72,6 @@ Gigcove is built on this fantastic open-source tech stack (excluding Google Maps
  - [Semantic UI](http://semantic-ui.com) for the desktop client UI
  - [Lodash](https://lodash.com/) for useful JS (array functions etc.)
  - [Sugar](http://sugarjs.com/dates) for natural-language date parsing (used in the search interface)
- - [Google Maps][https://developers.google.com/maps/documentation/javascript/] for geolocation
+ - [Google Maps](https://developers.google.com/maps/documentation/javascript/) for geolocation
  - [Geokit (Rails)](https://github.com/geokit/geokit-rails) for adding location capabilites to ActiveRecord models
  - [angular-datepicker](https://github.com/g00fy-/angular-datepicker) for a nice datetime picker interface

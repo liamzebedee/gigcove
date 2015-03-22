@@ -35,15 +35,13 @@
                         <input style="padding:0 0 0 0;margin:0 0 0 0;background:transparent;display:inline;vertical-align:middle;width:initial;" type="number" min="0" max="100" step="5" ng-model="gig.cost" />
                     </div>
                     <div class="field">
-                        <div class="ui toggle checkbox">
-                            <input type="checkbox" ng-model="gig.eighteen_plus">
-                            <label>Under 18 <small ng-show="gig.eighteen_plus">aw</small></label>
-                        </div>
+                        <label for="gig.eighteen_plus">Under 18 <small ng-show="gig.eighteen_plus">(aw)</small></label>
+                        <input type="checkbox" ng-model="gig.eighteen_plus" name="gig.eighteen_plus">
                     </div>
                 </div>
                 <div class="field">
                     <label>Link to source</label>
-                    <input type="url" ng-model="gig.link_to_source" placeholder="REGGAE DANCE PARTY">
+                    <input type="url" ng-model="gig.link_to_source" placeholder="http://test-gig-1.com">
                 </div>
                 <div class="two fields">
                     <div class="field">
@@ -62,16 +60,14 @@
                         <label>Venue name</label>
                         <input type="text" ng-model="gig.venue.name" placeholder="The Underground">
                     </div>
-                    open model
-                    search venue, show options and button to create new venue
 
                     <div class="field">
                         <label>Website</label>
-                        <input type="text" ng-model="gig.venue.website" placeholder="REGGAE DANCE PARTY">
+                        <input type="text" ng-model="gig.venue.website" placeholder="http://brisbanepowerhouse.org">
                     </div>
                     <div class="field">
                         <label>Location</label>
-                        <input type="text" ng-model="gig.venue.location" placeholder="REGGAE DANCE PARTY">
+                        <input type="text" ng-model="gig.venue.location" placeholder="119 Lamington Street, New Farm QLD">
                     </div>
                 </div>
 

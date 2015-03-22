@@ -5,29 +5,23 @@ angular.module('app').controller('GigCtrl', function($scope) {
 
     $scope.gig = {
     	// Server cares about these ones
-        cost: 25,
-        start_datetime: 'rfc3339',
-        end_datetime: 'rfc3339',
-        name: "Gig numero 1",
-        link_to_source: "http://test-gig-1.com",
-        description: "Words cannot \ndescribe this gig.",
+        cost: 0,
+        start_datetime: '',
+        end_datetime: '',
+        name: "",
+        link_to_source: "",
+        description: "",
         tags: [{
             name: "music"
-        }, {
-            name: "dance"
-        }, {
-            name: "hip"
-        }, {
-            name: "TheFestival"
         }],
         eighteen_plus: false,
 
         venue: {
-            name: "Brisbane Powerhouse",
-            location: "119 Lamington Street, New Farm QLD",
-            latitude: -27.467882,
-            longitude: 153.053568,
-            website: "http://brisbanepowerhouse.org"
+            name: "",
+            location: "",
+            latitude: null,
+            longitude: null,
+            website: ""
         }
     };
 

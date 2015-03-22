@@ -5,8 +5,8 @@ Dates and times are in rfc3339 format.
 
 ## Setup
 ```
-fig run api rake db:create
-fig run api rake db:migrate
+docker-compose run api rake db:create
+docker-compose run api rake db:migrate
 ```
 
 ## Updating
